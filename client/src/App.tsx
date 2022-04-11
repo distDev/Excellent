@@ -1,14 +1,14 @@
 import { AppRouter } from './Components/AppRouter';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Wrapper } from './Components/StyledComponents/Wrapper';
+import Layout from './Components/Layout/Layout';
 
 function App() {
   return (
     <>
       <Router>
-        <Wrapper>
+        <Layout>
           <AppRouter />
-        </Wrapper>
+        </Layout>
       </Router>
     </>
   );

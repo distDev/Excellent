@@ -22,6 +22,10 @@ export const PublicRoutes = [
     path: LOGIN_ROUTE,
     component: <Login />,
   },
+  {
+    path: PROFILE_ROUTE,
+    component: <Profile />,
+  },
 ];
 
 export const PrivateRoutes = [

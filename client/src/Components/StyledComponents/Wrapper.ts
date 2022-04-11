@@ -5,7 +5,5 @@ export const Wrapper = styled.div`
     margin: 0px;
     padding: 0px;
     width: 100%;
-    background-color: black;
-    height: 100vh;
   }
 `;

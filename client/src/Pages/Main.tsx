@@ -1,11 +1,14 @@
 import React from 'react'
+import { StyledContainer } from '../Components/StyledComponents/StyledContainer';
 
 type Props = {}
 
 const Main = (props: Props) => {
   return (
-    <div>Main</div>
-  )
+    <StyledContainer>
+     
+    </StyledContainer>
+  );
 }
 
 export default Main

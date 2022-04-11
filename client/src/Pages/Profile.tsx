@@ -1,11 +1,15 @@
-import React from 'react'
+import { FC } from 'react';
+import { MobileNavbar } from '../Components/MobileNavbar/MobileNavbar';
+import { StyledContainer } from '../Components/StyledComponents/StyledContainer';
 
-type Props = {}
+type Props = {};
 
-const Profile = (props: Props) => {
+const Profile: FC = (props: Props) => {
   return (
-    <div>Profile</div>
-  )
-}
+    <StyledContainer>
+      <MobileNavbar title='Дмитрий'></MobileNavbar>
+    </StyledContainer>
+  );
+};
 
-export default Profile
+export default Profile;
