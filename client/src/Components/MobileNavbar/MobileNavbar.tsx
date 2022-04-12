@@ -1,24 +1,25 @@
 import React, { FC } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import { PROFILE_ROUTE } from '../../Utils/routerConst';
 import { StyledMobileNavbar } from '../StyledComponents/StyledMobileNavbar';
+import { Typography } from '../StyledComponents/Typography';
 
 type Props = {
-  backpath?: string;
   back?: boolean;
   title: string;
 };
 
-export const MobileNavbar: FC<Props> = ({ backpath, back, title }) => {
+export const MobileNavbar: FC<Props> = ({ back, title }) => {
   return (
     <StyledMobileNavbar>
-      {/* Если это подстраница, то появляется стрелка, которая возвращает в профиль */}
-      {back && backpath ? (
-        <Link to={backpath}>
+      {/* Если есть back, то появляется стрелка, которая возвращает в профиль */}
+      {back ? (
+        <Link to={PROFILE_ROUTE}>
           <RiArrowLeftLine />
         </Link>
       ) : null}
-      <h3>{title}</h3>
+      <Typography>{title}</Typography>
     </StyledMobileNavbar>
   );
 };

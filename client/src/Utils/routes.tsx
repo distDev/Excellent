@@ -1,9 +1,12 @@
 import Cart from "../Pages/Cart";
 import Login from "../Pages/Login";
 import Main from "../Pages/Main";
-import Profile from "../Pages/Profile";
+import Garage from "../Pages/Profile/Garage";
+import Profile from "../Pages/Profile/Profile";
+import ServiceList from "../Pages/Profile/ServiceList";
+import Settings from "../Pages/Profile/Settings";
 import Services from "../Pages/Services";
-import { CART_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, PROFILE_ROUTE, SERVICES_ROUTE } from "./routerConst";
+import { CART_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, PROFILE_GARAGE_ROUTE, PROFILE_ROUTE, PROFILE_SERVICELIST_ROUTE, PROFILE_SETTINGS_ROUTE, SERVICES_ROUTE } from "./routerConst";
 
 export const PublicRoutes = [
   {
@@ -25,6 +28,18 @@ export const PublicRoutes = [
   {
     path: PROFILE_ROUTE,
     component: <Profile />,
+  },
+  {
+    path: PROFILE_SETTINGS_ROUTE,
+    component: <Settings />,
+  },
+  {
+    path: PROFILE_GARAGE_ROUTE,
+    component: <Garage />,
+  },
+  {
+    path: PROFILE_SERVICELIST_ROUTE,
+    component: <ServiceList />,
   },
 ];
 

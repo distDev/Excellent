@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { Wrapper } from '../StyledComponents/Wrapper';
+import { FC } from 'react';
+import { StyledWrapper } from '../StyledComponents/StyledWrapper';
 import { BottomNavigation } from './BottomNavigation/BottomNavigation';
 import Header from './Header';
 
@@ -7,11 +7,11 @@ type Props = {};
 
 const Layout: FC = ({ children }) => {
   return (
-    <Wrapper>
+    <StyledWrapper>
       <Header />
       {children}
       <BottomNavigation />
-    </Wrapper>
+    </StyledWrapper>
   );
 };
 

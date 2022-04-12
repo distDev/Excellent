@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const StyledWrapper = styled.div`
   @media screen and (max-width: 479px) {
     margin: 0px;
     padding: 0px;
