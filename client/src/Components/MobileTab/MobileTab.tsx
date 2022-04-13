@@ -1,15 +1,14 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
-import { Paragraph } from '../StyledComponents/Paragraph';
+import { Text } from '../StyledComponents/Text';
 import {
-  StyledMobileTab,
-  StyledMobileTabContent,
   StyledMobileTabIcon,
-  StyledMobileTabText,
   Styles,
-} from '../StyledComponents/StyledMobileTab';
-import { Typography } from '../StyledComponents/Typography';
+} from '../StyledComponents/MobileTab';
+import { Title } from '../StyledComponents/Title';
+import { Box } from '../StyledComponents/Box';
+import { SmallCardContainer } from '../StyledComponents/SmallCardContainer';
 
 type Props = {
   title: string;
@@ -23,18 +22,29 @@ const MobileTab: FC<Props & Styles> = ({
   title,
   subtitle,
   path,
-  fd,
-  jc,
+  alignItems,
+  flexDirection,
+  justifyContent,
 }) => {
   return (
-    <StyledMobileTab>
-      <StyledMobileTabContent>
+    <SmallCardContainer
+      display='flex'
+      flexDirection='row'
+      alignItems='center'
+      justifyContent='space-between'
+    >
+      <Box display='flex' gap='15px'>
         <StyledMobileTabIcon>{icon}</StyledMobileTabIcon>
-        <StyledMobileTabText fd={fd} jc={jc}>
-          <Typography>{title}</Typography>
-          <Paragraph>{subtitle}</Paragraph>
-        </StyledMobileTabText>
-      </StyledMobileTabContent>
+        <Box
+          display='flex'
+          flexDirection={flexDirection}
+          justifyContent={justifyContent}
+          alignItems={alignItems}
+        >
+          <Title>{title}</Title>
+          <Text>{subtitle}</Text>
+        </Box>
+      </Box>
       {/* Если есть ссылка, то рендерится стрелка и ссылка */}
       {path ? (
         <>
@@ -42,7 +52,7 @@ const MobileTab: FC<Props & Styles> = ({
           <Link to={path}></Link>
         </>
       ) : null}
-    </StyledMobileTab>
+    </SmallCardContainer>
   );
 };
 

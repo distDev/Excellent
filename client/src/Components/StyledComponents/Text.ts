@@ -1,13 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface Props {
-  color?: 'white' | 'grey' | 'red';
   variant?: 'small' | 'large';
+  color?: 'white' | 'grey' | 'red';
 }
 
-export const Typography = styled.h3<Props>`
+export const Text = styled.p<Props>`
   font-size: ${(props) =>
-    props.variant === 'small' ? '18px' : props.variant === 'large' ? '28px' : '20px'};
+    props.variant === 'small'
+      ? '12px'
+      : props.variant === 'large'
+      ? '20px'
+      : '16px'};
   color: ${(props) =>
     props.color === 'white'
       ? '#F2F2F2'

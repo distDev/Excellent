@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { StyledBottomNavigation } from '../../StyledComponents/StyledBottomNavigation';
+import { StyledBottomNavigation } from '../../StyledComponents/BottomNavigation';
 import { bottomNagigationLinks } from './bottomNagigationLinks';
 
 type Props = {};

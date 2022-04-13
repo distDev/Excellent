@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export interface Styles {
-  fd?: 'row' | 'column';
-  jc?: 'center' | 'end' | 'space-between';
+  flexDirection?: 'row' | 'column';
+  justifyContent?: 'space-between' | 'space-around' | 'center' | 'flex-start';
+  alignItems?: 'center' | 'flex-start' | 'flex-end';
 }
 
 
@@ -43,20 +44,4 @@ export const StyledMobileTabIcon = styled.div`
     margin: auto;
   }
 `;
-export const StyledMobileTabText = styled.div<Styles>`
-  display: flex;
-  flex-direction: ${(props) => props.fd || 'column'};
-  justify-content: ${(props) => props.jc || 'space-between'};
 
-  h3 {
-    font-weight: 600;
-    font-size: 20px;
-    color: #454545;
-  }
-
-  p {
-    color: #949191;
-    font-weight: 400;
-    font-size: 15px;
-  }
-`;

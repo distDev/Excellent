@@ -1,6 +1,6 @@
 import { RiMenu2Fill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
-import { StyledHeader } from '../StyledComponents/StyledHeader';
+import { StyledHeader } from '../StyledComponents/Header';
 
 type Props = {};
 

@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
 interface Props {
-  variant?: 'small' | 'large'
   color?: 'white' | 'grey' | 'red';
+  variant?: 'small' | 'large';
+  margin?: 'auto'| string;
 }
 
-export const Paragraph = styled.p<Props>`
+export const Title = styled.h3<Props>`
+  margin: ${({ margin }) => margin === 'auto' ? '0px auto' : margin};
   font-size: ${(props) =>
-    props.variant === 'small' ? '12px' : props.variant === 'large' ? '20px' : '16px'};
+    props.variant === 'small'
+      ? '18px'
+      : props.variant === 'large'
+      ? '28px'
+      : '20px'};
   color: ${(props) =>
     props.color === 'white'
       ? '#F2F2F2'

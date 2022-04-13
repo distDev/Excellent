@@ -1,14 +1,10 @@
-import React from 'react'
-import { StyledContainer } from '../Components/StyledComponents/StyledContainer';
+import React from 'react';
+import { Container } from '../Components/StyledComponents/Container';
 
-type Props = {}
+type Props = {};
 
 const Main = (props: Props) => {
-  return (
-    <StyledContainer>
-     
-    </StyledContainer>
-  );
-}
+  return <Container></Container>;
+};
 
-export default Main
+export default Main;

@@ -1,20 +1,20 @@
-import React from 'react'
+import React from 'react';
 import { MobileNavbar } from '../../Components/MobileNavbar/MobileNavbar';
 import { ServiceCard } from '../../Components/ServiceCard/ServiceCard';
-import { StyledContainer } from '../../Components/StyledComponents/StyledContainer';
+import { Container } from '../../Components/StyledComponents/Container';
 
-type Props = {}
+type Props = {};
 
 const ServiceList = (props: Props) => {
   return (
-    <StyledContainer>
-      <MobileNavbar title='Записи' back={true} />
+    <Container>
+      <MobileNavbar title='Записи' back={true} margin='auto' />
       <ServiceCard />
       <ServiceCard />
       <ServiceCard />
       <ServiceCard />
-    </StyledContainer>
+    </Container>
   );
-}
+};
 
-export default ServiceList
+export default ServiceList;
