@@ -42,7 +42,7 @@ const MobileTab: FC<Props & Styles> = ({
           alignItems={alignItems}
         >
           <Title>{title}</Title>
-          <Text>{subtitle}</Text>
+          <Text color='grey'>{subtitle}</Text>
         </Box>
       </Box>
       {/* Если есть ссылка, то рендерится стрелка и ссылка */}

@@ -1,12 +1,17 @@
-import React from 'react'
-import { Box } from '../StyledComponents/Box'
+import React from 'react';
+import SmallCard from '../SmallCard/SmallCard';
+import { Box } from '../StyledComponents/Box';
 
-type Props = {}
+type Props = {};
 
 const CartCards = (props: Props) => {
-  return <Box>
-      
-  </Box>;
-}
+  return (
+    <Box>
+      <SmallCard />
+      <SmallCard />
+      <SmallCard />
+    </Box>
+  );
+};
 
-export default CartCards
+export default CartCards;

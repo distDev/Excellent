@@ -9,6 +9,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0px;
     margin: 0px;
+    margin-bottom: 80px;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
     position: relative;
     

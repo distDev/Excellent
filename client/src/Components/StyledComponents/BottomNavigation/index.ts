@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const StyledBottomNavigation = styled.div`
   width: 100%;
+  max-width: 1140px;
+  min-width: 320px;
   display: flex;
   justify-content: center;
   position: fixed;
@@ -18,7 +20,7 @@ export const StyledBottomNavigation = styled.div`
 
   a {
       outline: none;
-      padding: 20px 0px;
+      padding: 10px 0px;
       display: inline-block;
       width: 25%;
       text-align: center;
