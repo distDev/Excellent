@@ -1,6 +1,6 @@
 import React from 'react';
 import { MobileNavbar } from '../../Components/MobileNavbar/MobileNavbar';
-import { ServiceCard } from '../../Components/ServiceCard/ServiceCard';
+import { ServiceCard } from './Components/ServiceListCard/ServiceListCard';
 import { Container } from '../../Components/StyledComponents/Container';
 
 type Props = {};

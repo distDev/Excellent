@@ -3,12 +3,12 @@ import { RiArrowRightSLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import { Text } from '../StyledComponents/Text';
 import {
+  StyledMobileTab,
   StyledMobileTabIcon,
   Styles,
 } from '../StyledComponents/MobileTab';
 import { Title } from '../StyledComponents/Title';
 import { Box } from '../StyledComponents/Box';
-import { SmallCardContainer } from '../StyledComponents/SmallCardContainer';
 
 type Props = {
   title: string;
@@ -27,12 +27,7 @@ const MobileTab: FC<Props & Styles> = ({
   justifyContent,
 }) => {
   return (
-    <SmallCardContainer
-      display='flex'
-      flexDirection='row'
-      alignItems='center'
-      justifyContent='space-between'
-    >
+    <StyledMobileTab>
       <Box display='flex' gap='15px'>
         <StyledMobileTabIcon>{icon}</StyledMobileTabIcon>
         <Box
@@ -52,7 +47,7 @@ const MobileTab: FC<Props & Styles> = ({
           <Link to={path}></Link>
         </>
       ) : null}
-    </SmallCardContainer>
+    </StyledMobileTab>
   );
 };
 

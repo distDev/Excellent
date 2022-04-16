@@ -1,5 +1,5 @@
 import { MobileNavbar } from '../../Components/MobileNavbar/MobileNavbar';
-import MobileTab from '../../Components/MobileTab/MobileTab';
+import MobileTabItem from '../../Components/MobileTab/MobileTab';
 import { Container } from '../../Components/StyledComponents/Container';
 import { IoCarSportOutline } from 'react-icons/io5';
 
@@ -9,17 +9,17 @@ const Garage = () => {
   return (
     <Container>
       <MobileNavbar title='Гараж' back={true} margin='auto' />
-      <MobileTab
+      <MobileTabItem
         icon={<IoCarSportOutline />}
         title='Reno Logan'
         alignItems='center'
       />
-      <MobileTab
+      <MobileTabItem
         icon={<IoCarSportOutline />}
         title='Bmw X5'
         alignItems='center'
       />
-      <MobileTab
+      <MobileTabItem
         icon={<IoCarSportOutline />}
         title='Opel Astra'
         alignItems='center'

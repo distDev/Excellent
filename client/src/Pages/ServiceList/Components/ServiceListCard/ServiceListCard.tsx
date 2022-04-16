@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { SmallCardContainer } from '../StyledComponents/SmallCardContainer';
-import { Text } from '../StyledComponents/Text';
-import { Title } from '../StyledComponents/Title';
-import { Box } from '../StyledComponents/Box';
+import { SmallCardContainer } from '../../../../Components/StyledComponents/SmallCardContainer';
+import { Text } from '../../../../Components/StyledComponents/Text';
+import { Title } from '../../../../Components/StyledComponents/Title';
+import { Box } from '../../../../Components/StyledComponents/Box';
 
 
 type Props = {};

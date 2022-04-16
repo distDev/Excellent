@@ -1,14 +1,14 @@
 import React from 'react'
-import { Box } from '../StyledComponents/Box'
-import { Button } from '../StyledComponents/Button';
-import { Text } from '../StyledComponents/Text';
-import { Title } from '../StyledComponents/Title';
+import { Box } from '../../../../Components/StyledComponents/Box'
+import { Button } from '../../../../Components/StyledComponents/Button';
+import { Text } from '../../../../Components/StyledComponents/Text';
+import { Title } from '../../../../Components/StyledComponents/Title';
 
 type Props = {}
 
 const CartTotalPrice = (props: Props) => {
   return (
-    <Box gap='20px' display='flex' flexDirection='column'>
+    <Box gap='20px' margin='0px 0px 80px 0px' display='flex' flexDirection='column'>
       <Box display='flex' justifyContent='space-between'>
         <Title color='grey'>Итого:</Title>
         <Title>1500 ₽</Title>

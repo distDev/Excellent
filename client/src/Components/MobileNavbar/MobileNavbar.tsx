@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { PROFILE_ROUTE } from '../../Utils/routerConst';
 import { Box } from '../StyledComponents/Box';
 import { IconBox } from '../StyledComponents/IconBox';
+import { Text } from '../StyledComponents/Text';
 import { Title } from '../StyledComponents/Title';
 
 type Props = {
@@ -12,9 +13,10 @@ type Props = {
   title: string;
   margin?: string;
   border?: string;
+  phone?: string;
 };
 
-export const MobileNavbar: FC<Props> = ({ back, title, margin, border }) => {
+export const MobileNavbar: FC<Props> = ({ back, title, margin, border, phone }) => {
   return (
     <Box
       display='flex'
@@ -31,7 +33,15 @@ export const MobileNavbar: FC<Props> = ({ back, title, margin, border }) => {
           </IconBox>
         </Link>
       ) : null}
-      <Title margin={margin}>{title}</Title>
+      <Box
+        margin={margin}
+        display='flex'
+        flexDirection='column'
+        gap={phone && '10px'}
+      >
+        <Title>{title}</Title>
+        <Title variant='small' color='grey'>{phone}</Title>
+      </Box>
     </Box>
   );
 };

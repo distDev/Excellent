@@ -3,7 +3,7 @@ import { IoMdExit } from 'react-icons/io';
 import { BiBookAlt } from 'react-icons/bi';
 import { RiHome5Line, RiSettingsLine } from 'react-icons/ri';
 import { MobileNavbar } from '../../Components/MobileNavbar/MobileNavbar';
-import MobileTab from '../../Components/MobileTab/MobileTab';
+import MobileTabItem from '../../Components/MobileTab/MobileTab';
 import { Container } from '../../Components/StyledComponents/Container';
 import {
   PROFILE_GARAGE_ROUTE,
@@ -16,8 +16,8 @@ type Props = {};
 const Profile: FC = (props: Props) => {
   return (
     <Container>
-      <MobileNavbar title='Дмитрий'  />
-      <MobileTab
+      <MobileNavbar title='Дмитрий' phone='+7 925 412 21 44'/>
+      <MobileTabItem
         icon={<RiSettingsLine />}
         title='Настройки'
         subtitle='Имя, номер телефона'
@@ -25,7 +25,7 @@ const Profile: FC = (props: Props) => {
         flexDirection='column'
         justifyContent='space-between'
       />
-      <MobileTab
+      <MobileTabItem
         icon={<BiBookAlt />}
         title='Записи'
         subtitle='История обслуживания'
@@ -33,7 +33,7 @@ const Profile: FC = (props: Props) => {
         flexDirection='column'
         justifyContent='space-between'
       />
-      <MobileTab
+      <MobileTabItem
         icon={<RiHome5Line />}
         title='Гараж'
         subtitle='Ваши автомобили'
@@ -41,7 +41,7 @@ const Profile: FC = (props: Props) => {
         flexDirection='column'
         justifyContent='space-between'
       />
-      <MobileTab
+      <MobileTabItem
         icon={<IoMdExit />}
         title='Выйти'
         subtitle='Выйти из профиля'

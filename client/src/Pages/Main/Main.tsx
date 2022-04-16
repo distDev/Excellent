@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '../Components/StyledComponents/Container';
+import { Container } from '../../Components/StyledComponents/Container';
 
 type Props = {};
 

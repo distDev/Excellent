@@ -1,22 +1,33 @@
 export const smallCards = [
   {
-    title: 'Диагностика двигателя',
-    price: '500 ₽',
-    img: 'https://www.figma.com/file/A3Q3QWSACYacvHwW0nT8Yk/Untitled?node-id=431%3A289',
+    name: 'Диагностика двигателя',
+    price: '4500 ₽',
+    img: '/dvig.png',
+    id: '131241',
   },
   {
-    title: 'Диагностика двигателя',
-    price: '500 ₽',
-    img: 'https://www.figma.com/file/A3Q3QWSACYacvHwW0nT8Yk/Untitled?node-id=431%3A289',
+    id: '131ewgw241',
+    name: 'Замена масла',
+    price: '1500 ₽',
+    img: '/dvig.png',
   },
   {
-    title: 'Диагностика двигателя',
-    price: '500 ₽',
-    img: 'https://www.figma.com/file/A3Q3QWSACYacvHwW0nT8Yk/Untitled?node-id=431%3A289',
+    id: '13rrdh1241',
+    name: 'Замена кондиционера',
+    price: '5100 ₽',
+    img: '/dvig.png',
   },
   {
-    title: 'Диагностика двигателя',
-    price: '500 ₽',
-    img: 'https://www.figma.com/file/A3Q3QWSACYacvHwW0nT8Yk/Untitled?node-id=431%3A289',
+    id: '1312r1241',
+    name: 'Замена рулевой тяги',
+    price: '5200 ₽',
+    img: '/dvig.png',
+  },
+  {
+    id: '131412r1241',
+    name: 'Замена рулевой тяги',
+    price: '5200 ₽',
+    img: '/dvig.png',
   },
 ];
+
