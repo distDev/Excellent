@@ -1,22 +1,26 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { IoMdExit } from 'react-icons/io';
 import { BiBookAlt } from 'react-icons/bi';
 import { RiHome5Line, RiSettingsLine } from 'react-icons/ri';
-import { MobileNavbar } from '../../Components/MobileNavbar/MobileNavbar';
-import MobileTabItem from '../../Components/MobileTab/MobileTab';
+import { MobileNavbar } from '../../Components/navbar';
+import MobileTabItem from '../../Components/tabs';
 import { Container } from '../../Components/StyledComponents/Container';
 import {
   PROFILE_GARAGE_ROUTE,
   PROFILE_SERVICELIST_ROUTE,
   PROFILE_SETTINGS_ROUTE,
 } from '../../Utils/routerConst';
+import Modal from '../../Components/modal';
 
 type Props = {};
 
 const Profile: FC = (props: Props) => {
+
+  const [show, setShow] = useState(false)
+
   return (
     <Container>
-      <MobileNavbar title='Дмитрий' phone='+7 925 412 21 44'/>
+      <MobileNavbar title='Дмитрий' phone='+7 925 412 21 44' />
       <MobileTabItem
         icon={<RiSettingsLine />}
         title='Настройки'
@@ -48,6 +52,7 @@ const Profile: FC = (props: Props) => {
         flexDirection='column'
         justifyContent='space-between'
       />
+      {/* <Modal show={show} /> */}
     </Container>
   );
 };

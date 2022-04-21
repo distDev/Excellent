@@ -1,23 +1,23 @@
 import { FC, useState } from 'react';
-import MediumCard from '../../../../Components/MediumCard/MediumCard';
+import CardOrder from '../../../../Components/cardOrder';
 import { smallCards } from '../../../../Utils/content';
 import { StyledCartCards } from '../StyledComponents/StyledCartCards';
+import { CartCardsContainer } from './styles/cartCards';
 
 type Props = {};
 
 const CartCards: FC = (props: Props) => {
-
   const [data, setData] = useState(smallCards);
 
   const handleDeleteCard = (id: string) => {
-   const filt = data.filter((e) => e.id !== id)
-   setData(filt)
+    const filt = data.filter((e) => e.id !== id);
+    setData(filt);
   };
 
   return (
-    <StyledCartCards>
+    <CartCardsContainer>
       {data.map(({ name, price, img, id }) => (
-        <MediumCard
+        <CardOrder
           id={id}
           key={id}
           name={name}
@@ -26,7 +26,7 @@ const CartCards: FC = (props: Props) => {
           handleDeleteCard={handleDeleteCard}
         />
       ))}
-    </StyledCartCards>
+    </CartCardsContainer>
   );
 };
 

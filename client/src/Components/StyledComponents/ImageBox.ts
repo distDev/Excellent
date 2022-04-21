@@ -18,8 +18,8 @@ export const ImageBox = styled.div<Props>`
   justify-content: center;
 
   img {
-    width: 50%;
-    height: 50px;
-    object-fit: cover;
+    width: 60%;
+    height: auto;
+    object-fit: contain;
   }
 `;

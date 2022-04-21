@@ -1,19 +1,28 @@
-import React, { FC } from 'react'
-import { Title } from '../../../../Components/StyledComponents/Title'
+import React, { FC } from 'react';
+import Card from '../../../../Components/card';
+import { Box } from '../../../../Components/StyledComponents/Box';
+import { Grid } from '../../../../Components/StyledComponents/Grid';
+
+import { Title } from '../../../../Components/StyledComponents/Title';
 
 type Props = {
-    title: string;
-}
+  title?: string;
+};
 
 const ServicesCards: FC<Props> = ({ title }) => {
   return (
-    <div>
+    <Box>
       <Title>{title}</Title>
       <Grid>
-          
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </Grid>
-    </div>
+    </Box>
   );
 };
 
-export default ServicesCards
+export default ServicesCards;

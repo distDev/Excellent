@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobileNavbar } from '../../Components/MobileNavbar/MobileNavbar';
+import { MobileNavbar } from '../../Components/navbar';
 import { ServiceCard } from './Components/ServiceListCard/ServiceListCard';
 import { Container } from '../../Components/StyledComponents/Container';
 

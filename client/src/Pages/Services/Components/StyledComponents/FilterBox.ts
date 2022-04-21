@@ -4,10 +4,10 @@ export const FilterBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 51px;
   width: auto;
-  border-radius: 10px;
-  background: #f5f5f5;
+  border-radius: 16px;
+  background: #f1f0ec;
   flex: 1;
 
   svg {
