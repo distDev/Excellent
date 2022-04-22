@@ -1,9 +1,8 @@
-import { Container } from '../../Components/StyledComponents/Container'
-import Filters from './Components/Filters'
-import { ServicesContent } from './Components/ServicesContent/ServicesContent'
+import { Container } from '../../Components/StyledComponents/Container';
+import Filters from './Components/Filters';
+import { ServicesContent } from './Components/ServicesContent/ServicesContent';
 
-
-type Props = {}
+type Props = {};
 
 const Services = (props: Props) => {
   return (
@@ -12,6 +11,6 @@ const Services = (props: Props) => {
       <ServicesContent />
     </Container>
   );
-}
+};
 
-export default Services
+export default Services;

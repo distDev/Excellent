@@ -1,7 +1,5 @@
-import React from 'react';
 import CartCards from './Components/cartCards';
-import { MobileNavbar } from '../../Components/navbar';
-import { Box } from '../../Components/StyledComponents/Box';
+import Navbar from '../../Components/navbar/Navbar';
 import { Container } from '../../Components/StyledComponents/Container';
 
 type Props = {};
@@ -9,10 +7,8 @@ type Props = {};
 const Cart = (props: Props) => {
   return (
     <Container>
-      <MobileNavbar title='Корзина' border='none' />
-      <Box>
-        <CartCards />
-      </Box>
+      <Navbar title='Корзина' justify='start' />
+      <CartCards />
     </Container>
   );
 };

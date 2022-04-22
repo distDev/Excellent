@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import CardOrder from '../../../../Components/cardOrder';
 import { smallCards } from '../../../../Utils/content';
-import { StyledCartCards } from '../StyledComponents/StyledCartCards';
 import { CartCardsContainer } from './styles/cartCards';
 
 type Props = {};

@@ -19,7 +19,7 @@ export const CardOrderContainer = styled.div`
 export const CardOrderMedia = styled.div`
   width: 86px;
   border-radius: 11px;
-  background: #f5f6fb;
+  background: #f8f7f5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@ export const CardOrderMedia = styled.div`
   @media screen and (max-width: 479px) {
     width: 86px;
     border-radius: 11px;
-    background: #f5f6fb;
+    background: #f8f7f5;
     display: flex;
     align-items: center;
     justify-content: center;
