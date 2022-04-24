@@ -1,7 +1,7 @@
 import React from 'react';
 import { serviceListData } from '../../utils/data';
 import { CardService } from '../cardService';
-import { CardsServiceContainer } from './styles/cardService';
+import { CardsServiceContainer } from './styles/cardsService';
 
 type Props = {};
 

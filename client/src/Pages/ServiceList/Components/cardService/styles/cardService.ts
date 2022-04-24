@@ -6,6 +6,7 @@ export const CardServiceContainer = styled.div`
     flex-direction: column;
     gap: 20px;
     padding: 20px 0;
+    border-bottom: 1px solid #f2f2f2;
   }
 `;
 
@@ -54,7 +55,24 @@ export const CardServiceInfo = styled.div`
 
 export const CardServiceSlider = styled.div`
   @media screen and (max-width: 479px) {
-    
+    width: 100%;
+    overflow: hidden;
+  }
+`;
+export const CardServiceSliderItem = styled.div`
+  @media screen and (max-width: 479px) {
+    height: 100px;
+    border-radius: 10px;
+    background: #f8f7f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 60%;
+      height: auto;
+      object-fit: contain;
+    }
   }
 `;
 

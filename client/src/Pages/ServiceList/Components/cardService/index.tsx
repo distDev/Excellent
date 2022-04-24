@@ -3,7 +3,6 @@ import 'swiper/css';
 import { Text } from '../../../../Components/StyledComponents/Text';
 import { Title } from '../../../../Components/StyledComponents/Title';
 import { Box } from '../../../../Components/StyledComponents/Box';
-import { Virtual } from 'swiper';
 
 import {
   CardServiceBody,
@@ -12,13 +11,14 @@ import {
   CardServiceIndicator,
   CardServiceInfo,
   CardServiceSlider,
+  CardServiceSliderItem,
   CardServiceStatus,
 } from './styles/cardService';
 import { FC } from 'react';
 
 interface Serv {
-id: string; 
-img: string
+  id: string;
+  img: string;
 }
 
 interface Props {
@@ -27,9 +27,15 @@ interface Props {
   status: string;
   amount: string;
   services: Serv[];
-};
+}
 
-export const CardService: FC<Props> = ({ date, id, status, amount, services }) => {
+export const CardService: FC<Props> = ({
+  date,
+  id,
+  status,
+  amount,
+  services,
+}) => {
   return (
     <CardServiceContainer id={id}>
       <CardServiceBody>
@@ -47,21 +53,18 @@ export const CardService: FC<Props> = ({ date, id, status, amount, services }) =
       <CardServiceSlider>
         <Swiper
           spaceBetween={10}
-          modules={[Virtual]}
           slidesPerView={3.5}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
-          virtual
         >
-          {services.map((e, index) => (
-            <SwiperSlide key={e.id}>
-              <Box
-                height='100px'
-                borderRadius='10px'
-                background='#e1e5f9'
-              ></Box>
-            </SwiperSlide>
-          ))}
+          {services &&
+            services.map((e) => (
+              <SwiperSlide key={e.id}>
+                <CardServiceSliderItem>
+                  <img src={e.img} alt='img' />
+                </CardServiceSliderItem>
+              </SwiperSlide>
+            ))}
         </Swiper>
       </CardServiceSlider>
     </CardServiceContainer>

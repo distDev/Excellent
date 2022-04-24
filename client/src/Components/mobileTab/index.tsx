@@ -17,6 +17,7 @@ interface Props {
   icon: any;
   path?: string;
   variant?: string;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 };
 
 
@@ -25,10 +26,11 @@ const MobileTab: FC<Props> = ({
   title,
   subtitle,
   path,
-  variant
+  variant,
+  onClick
 }) => {
   return (
-    <MobileTabContainer>
+    <MobileTabContainer onClick={onClick}>
       <MobileTabBody>
         <MobileTabIcon>{icon}</MobileTabIcon>
         <MobileTabContent variant={variant}>

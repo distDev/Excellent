@@ -1,8 +1,9 @@
 {
   "name": "client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@react-spring/types": "^9.4.4",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -19,6 +20,7 @@
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.5",
     "swiper": "^8.1.0",
+    "react-spring": "^8.x",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },
