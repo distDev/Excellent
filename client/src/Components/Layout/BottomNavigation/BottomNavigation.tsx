@@ -14,7 +14,7 @@ export const BottomNavigation = (props: Props) => {
   return (
     <StyledBottomNavigation>
       {bottomNagigationLinks.map(({ path, icon }) => (
-        <NavLink
+        <NavLink key={path}
           className={({ isActive }) => isActive ? 'active-link' : ''}
           to={path}
         >

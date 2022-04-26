@@ -7,7 +7,7 @@ export const AppRouter = (props: Props) => {
   return (
     <Routes>
       {PublicRoutes.map(({ path, component }) => (
-        <Route path={path} element={component} />
+        <Route key={path} path={path} element={component} />
       ))}
     </Routes>
   );

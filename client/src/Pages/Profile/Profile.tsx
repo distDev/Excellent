@@ -19,7 +19,8 @@ const Profile: FC = (props: Props) => {
         justify='start'
       />
       {profileTabs.map((e) => (
-        <MobileTab
+        <MobileTab 
+          key={e.title}
           icon={e.icon}
           title={e.title}
           subtitle={e.subtitle}

@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@react-spring/types": "^9.4.4",
@@ -13,14 +13,14 @@
     "@types/react-dom": "^17.0.15",
     "@types/styled-components": "^5.1.25",
     "axios": "^0.26.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-spring": "^9.4.4",
     "styled-components": "^5.3.5",
     "swiper": "^8.1.0",
-    "react-spring": "^8.x",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },
