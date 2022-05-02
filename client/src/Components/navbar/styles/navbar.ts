@@ -36,14 +36,14 @@ export const NavbarContent = styled.div<Props>`
 
 export const NavbarTitle = styled.h3`
   @media screen and (max-width: 479px) {
-    font-size: 20px;
+    font-size: ${({ theme: { size } }) => size.title.normal};
   }
 `;
 
 export const NavbarPhone = styled.h3`
   @media screen and (max-width: 479px) {
-    font-size: 18px;
-    color: #cacaca;
+    font-size: ${({ theme: { size } }) => size.title.small};
+    color: ${({ theme: { colors } }) => colors.textSecond};
   }
 `;
 
@@ -52,7 +52,7 @@ export const NavbarIcon = styled.div`
     svg {
       height: 25px;
       width: 25px;
-      color: #454545;
+      color: ${({ theme: { colors } }) => colors.textMain};
     }
   }
 `;

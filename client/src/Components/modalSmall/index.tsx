@@ -1,15 +1,16 @@
 import { FC } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { ModalBackground, ModalClose, ModalContainer, ModalContent } from './styles/modal';
 import { animated, useTransition } from 'react-spring';
 import { createPortal } from 'react-dom';
+import { ModalSmallContainer } from './styles/modalSmall';
+import { ModalBackground, ModalClose } from '../modal/styles/modal';
 
 type Props = {
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Modal: FC<Props> = ({ show, setShow, children }) => {
+const ModalSmall: FC<Props> = ({ show, setShow, children }) => {
   // Анимация модального окна
   const transitions = useTransition(show, {
     from: { transform: `translateY(100%)` },
@@ -26,7 +27,7 @@ const Modal: FC<Props> = ({ show, setShow, children }) => {
   });
 
   const AnimateBackground = animated(ModalBackground);
-  const AnimateModal = animated(ModalContainer);
+  const AnimateModal = animated(ModalSmallContainer);
   return createPortal(
     <>
       {transitionsWrap(
@@ -42,7 +43,7 @@ const Modal: FC<Props> = ({ show, setShow, children }) => {
               <ModalClose onClick={() => setShow(false)}>
                 <IoClose />
               </ModalClose>
-              <ModalContent>{children}</ModalContent>
+              {children}
             </AnimateModal>
           )
       )}
@@ -51,4 +52,4 @@ const Modal: FC<Props> = ({ show, setShow, children }) => {
   );
 };
 
-export default Modal;
+export default ModalSmall;

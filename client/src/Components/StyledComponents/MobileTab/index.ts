@@ -6,7 +6,6 @@ export interface Styles {
   alignItems?: 'center' | 'flex-start' | 'flex-end';
 }
 
-
 export const StyledMobileTab = styled.div`
   padding: 20px 0px;
   width: 100%;
@@ -33,7 +32,7 @@ export const StyledMobileTabContent = styled.div`
 export const StyledMobileTabIcon = styled.div`
   padding: 14px;
   background: #f4f4f4;
-  color: #454545;
+  color: ${({ theme: { colors } }) => colors.textMain};
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -44,4 +43,3 @@ export const StyledMobileTabIcon = styled.div`
     margin: auto;
   }
 `;
-

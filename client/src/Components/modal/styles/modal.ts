@@ -21,19 +21,27 @@ export const ModalBackground = styled.div`
 
 export const ModalContainer = styled.div`
   @media screen and (max-width: 479px) {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 40px 13px;
+    
     position: fixed;
     width: 100%;
     height: 90vh;
     bottom: 0;
     left: 0;
-    background: white;
+    background: ${({ theme }) => theme.background.white};
     border-radius: 20px 20px 0px 0px;
-    overflow-y: scroll;
     z-index: 111;
+  }
+`;
+
+export const ModalContent = styled.div`
+  @media screen and (max-width: 479px) {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 13px;
+    gap: 30px;
+    width: 100%;
+    height: 90vh;
+    overflow-y: scroll;
   }
 `;
 
@@ -58,16 +66,17 @@ export const ModalClose = styled.div`
   }
 `;
 
-export const ModalSubtitle = styled.h3`
+export const ModalSubtitle = styled.h4`
   @media screen and (max-width: 479px) {
-    font-size: 16px;
-    color: #cacaca;
+    font-size: ${({ theme: { size } }) => size.title.extraSmall};
+    color: ${({ theme: { colors } }) => colors.textSecond};
   }
 `;
 
 export const ModalTitle = styled.h3`
   @media screen and (max-width: 479px) {
-    font-size: 20px;
+    font-size: ${({ theme: { size } }) => size.title.normal};
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 
@@ -79,9 +88,11 @@ export const ModalFixButton = styled.button<TButton>`
     width: 100%;
     border: none;
     padding: 22px;
-    color: ${({ primary }) => (primary ? 'white' : '#454545')};
-    background: ${({ primary }) => (primary ? '#D54068' : '#F2F2F2;')};
-    font-size: 16px;
+    color: ${({ primary, theme }) =>
+      primary ? theme.colors.white : theme.colors.textMain};
+    background: ${({ primary, theme }) =>
+      primary ? theme.background.primary : theme.background.button};
+    font-size: ${({ theme: { size } }) => size.text.normal};
     font-weight: bold;
   }
 `;
@@ -89,10 +100,11 @@ export const ModalFixButton = styled.button<TButton>`
 export const ModalInput = styled.input`
   @media screen and (max-width: 479px) {
     padding: 20px;
-    border: 1px solid #454545;
-    color: #454545;
+    border: ${({ theme }) => `1px solid ${theme.colors.lightGrey}`};
+    color: ${({ theme: { colors } }) => colors.textMain};
     border-radius: 10px;
     width: 100%;
-    font-size: 16px;
+    font-size: ${({ theme: { size } }) => size.text.normal};
+    font-weight: 600;
   }
 `;

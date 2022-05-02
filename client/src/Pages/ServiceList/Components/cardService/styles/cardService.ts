@@ -6,7 +6,7 @@ export const CardServiceContainer = styled.div`
     flex-direction: column;
     gap: 20px;
     padding: 20px 0;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: ${({ theme }) => `1px solid ${theme.colors.border}`};
   }
 `;
 
@@ -25,7 +25,7 @@ export const CardServiceHeader = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
   }
 `;
 
@@ -78,14 +78,17 @@ export const CardServiceSliderItem = styled.div`
 
 export const CardServiceTitle = styled.h3`
   @media screen and (max-width: 479px) {
-    font-size: 18px;
-
+    font-size: ${({ theme: { size } }) => size.title.small};
+    font-weight: bold;
+    color: ${({ theme: { colors } }) => colors.textMain};
+    font-weight: 600;
   }
 `;
 
-export const CardServiceSubtitle = styled.h4`
+export const CardServiceSubtitle = styled.h3`
   @media screen and (max-width: 479px) {
-    font-size: 16px;
-    color: #cacaca;
+    font-size: ${({ theme: { size } }) => size.title.extraSmall};
+    color: ${({ theme: { colors } }) => colors.textSecond};
+    font-weight: 600;
   }
 `;

@@ -5,7 +5,7 @@ export const GarageModalContentItem = styled.div`
    width: 100%;
    display: flex;
    flex-direction: column;
-   gap: 11px;
+   gap: 7px;
   }
 `;
 

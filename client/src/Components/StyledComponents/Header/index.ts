@@ -10,8 +10,8 @@ export const StyledHeader = styled.header`
   .header__logo {
     text-decoration: none;
     font-weight: 600;
-    font-size: 24px;
-    color: #454545;
+    font-size: ${({ theme: { size } }) => size.title.medium};
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 
   svg {

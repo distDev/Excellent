@@ -1,5 +1,5 @@
 import React from 'react';
-import ServicesCards from '../ServicesCards/ServicesCards';
+import ServicesCards from '../servicesCards/ServicesCards';
 import { StyledServicesContent } from '../StyledComponents/StyledServicesContent';
 
 type Props = {};

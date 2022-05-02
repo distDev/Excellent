@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CardButton = styled.button`
   width: 100%;
@@ -6,8 +6,7 @@ export const CardButton = styled.button`
   border: none;
   padding: 10px;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: ${({ theme: { size } }) => size.text.small};
   background: #ffffff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
-  
 `;

@@ -2,7 +2,7 @@ export const serviceListData = [
   {
     id: '414fegw',
     status: 'Выполнено',
-    date: '12 февраля',
+    date: '12 февраля в 16:10',
     amount: '5260',
     services: [
       {
@@ -22,7 +22,7 @@ export const serviceListData = [
   {
     id: '41421fegw',
     status: 'В процессе',
-    date: '9 ферваля ',
+    date: '9 ферваля в 12:30',
     amount: '12560',
     services: [
       {
@@ -46,7 +46,7 @@ export const serviceListData = [
   {
     id: '414ацфаfegw',
     status: 'Отменено',
-    date: '1 января',
+    date: '1 января в 15:50',
     amount: '1262',
     services: [
       {

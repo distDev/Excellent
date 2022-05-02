@@ -1,21 +1,21 @@
-import styled from "styled-components/macro"
+import styled from 'styled-components/macro';
 
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background: #f8f7f5;
+  background: ${({ theme: { background } }) => background.secondBg};
   border-radius: 10px;
   padding: 0px 12px 12px 12px;
-  font-size: 12px;
+  font-size: ${({ theme: { size } }) => size.text.small};
   font-weight: 500;
 
   @media screen and (max-width: 479px) {
     display: flex;
     flex-direction: column;
-    background: #f8f7f5;
+    background: ${({ theme: { background } }) => background.secondBg};
     border-radius: 10px;
     padding: 0px 12px 12px 12px;
-    font-size: 12px;
+    font-size: ${({ theme: { size } }) => size.text.small};
     font-weight: 500;
   }
 `;
@@ -69,11 +69,11 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h4`
-  color: #555555;
+  color: ${({ theme: { colors } }) => colors.textMain};
 `;
 
 export const CardPrice = styled.h4`
-  color: #9B9A98;
+  color: ${({ theme: { colors } }) => colors.textSecond};
 `;
 
 export const CardButton = styled.button`
@@ -82,7 +82,7 @@ export const CardButton = styled.button`
   border: none;
   padding: 10px;
   border-radius: 10px;
-  background: #ffffff;
+  background: ${({ theme: { background } }) => background.mainBg};
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
 
   @media screen and (max-width: 479px) {
@@ -91,8 +91,7 @@ export const CardButton = styled.button`
     border: none;
     padding: 10px;
     border-radius: 10px;
-    background: #ffffff;
+    background: ${({ theme: { background } }) => background.mainBg};
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
   }
 `;
-

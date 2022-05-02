@@ -47,11 +47,11 @@ export const CardOrderMedia = styled.div`
 `;
 
 export const CardOrderTitle = styled.p`
-  font-size: 12px;
+  font-size: ${({ theme: { size } }) => size.text.small};
   max-width: 50%;
 
   @media screen and (max-width: 479px) {
-    font-size: 12px;
+    font-size: ${({ theme: { size } }) => size.text.small};
     max-width: 50%;
   }
 `;
@@ -59,14 +59,14 @@ export const CardOrderTitle = styled.p`
 export const CardOrderPrice = styled.h4`
   align-self: flex-end;
   margin-left: auto;
-  font-size: 18px;
-  color: #454545;
+  font-size: ${({ theme: { size } }) => size.title.small};
+  color: ${({ theme: { colors } }) => colors.textMain};
 
   @media screen and (max-width: 479px) {
     align-self: flex-end;
     margin-left: auto;
-    font-size: 18px;
-    color: #454545;
+    font-size: ${({ theme: { size } }) => size.title.small};
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 

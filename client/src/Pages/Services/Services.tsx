@@ -1,6 +1,6 @@
 import { Container } from '../../Components/StyledComponents/Container';
-import Filters from './Components/Filters';
-import { ServicesContent } from './Components/ServicesContent/ServicesContent';
+import Filters from './Components/filters/index'
+import { ServicesContent } from './Components/servicesContent/ServicesContent';
 
 type Props = {};
 

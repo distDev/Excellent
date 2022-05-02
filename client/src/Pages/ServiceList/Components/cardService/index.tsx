@@ -1,8 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Text } from '../../../../Components/StyledComponents/Text';
-import { Title } from '../../../../Components/StyledComponents/Title';
-import { Box } from '../../../../Components/StyledComponents/Box';
 
 import {
   CardServiceBody,
@@ -13,6 +10,8 @@ import {
   CardServiceSlider,
   CardServiceSliderItem,
   CardServiceStatus,
+  CardServiceSubtitle,
+  CardServiceTitle,
 } from './styles/cardService';
 import { FC } from 'react';
 
@@ -42,11 +41,11 @@ export const CardService: FC<Props> = ({
         <CardServiceHeader>
           <CardServiceStatus>
             <CardServiceIndicator />
-            <Title variant='small'>{status}</Title>
+            <CardServiceTitle>{status}</CardServiceTitle>
           </CardServiceStatus>
           <CardServiceInfo>
-            <Text color='grey'>{date}</Text>
-            <Text color='grey'>{amount}</Text>
+            <CardServiceSubtitle>{date}</CardServiceSubtitle>
+            <CardServiceSubtitle>{amount} ₽</CardServiceSubtitle>
           </CardServiceInfo>
         </CardServiceHeader>
       </CardServiceBody>

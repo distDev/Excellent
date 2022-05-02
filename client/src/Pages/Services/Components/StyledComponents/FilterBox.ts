@@ -11,7 +11,7 @@ export const FilterBox = styled.div`
   flex: 1;
 
   svg {
-    color: #454545;
+    color: ${({ theme: { colors } }) => colors.textMain};
     height: 20px;
     width: 20px;
   }

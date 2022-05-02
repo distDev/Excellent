@@ -131,6 +131,38 @@ const GarageModalContent = () => {
             onChange={onInputChange}
           />
         </GarageModalContentItem>
+        <GarageModalContentItem>
+          <ModalSubtitle>Пробег</ModalSubtitle>
+          <ModalInput
+            value={inputs.mileage}
+            name='mileage'
+            onChange={onInputChange}
+          />
+        </GarageModalContentItem>
+        <GarageModalContentItem>
+          <ModalSubtitle>Пробег</ModalSubtitle>
+          <ModalInput
+            value={inputs.mileage}
+            name='mileage'
+            onChange={onInputChange}
+          />
+        </GarageModalContentItem>
+        <GarageModalContentItem>
+          <ModalSubtitle>Пробег</ModalSubtitle>
+          <ModalInput
+            value={inputs.mileage}
+            name='mileage'
+            onChange={onInputChange}
+          />
+        </GarageModalContentItem>
+        <GarageModalContentItem>
+          <ModalSubtitle>Пробег</ModalSubtitle>
+          <ModalInput
+            value={inputs.mileage}
+            name='mileage'
+            onChange={onInputChange}
+          />
+        </GarageModalContentItem>
         <ModalFixButton primary onClick={handleSave}>
           Сохранить
         </ModalFixButton>

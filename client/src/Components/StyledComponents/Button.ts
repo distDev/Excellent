@@ -13,7 +13,7 @@ interface Props {
 
 export const Button = styled.button<Props>`
   display: ${({ display }) => (display === 'flex' ? 'flex' : 'inline-block')};
-  font-size: 16px;
+  font-size: ${({ theme: { size } }) => size.text.normal};
   font-weight: 500;
   padding: ${({ padding }) => padding || '18px 0px'};
   margin: ${({ margin }) => margin || '0px'};
@@ -32,4 +32,3 @@ export const Button = styled.button<Props>`
   color: ${({ background }) =>
     background === 'light' ? '#454545' : '#F2F2F2'};
 `;
-

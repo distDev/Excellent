@@ -1,15 +1,14 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components/macro';
 
 interface Props {
   variant?: string;
 }
 
-
 export const MobileTabContainer = styled.div`
   @media screen and (max-width: 479px) {
     padding: 20px 0px;
     width: 100%;
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: ${({ theme: { colors } }) => `1px solid ${colors.border}`};
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,8 +35,8 @@ export const MobileTabBody = styled.div`
 export const MobileTabIcon = styled.div`
   @media screen and (max-width: 479px) {
     padding: 14px;
-    background: #f4f4f4;
-    color: #454545;
+    background: ${({ theme: { background } }) => background.secondBg};
+    color: ${({ theme: { colors } }) => colors.textMain};
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -53,16 +52,16 @@ export const MobileTabIcon = styled.div`
 export const MobileTabContent = styled.div<Props>`
   @media screen and (max-width: 479px) {
     display: flex;
-    flex-direction: ${({ variant }) => variant === 'col' ? 'column' : ''};
+    flex-direction: ${({ variant }) => (variant === 'col' ? 'column' : '')};
     justify-content: space-between;
-    align-items: ${({ variant }) => variant === 'col' ? '':  'center'};
+    align-items: ${({ variant }) => (variant === 'col' ? '' : 'center')};
   }
 `;
 
 export const MobileTabTitle = styled.h3`
   @media screen and (max-width: 479px) {
-    color: #454545;
-    font-size: 20px;
+    color: ${({ theme: { colors } }) => colors.textMain};
+    font-size: ${({ theme: { size } }) => size.normal};
     font-weight: 600;
   }
 `;
@@ -70,5 +69,6 @@ export const MobileTabTitle = styled.h3`
 export const MobileTabSubtitle = styled.p`
   @media screen and (max-width: 479px) {
     font-weight: 15px;
+    color: ${({ theme: { colors } }) => colors.textSecond};
   }
 `;

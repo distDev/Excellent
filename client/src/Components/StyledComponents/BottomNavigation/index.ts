@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledBottomNavigation = styled.div`
   width: 100%;
@@ -15,22 +15,19 @@ export const StyledBottomNavigation = styled.div`
   svg {
     height: 25px;
     width: 25px;
-    color: #454545;
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 
   a {
-      outline: none;
-      padding: 10px 0px;
-      display: inline-block;
-      width: 25%;
-      text-align: center;
-      
+    outline: none;
+    padding: 10px 0px;
+    display: inline-block;
+    width: 25%;
+    text-align: center;
   }
   .active-link {
     svg {
       color: #d54068;
     }
   }
-
- 
 `;
