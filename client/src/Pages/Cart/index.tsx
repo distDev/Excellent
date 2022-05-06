@@ -1,4 +1,4 @@
-import CartCards from './Components/cartCards';
+import CartCards from './components/cartCards';
 import Navbar from '../../Components/navbar/Navbar';
 import { Container } from '../../Components/StyledComponents/Container';
 

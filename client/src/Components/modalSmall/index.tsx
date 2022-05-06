@@ -40,9 +40,7 @@ const ModalSmall: FC<Props> = ({ show, setShow, children }) => {
         (style, item) =>
           item && (
             <AnimateModal style={style}>
-              <ModalClose onClick={() => setShow(false)}>
-                <IoClose />
-              </ModalClose>
+              
               {children}
             </AnimateModal>
           )

@@ -1,11 +1,11 @@
-import Cart from "../Pages/Cart/Cart";
-import Login from "../Pages/Login/Login";
-import Main from "../Pages/Main/Main";
-import Garage from "../Pages/Garage/Garage";
-import Profile from "../Pages/Profile/Profile";
-import ServiceList from "../Pages/ServiceList/ServiceList";
-import Settings from "../Pages/Settings/Settings";
-import Services from "../Pages/Services/Services";
+import Cart from "../Pages/Cart";
+import Login from "../Pages/Login";
+import Main from "../Pages/Main";
+import Garage from "../Pages/Garage";
+import Profile from "../Pages/Profile";
+import ServiceList from "../Pages/ServiceList";
+import Settings from "../Pages/Settings";
+import Services from "../Pages/Services";
 import { CART_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, PROFILE_GARAGE_ROUTE, PROFILE_ROUTE, PROFILE_SERVICELIST_ROUTE, PROFILE_SETTINGS_ROUTE, SERVICES_ROUTE } from "./routerConst";
 
 export const PublicRoutes = [

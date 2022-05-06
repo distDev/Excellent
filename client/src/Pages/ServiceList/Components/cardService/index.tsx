@@ -26,6 +26,7 @@ interface Props {
   status: string;
   amount: string;
   services: Serv[];
+  onClick: () => void;
 }
 
 export const CardService: FC<Props> = ({
@@ -34,9 +35,10 @@ export const CardService: FC<Props> = ({
   status,
   amount,
   services,
+  onClick,
 }) => {
   return (
-    <CardServiceContainer id={id}>
+    <CardServiceContainer id={id} onClick={onClick}>
       <CardServiceBody>
         <CardServiceHeader>
           <CardServiceStatus>

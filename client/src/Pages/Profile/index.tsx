@@ -4,9 +4,8 @@ import { Container } from '../../Components/StyledComponents/Container';
 import MobileTab from '../../Components/mobileTab';
 import { profileTabs } from './utils/data';
 import Navbar from '../../Components/navbar/Navbar';
-import Modal from '../../Components/modal';
-import { GarageModalContentItem } from '../Garage/Components/garageModalContent/styles/garageModalContent';
-import { ModalInput, ModalSubtitle } from '../../Components/modal/styles/modal';
+
+
 
 type Props = {};
 

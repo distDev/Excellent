@@ -3,9 +3,11 @@ import CardOrder from '../../../../Components/cardOrder';
 import { smallCards } from '../../../../Utils/content';
 import { CartCardsContainer } from './styles/cartCards';
 
-type Props = {};
+type Props = {
+  del?: boolean,
+};
 
-const CartCards: FC = (props: Props) => {
+const CartCards:FC<Props> = ({del}) => {
   const [data, setData] = useState(smallCards);
 
   const handleDeleteCard = (id: string) => {
@@ -23,6 +25,7 @@ const CartCards: FC = (props: Props) => {
           price={price}
           img={img}
           handleDeleteCard={handleDeleteCard}
+          del={del}
         />
       ))}
     </CartCardsContainer>

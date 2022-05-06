@@ -14,9 +14,17 @@ type Props = {
   price: string;
   id: string;
   handleDeleteCard: (id: string) => void;
+  del?: boolean;
 };
 
-const CardOrder: FC<Props> = ({ img, name, price, handleDeleteCard, id }) => {
+const CardOrder: FC<Props> = ({
+  img,
+  name,
+  price,
+  handleDeleteCard,
+  id,
+  del = true,
+}) => {
   return (
     <CardOrderContainer>
       <CardOrderMedia>
@@ -24,9 +32,11 @@ const CardOrder: FC<Props> = ({ img, name, price, handleDeleteCard, id }) => {
       </CardOrderMedia>
       <CardOrderTitle>{name}</CardOrderTitle>
       <CardOrderPrice>{price}</CardOrderPrice>
-      <CardOrderDelete onClick={() => handleDeleteCard(id)}>
-        <RiCloseFill />
-      </CardOrderDelete>
+      {del ? (
+        <CardOrderDelete onClick={() => handleDeleteCard(id)}>
+          <RiCloseFill />
+        </CardOrderDelete>
+      ) : null}
     </CardOrderContainer>
   );
 };

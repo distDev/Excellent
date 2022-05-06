@@ -1,6 +1,6 @@
 import Navbar from '../../Components/navbar/Navbar';
 import { Container } from '../../Components/StyledComponents/Container';
-import {ServiceListCards} from './Components/cardsService/index'
+import {ServiceListCards} from './components/cardsService/index'
 
 
 type Props = {};

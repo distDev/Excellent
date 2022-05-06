@@ -4,7 +4,7 @@ import Modal from '../../Components/modal/index';
 import { IoCarSportOutline } from 'react-icons/io5';
 import MobileTab from '../../Components/mobileTab';
 import Navbar from '../../Components/navbar/Navbar';
-import GarageModalContent from './Components/garageModalContent/index';
+import GarageModalContent from './components/garageModalContent/index';
 
 type Props = {};
 

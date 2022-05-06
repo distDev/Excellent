@@ -108,3 +108,24 @@ export const ModalInput = styled.input`
     font-weight: 600;
   }
 `;
+
+export const ModalSelect = styled.select`
+  @media screen and (max-width: 479px) {
+    padding: 20px;
+    border: ${({ theme }) => `1px solid ${theme.colors.lightGrey}`};
+    color: ${({ theme: { colors } }) => colors.textMain};
+    border-radius: 10px;
+    width: 100%;
+    font-size: ${({ theme: { size } }) => size.text.normal};
+    font-weight: 600;
+  }
+`;
+
+export const ModalForm = styled.form`
+  @media screen and (max-width: 479px) {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+  }
+`;
+

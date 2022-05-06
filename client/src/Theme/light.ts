@@ -8,6 +8,7 @@ export const light = {
     textSecond: '#A6A6A6',
     textMain: '#404040',
     primary: '#D54068',
+    green: '#41D3A0',
   },
   background: {
     white: '#FFFFFF',
@@ -15,6 +16,7 @@ export const light = {
     secondBg: '#F7F7F7',
     button: '#F2F2F2',
     primary: '#D54068',
+    green: '#41D3A0',
   },
   size: {
     title: {
@@ -22,9 +24,11 @@ export const light = {
       small: '18px',
       normal: '20px',
       medium: '24px',
+      large: '32px',
     },
     text: {
-      small: '12px',
+      extraSmall: '12px',
+      small: '14px',
       normal: '16px',
     },
   },

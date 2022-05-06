@@ -1,14 +1,14 @@
 import React from 'react';
-import ServicesCards from '../servicesCards/ServicesCards';
-import { StyledServicesContent } from '../StyledComponents/StyledServicesContent';
+import ServicesCards from '../servicesCards';
+import { ServicesContentContainer } from './styles/servicesContent';
 
 type Props = {};
 
 export const ServicesContent = (props: Props) => {
   return (
-    <StyledServicesContent>
+    <ServicesContentContainer>
       <ServicesCards title='Автосервис' />
       <ServicesCards title='Диагностика' />
-    </StyledServicesContent>
+    </ServicesContentContainer>
   );
 };
