@@ -1,5 +1,9 @@
 import styled from 'styled-components/macro';
 
+interface IServiceIndicator {
+  color: string;
+}
+
 export const CardServiceContainer = styled.div`
   @media screen and (max-width: 479px) {
     display: flex;
@@ -37,12 +41,17 @@ export const CardServiceStatus = styled.div`
   }
 `;
 
-export const CardServiceIndicator = styled.div`
+export const CardServiceIndicator = styled.div<IServiceIndicator>`
   @media screen and (max-width: 479px) {
     height: 12px;
     width: 12px;
     border-radius: 50%;
-    background: #41d3a0;
+    background: ${({ theme, color }) =>
+      color === 'Выполнено'
+        ? theme.background.green
+        : color === 'В процессе'
+        ? theme.background.purple
+        : theme.background.primary};
   }
 `;
 

@@ -1,17 +1,15 @@
 import { FiMenu } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { StyledHeader } from '../StyledComponents/Header';
+import { HeaderContainer, HeaderLogo } from './styles/header';
 
 type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <StyledHeader>
+    <HeaderContainer>
       <FiMenu />
-      <Link className='header__logo' to='/'>
-        EX
-      </Link>
-    </StyledHeader>
+      <HeaderLogo>EX</HeaderLogo>
+    </HeaderContainer>
   );
 };
 

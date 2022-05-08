@@ -17,6 +17,7 @@ export const light = {
     button: '#F2F2F2',
     primary: '#D54068',
     green: '#41D3A0',
+    purple: '#B481F5',
   },
   size: {
     title: {

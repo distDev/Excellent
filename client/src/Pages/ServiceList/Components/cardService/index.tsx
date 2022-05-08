@@ -42,7 +42,7 @@ export const CardService: FC<Props> = ({
       <CardServiceBody>
         <CardServiceHeader>
           <CardServiceStatus>
-            <CardServiceIndicator />
+            <CardServiceIndicator color={status}/>
             <CardServiceTitle>{status}</CardServiceTitle>
           </CardServiceStatus>
           <CardServiceInfo>

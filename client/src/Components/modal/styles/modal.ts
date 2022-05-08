@@ -17,6 +17,7 @@ export const ModalBackground = styled.div`
     background: rgba(0, 0, 0, 0.4);
     z-index: 111;
   }
+
 `;
 
 export const ModalContainer = styled.div`
@@ -106,6 +107,10 @@ export const ModalInput = styled.input`
     width: 100%;
     font-size: ${({ theme: { size } }) => size.text.normal};
     font-weight: 600;
+
+    &::placeholder {
+      color: ${({ theme: { colors } }) => colors.lightGrey};
+    }
   }
 `;
 

@@ -3,11 +3,11 @@ import {
   MAIN_ROUTE,
   PROFILE_ROUTE,
   SERVICES_ROUTE,
-} from '../../../Utils/routerConst';
+} from '../../../../Utils/routerConst';
 import { RiHomeLine, RiSearchLine, RiUser3Line } from 'react-icons/ri';
 import { CgShoppingBag } from 'react-icons/cg';
 
-export const bottomNagigationLinks = [
+export const bottomNavLinks = [
   {
     path: MAIN_ROUTE,
     icon: <RiHomeLine />,
@@ -20,8 +20,5 @@ export const bottomNagigationLinks = [
     path: CART_ROUTE,
     icon: <CgShoppingBag />,
   },
-  {
-    path: PROFILE_ROUTE,
-    icon: <RiUser3Line />,
-  },
+ 
 ];
