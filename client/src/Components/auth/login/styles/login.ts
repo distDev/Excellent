@@ -38,7 +38,7 @@ export const LoginText = styled.p`
  
   margin-top: 25px;
   span {
-    color: ${({ theme: { colors } }) => colors.primary};
+    color: ${({ theme: { colors } }) => colors.green};
     padding-left: 5px;
   }
 `;

@@ -12,7 +12,7 @@ type Props = {};
 export const BottomNav = (props: Props) => {
   const [show, setShow] = useState(false);
 
-  const user = false;
+  const user = true;
 
   const handleShow = () => {
     setShow((prev) => !prev);

@@ -37,9 +37,10 @@ export const ModalBackgroundImage = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    background-image: url('/4851071.webp');
+    background-image: url('/122.jpg');
     background-size: cover;
-    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-position: center;
     z-index: 111;
   }
 `;

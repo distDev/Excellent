@@ -8,7 +8,11 @@ import {
 } from '../modal/styles/modal';
 import { animated, useTransition } from 'react-spring';
 import { createPortal } from 'react-dom';
-import { ModalBackgroundImage, ModalMediumContainer, ModalMediumContent } from './styles/modalMedium';
+import {
+  ModalBackgroundImage,
+  ModalMediumContainer,
+  ModalMediumContent,
+} from './styles/modalMedium';
 
 type Props = {
   show: boolean;
@@ -23,14 +27,14 @@ const ModalMedium: FC<Props> = ({ show, setShow, children }) => {
     leave: { transform: `translateY(100%)` },
   });
 
-  // Анимация темного фона
+  // Анимация фона
   const transitionsWrap = useTransition(show, {
+  
     expires: 0,
     from: { opacity: 0 },
-    enter: { opacity: 1 },
+    enter: { opacity: 0.9 },
     leave: { opacity: 0 },
   });
-  
 
   const AnimateBackground = animated(ModalBackgroundImage);
   const AnimateModal = animated(ModalMediumContainer);

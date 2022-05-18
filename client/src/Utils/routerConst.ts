@@ -1,6 +1,7 @@
 export const MAIN_ROUTE = '/';
 export const SERVICES_ROUTE = '/services';
 export const CART_ROUTE = '/cart';
+export const CART_ORDER_ROUTE = '/cart/order';
 export const PROFILE_ROUTE = '/profile';
 export const PROFILE_SETTINGS_ROUTE = '/profile/settings';
 export const PROFILE_SERVICELIST_ROUTE = '/profile/servicelist';

@@ -1,12 +1,23 @@
-import Cart from "../Pages/Cart";
-import Login from "../Pages/Login";
-import Main from "../Pages/Main";
-import Garage from "../Pages/Garage";
-import Profile from "../Pages/Profile";
-import ServiceList from "../Pages/ServiceList";
-import Settings from "../Pages/Settings";
-import Services from "../Pages/Services";
-import { CART_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, PROFILE_GARAGE_ROUTE, PROFILE_ROUTE, PROFILE_SERVICELIST_ROUTE, PROFILE_SETTINGS_ROUTE, SERVICES_ROUTE } from "./routerConst";
+import Cart from '../Pages/Cart';
+import Login from '../Pages/Login';
+import Main from '../Pages/Main';
+import Garage from '../Pages/Garage';
+import Profile from '../Pages/Profile';
+import ServiceList from '../Pages/ServiceList';
+import Settings from '../Pages/Settings';
+import Services from '../Pages/Services';
+import Order from '../Pages/Order/index';
+import {
+  CART_ORDER_ROUTE,
+  CART_ROUTE,
+  LOGIN_ROUTE,
+  MAIN_ROUTE,
+  PROFILE_GARAGE_ROUTE,
+  PROFILE_ROUTE,
+  PROFILE_SERVICELIST_ROUTE,
+  PROFILE_SETTINGS_ROUTE,
+  SERVICES_ROUTE,
+} from './routerConst';
 
 export const PublicRoutes = [
   {
@@ -20,6 +31,10 @@ export const PublicRoutes = [
   {
     path: CART_ROUTE,
     component: <Cart />,
+  },
+  {
+    path: CART_ORDER_ROUTE,
+    component: <Order />,
   },
   {
     path: LOGIN_ROUTE,
