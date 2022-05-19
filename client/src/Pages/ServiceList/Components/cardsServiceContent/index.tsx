@@ -1,11 +1,12 @@
 import { RiCheckFill } from 'react-icons/ri';
-import CartCards from '../../../Cart/components/cartCards';
+import OrderCards from '../../../../Components/orderCards';
 import {
   ModalStatus,
   ModalStatusIcon,
   ModalStatusTitle,
 } from './styles/cardsServiceModal';
-import ModalCheck from '../modalCheck/index';
+import TotalCheck from '../../../../Components/TotalCheck/index';
+import { Container } from '../../../../Components/uiComponents/container';
 
 type Props = {};
 
@@ -18,8 +19,10 @@ const CardsServiceContent = (props: Props) => {
         </ModalStatusIcon>
         <ModalStatusTitle>Выполнено</ModalStatusTitle>
       </ModalStatus>
-      <CartCards del={false}/>
-      <ModalCheck />
+      <Container>
+        <OrderCards del={false} />
+      </Container>
+      <TotalCheck />
     </>
   );
 };

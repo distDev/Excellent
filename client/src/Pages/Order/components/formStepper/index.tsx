@@ -1,6 +1,14 @@
 import React, { FC } from 'react';
+import { RiCheckFill } from 'react-icons/ri';
 import { Text } from '../../../../Components/uiComponents/text';
-import { FormStepperContainer } from './styles';
+
+import {
+  CompletedStep,
+  CurrentStep,
+  FormStep,
+  FormStepperContainer,
+  FormStepperProgress,
+} from './styles';
 
 interface Props {
   step: number;
@@ -19,12 +27,26 @@ const FormStepper: FC<Props> = ({ step }) => {
     },
   ];
 
+  const currentStep = StepperData[step];
+
   return (
     <FormStepperContainer>
-      <Text></Text>
-      {/* <FormStepperProgress>
-
-      </FormStepperProgress> */}
+      <Text>{currentStep.name}</Text>
+      <FormStepperProgress>
+        {StepperData.map((e, i) =>
+          i < step ? (
+            <CompletedStep>
+              <RiCheckFill />
+            </CompletedStep>
+          ) : i === step ? (
+            <CurrentStep>
+              <div></div>
+            </CurrentStep>
+          ) : (
+            <FormStep />
+          )
+        )}
+      </FormStepperProgress>
     </FormStepperContainer>
   );
 };

@@ -5,7 +5,7 @@ interface IText {
   color: 'white' | 'textSecond' | 'textMain' | 'primary' | 'green';
 }
 
-export const Title = styled.select<IText>`
+export const Title = styled.h2<IText>`
   @media screen and (max-width: 479px) {
     font-size: ${({ theme: size, variant }) =>
       variant === 'extraSmall'

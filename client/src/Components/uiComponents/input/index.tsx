@@ -1,16 +1,17 @@
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
 interface Props {
-  placeholder: string;
+  placeholder?: string;
+  type: 'text' | 'date' | 'checkbox' | 'email' | 'number';
 }
 
 interface IInput {
   variant?: string;
 }
 
-const Input: FC<Props> = ({ children, placeholder, ...props }) => {
+const Input: FC<Props> = ({ children, type, placeholder, ...props }) => {
   return (
-    <StyledInput placeholder={placeholder} {...props}>
+    <StyledInput type={type} placeholder={placeholder} {...props}>
       {children}
     </StyledInput>
   );
@@ -36,12 +37,11 @@ export const StyledInput = styled.input<IInput>`
       : variant === 'complited'
       ? theme.colors.border
       : 'none'};
-
-  font-size: 16px;
+  font-size: ${({ theme: { size } }) => size.text.normal};
   font-weight: 600;
 
   &::placeholder {
-    color: ${({ theme: colors }) => colors.textSecond};
+    color: ${({ theme: {colors} }) => colors.textSecond};
   }
 `;
 

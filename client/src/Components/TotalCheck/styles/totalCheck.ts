@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const ModalCheckContainer = styled.div`
+export const TotalCheckContainer = styled.div`
   @media screen and (max-width: 479px) {
     width: 100%;
     border-radius: 10px;
@@ -12,7 +12,7 @@ export const ModalCheckContainer = styled.div`
   }
 `;
 
-export const ModalCheckTotal = styled.div`
+export const TotalCheckTotal = styled.div`
   @media screen and (max-width: 479px) {
     display: flex;
     flex-direction: column;
@@ -21,14 +21,14 @@ export const ModalCheckTotal = styled.div`
   }
 `;
 
-export const ModalCheckInfo = styled.div`
+export const TotalCheckInfo = styled.div`
   @media screen and (max-width: 479px) {
     width: 100%;
     margin-top: 30px;
   }
 `;
 
-export const ModalCheckInfoItem = styled.div`
+export const TotalCheckInfoItem = styled.div`
   @media screen and (max-width: 479px) {
     width: 100%;
     display: flex;
@@ -40,7 +40,7 @@ export const ModalCheckInfoItem = styled.div`
   }
 `;
 
-export const ModalCheckTotalTitle = styled.h2`
+export const TotalCheckTotalTitle = styled.h2`
   color: ${({ theme: { colors } }) => colors.textMain};
   font-size: ${({ theme: { size } }) => size.title.large};
   font-weight: 700;
@@ -52,7 +52,7 @@ export const ModalCheckTotalTitle = styled.h2`
   }
 `;
 
-export const ModalCheckTotalSubtitle = styled.h4`
+export const TotalCheckTotalSubtitle = styled.h4`
   color: ${({ theme: { colors } }) => colors.textMain};
   font-size: ${({ theme: { size } }) => size.text.small};
   font-weight: 600;
@@ -63,7 +63,7 @@ export const ModalCheckTotalSubtitle = styled.h4`
   }
 `;
 
-export const ModalCheckInfoTitle = styled.p`
+export const TotalCheckInfoTitle = styled.p`
   @media screen and (max-width: 479px) {
     color: ${({ theme: { colors } }) => colors.textSecond};
     font-size: ${({ theme: { size } }) => size.text.small};
@@ -71,7 +71,7 @@ export const ModalCheckInfoTitle = styled.p`
   }
 `;
 
-export const ModalCheckInfoSubtitle = styled.p`
+export const TotalCheckInfoSubtitle = styled.p`
   @media screen and (max-width: 479px) {
     color: ${({ theme: { colors } }) => colors.textMain};
     font-size: ${({ theme: { size } }) => size.text.small};

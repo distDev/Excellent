@@ -19,25 +19,22 @@ export const StyledSelect = styled.select<ISelect>`
       variant === 'complited'
         ? theme.background.white
         : theme.background.secondBg};
-
     border: ${({ theme, variant }) =>
       variant === 'error'
         ? theme.colors.primary
         : variant === 'complited'
         ? theme.colors.border
         : 'none'};
-
-    font-size: 16px;
+    color: ${({ theme, variant }) =>
+      variant === 'error'
+        ? theme.colors.primary
+        : variant === 'complited'
+        ? theme.colors.textMain
+        : theme.colors.textSecond};
+    border-right: 21px solid transparent;
+    font-size: ${({ theme: { size } }) => size.text.normal};
+    outline: none;
     font-weight: 600;
-
-    option {
-      color: ${({ theme: colors, variant }) =>
-        variant === 'error'
-          ? colors.primary
-          : variant === 'complited'
-          ? colors.textMain
-          : colors.textSecond};
-    }
   }
 `;
 

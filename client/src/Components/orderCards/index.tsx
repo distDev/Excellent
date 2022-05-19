@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
-import CardOrder from '../../../../Components/cardOrder';
-import { smallCards } from '../../../../Utils/content';
-import { CartCardsContainer } from './styles/cartCards';
+import CardOrder from '../cardOrder';
+import { smallCards } from '../../Utils/content';
+import { OrderCardsContainer } from './styles/orderCards';
 
 type Props = {
-  del?: boolean,
+  del?: boolean;
 };
 
-const CartCards:FC<Props> = ({del}) => {
+const OrderCards: FC<Props> = ({ del }) => {
   const [data, setData] = useState(smallCards);
 
   const handleDeleteCard = (id: string) => {
@@ -16,7 +16,7 @@ const CartCards:FC<Props> = ({del}) => {
   };
 
   return (
-    <CartCardsContainer>
+    <OrderCardsContainer>
       {data.map(({ name, price, img, id }) => (
         <CardOrder
           id={id}
@@ -28,8 +28,8 @@ const CartCards:FC<Props> = ({del}) => {
           del={del}
         />
       ))}
-    </CartCardsContainer>
+    </OrderCardsContainer>
   );
 };
 
-export default CartCards;
+export default OrderCards;

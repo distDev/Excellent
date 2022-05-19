@@ -9,10 +9,9 @@ import FormStepThree from './components/formStepThree/index';
 type Props = {}
 
 const Order = (props: Props) => {
-
   const [step, setStep] = useState(0);
 
-  // Конфиг формика
+  // Конфиг formik
   const formik = useFormik({
     initialValues: {
       car: '',
@@ -21,6 +20,7 @@ const Order = (props: Props) => {
       date: '',
     },
     onSubmit: (values) => {
+      // если не последний шаг, то вместо submit увеличивает step
       if (step < 2) {
         setStep((prev) => prev + 1);
       } else alert(JSON.stringify(values));
@@ -29,7 +29,7 @@ const Order = (props: Props) => {
 
   return (
     <OrderWrapper>
-      <FormSteps step={step} setStep={setStep}>
+      <FormSteps step={step} setStep={setStep} formik={formik}>
         <FormStepOne />
         <FormStepTwo />
         <FormStepThree />
