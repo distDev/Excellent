@@ -1,23 +1,12 @@
-import React, { FC } from 'react';
 import styled from 'styled-components/macro';
-interface Props {
-  placeholder?: string;
-  type: 'text' | 'date' | 'checkbox' | 'email' | 'number';
-}
 
 interface IInput {
   variant?: string;
 }
 
-const Input: FC<Props> = ({ children, type, placeholder, ...props }) => {
-  return (
-    <StyledInput type={type} placeholder={placeholder} {...props}>
-      {children}
-    </StyledInput>
-  );
-};
 
-export const StyledInput = styled.input<IInput>`
+
+export const Input = styled.input<IInput>`
   padding: 20px;
   width: 100%;
   border-radius: 10px;
@@ -45,4 +34,4 @@ export const StyledInput = styled.input<IInput>`
   }
 `;
 
-export default Input;
+

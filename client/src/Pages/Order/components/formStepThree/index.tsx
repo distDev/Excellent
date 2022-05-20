@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import OrderCards from '../../../../Components/orderCards';
 import TotalCheck from '../../../../Components/TotalCheck';
 import { Container } from '../../../../Components/uiComponents/container';
-import Input from '../../../../Components/uiComponents/input';
+import {Input} from '../../../../Components/uiComponents/input';
 import { Text } from '../../../../Components/uiComponents/text';
 import {
   FormCheckboxContainer,
@@ -10,9 +11,11 @@ import {
   FormSubmitButtom,
 } from '../styles';
 
-type Props = {};
+type Props = {
+  formik: any;
+};
 
-const FormStepThree = (props: Props) => {
+const FormStepThree: FC<Props> = ({ formik }) => {
   return (
     <>
       <Container>
@@ -36,7 +39,7 @@ const FormStepThree = (props: Props) => {
                 </label>
               </FormCheckboxItem>
             </FormCheckboxContainer>
-            <FormSubmitButtom>Записаться</FormSubmitButtom>
+            <FormSubmitButtom type='submit'>Записаться</FormSubmitButtom>
           </FormSubmit>
         </Container>
       </Container>

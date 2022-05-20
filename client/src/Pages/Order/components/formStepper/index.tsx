@@ -35,15 +35,15 @@ const FormStepper: FC<Props> = ({ step }) => {
       <FormStepperProgress>
         {StepperData.map((e, i) =>
           i < step ? (
-            <CompletedStep>
+            <CompletedStep key={e.name}>
               <RiCheckFill />
             </CompletedStep>
           ) : i === step ? (
-            <CurrentStep>
+            <CurrentStep key={e.name}>
               <div></div>
             </CurrentStep>
           ) : (
-            <FormStep />
+            <FormStep key={e.name} />
           )
         )}
       </FormStepperProgress>

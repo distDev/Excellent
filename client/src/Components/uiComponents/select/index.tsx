@@ -1,16 +1,13 @@
-import React, { FC } from 'react';
+
 import styled from 'styled-components/macro';
 
-interface Props {}
+
 interface ISelect {
   variant?: string;
 }
 
-const Select: FC<Props> = ({ children, ...props }) => {
-  return <StyledSelect {...props}>{children}</StyledSelect>;
-};
 
-export const StyledSelect = styled.select<ISelect>`
+export const Select = styled.select<ISelect>`
   @media screen and (max-width: 479px) {
     padding: 20px;
     width: 100%;
@@ -38,4 +35,4 @@ export const StyledSelect = styled.select<ISelect>`
   }
 `;
 
-export default Select;
+

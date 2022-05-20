@@ -1,5 +1,9 @@
 import styled from 'styled-components/macro';
 
+interface IProps {
+  variant?: 'active' | null;
+}
+
 export const OrderWrapper = styled.div`
   @media screen and (max-width: 479px) {
     width: 100%;
@@ -57,9 +61,16 @@ export const FormHoursBox = styled.div`
   }
 `;
 
-export const FormHour = styled.div`
+export const FormHour = styled.div<IProps>`
   @media screen and (max-width: 479px) {
-    background: ${({ theme: { background } }) => background.secondBg};
+    background: ${({ theme: { background }, variant }) =>
+      variant === 'active' ? background.white : background.secondBg};
+    color: ${({ theme: { colors }, variant }) =>
+      variant === 'active' ? colors.textMain : colors.textSecond};
+    box-shadow: ${({ theme: { colors }, variant }) =>
+      variant === 'active'
+        ? `0px 0px 0px 1px ${colors.border}`
+        : 'none'};
     text-align: center;
     padding: 20px 0px;
     border-radius: 10px;
@@ -95,7 +106,7 @@ export const FormCheckboxItem = styled.div`
   }
 `;
 
-export const FormSubmitButtom = styled.div`
+export const FormSubmitButtom = styled.button`
   @media screen and (max-width: 479px) {
     width: 100%;
     padding: 20px;
