@@ -91,7 +91,7 @@ const GarageModalContent = () => {
       setEditing(false);
     };
 
-    console.log(inputs);
+   
 
     return (
       <>

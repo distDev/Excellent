@@ -45,9 +45,6 @@ const Order = (props: Props) => {
     },
   });
 
-  console.log(formik.values);
-  console.log(hours);
-
   return (
     <OrderWrapper>
       <FormSteps step={step} setStep={setStep} formik={formik}>

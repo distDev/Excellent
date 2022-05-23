@@ -69,7 +69,7 @@ export const FormHour = styled.div<IProps>`
       variant === 'active' ? colors.textMain : colors.textSecond};
     box-shadow: ${({ theme: { colors }, variant }) =>
       variant === 'active'
-        ? `0px 0px 0px 1px ${colors.border}`
+        ? `0px 0px 0px 1px ${colors.green}`
         : 'none'};
     text-align: center;
     padding: 20px 0px;
