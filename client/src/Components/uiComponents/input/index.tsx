@@ -4,14 +4,15 @@ interface IInput {
   variant?: string;
 }
 
-
-
 export const Input = styled.input<IInput>`
   padding: 20px;
   width: 100%;
   border-radius: 10px;
+  border: none;
   background: ${({ theme, variant }) =>
     variant === 'complited'
+      ? theme.background.white
+      : variant === 'error'
       ? theme.background.white
       : theme.background.secondBg};
   color: ${({ theme: colors, variant }) =>
@@ -19,19 +20,22 @@ export const Input = styled.input<IInput>`
       ? colors.primary
       : variant === 'complited'
       ? colors.textMain
-      : colors.textSecond};
-  border: ${({ theme, variant }) =>
+      : colors.textSecond} !important;
+  box-shadow: ${({ theme: { colors }, variant }) =>
     variant === 'error'
-      ? theme.colors.primary
+      ? `0px 0px 0px 1px ${colors.primary}`
       : variant === 'complited'
-      ? theme.colors.border
+      ? `0px 0px 0px 1px ${colors.textSecond}`
       : 'none'};
   font-size: ${({ theme: { size } }) => size.text.normal};
   font-weight: 600;
 
   &::placeholder {
-    color: ${({ theme: {colors} }) => colors.textSecond};
+    color: ${({ theme: colors, variant }) =>
+      variant === 'error'
+        ? colors.primary
+        : variant === 'complited'
+        ? colors.textMain
+        : colors.textSecond};
   }
 `;
-
-

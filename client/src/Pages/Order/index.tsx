@@ -5,6 +5,7 @@ import FormStepOne from './components/formStepOne/index';
 import FormStepTwo from './components/formStepTwo/index';
 import FormStepThree from './components/formStepThree/index';
 import { useFormik } from 'formik';
+import { orderFormValidation } from '../../validationShemes/index';
 import axios from 'axios';
 
 type Props = {};
@@ -22,34 +23,30 @@ const Order = (props: Props) => {
       `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=Имя: ${formik.values.name}%0AНомер: ${formik.values.phone}%0AДень: ${formik.values.date}%0AЧас: ${formik.values.time}%0AМарка: ${formik.values.brand}%0AМодель: ${formik.values.model}%0AУслуги: ${formik.values.services}; `
     );
   };
+
   // Конфиг formik
   const formik = useFormik({
     initialValues: {
       brand: '',
       model: '',
-      phone: '',
-      name: '',
+      phone: '89258764788',
+      name: 'Иван',
       date: '',
       time: hours,
       services: 'Замена масла, Ремонт ходовой, Диагностика двигателя', //тестовые данные
     },
+    validationSchema: orderFormValidation,
     onSubmit: (values) => {
-      // если не последний шаг, то увеличивает step
-      if (step < 2) {
-        setStep((prev) => prev + 1);
-      }
-      // если шаг последний, то срабатывает submit
-      else if (step === 2) {
-        tgMessage();
-      }
+      tgMessage();
     },
   });
 
+ 
   return (
     <OrderWrapper>
       <FormSteps step={step} setStep={setStep} formik={formik}>
-        <FormStepOne formik={formik} />
-        <FormStepTwo formik={formik} setHours={setHours} />
+        <FormStepOne formik={formik} setStep={setStep} />
+        <FormStepTwo formik={formik} setHours={setHours} setStep={setStep} />
         <FormStepThree formik={formik} />
       </FormSteps>
     </OrderWrapper>

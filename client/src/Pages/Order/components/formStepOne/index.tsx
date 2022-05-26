@@ -6,11 +6,21 @@ import FormAuthUser from './authUser/index';
 
 type Props = {
   formik: any;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const FormStepOne: FC<Props> = ({ formik }) => {
+const FormStepOne: FC<Props> = ({ formik, setStep }) => {
   const [addCar, setAddCar] = useState(false);
   const auth = true;
+
+  // Проверка полей формы на валидность для дальнейшего шага
+  const checkValid =
+    !formik.errors.phone &&
+    String(formik.values.phone).length > 0 &&
+    !formik.errors.name &&
+    formik.values.name.length > 0 &&
+    formik.values.brand.length > 0 &&
+    formik.values.model.length > 0;
 
   return (
     <Container>
@@ -22,7 +32,14 @@ const FormStepOne: FC<Props> = ({ formik }) => {
             Добавить автомобиль
           </FormAddCarButton>
         )}
-        <FormButton type='submit'>Далее</FormButton>
+        <FormButton
+          disabled={checkValid ? false : true}
+          type='button'
+          onClick={() => setStep((s) => s + 1)}
+          variant={checkValid ? 'successfully' : null}
+        >
+          Далее
+        </FormButton>
       </FormButtons>
     </Container>
   );

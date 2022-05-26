@@ -13,12 +13,7 @@ const FormNormalUser: FC<Props> = ({ formik }) => {
     <>
       <FormItem>
         <Text color='textSecond'>Выберите автомобиль</Text>
-        <CarSelects
-          brandValue={formik.values.brand}
-          brandChange={formik.handleChange}
-          modeldValue={formik.values.model}
-          modelChange={formik.handleChange}
-        />
+        <CarSelects formik={formik} />
       </FormItem>
       <FormItem>
         <Text color='textSecond'>Данные для связи</Text>
@@ -26,16 +21,34 @@ const FormNormalUser: FC<Props> = ({ formik }) => {
           type='text'
           placeholder='Имя'
           name='name'
-          value={formik.values.name}
-          onChange={formik.handleChange}
+          variant={
+            formik.touched.name && formik.errors.name
+              ? 'error'
+              : formik.touched.name && !formik.errors.name
+              ? 'complited'
+              : null
+          }
+          {...formik.getFieldProps('name')}
         />
+        {formik.touched.name && formik.errors.name && (
+          <Text color='primary'>{formik.errors.name}</Text>
+        )}
         <Input
           type='number'
           placeholder='Телефон'
           name='phone'
-          value={formik.values.phone}
-          onChange={formik.handleChange}
+          {...formik.getFieldProps('phone')}
+          variant={
+            formik.touched.phone && formik.errors.phone
+              ? 'error'
+              : formik.touched.phone && !formik.errors.phone
+              ? 'complited'
+              : null
+          }
         />
+        {formik.touched.phone && formik.errors.phone && (
+          <Text color='primary'>{formik.errors.phone}</Text>
+        )}
       </FormItem>
     </>
   );

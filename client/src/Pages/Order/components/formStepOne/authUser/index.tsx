@@ -34,6 +34,8 @@ const FormAuthUser: FC<Props> = ({ addCar, formik }) => {
     formik.setFieldValue('model', model);
   };
 
+  console.log(formik.values)
+
   return (
     <>
       {addCar ? (
@@ -41,10 +43,7 @@ const FormAuthUser: FC<Props> = ({ addCar, formik }) => {
           <FormItem>
             <Text color='textSecond'>Выберите автомобиль</Text>
             <CarSelects
-              brandValue={formik.values.brand}
-              brandChange={formik.handleChange}
-              modeldValue={formik.values.model}
-              modelChange={formik.handleChange}
+              formik={formik}
             />
           </FormItem>
         </>

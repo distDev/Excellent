@@ -14,30 +14,39 @@ import { hoursData } from '../../utils/formData';
 type Props = {
   formik: any;
   setHours: React.Dispatch<React.SetStateAction<string>>;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const FormStepTwo: FC<Props> = ({ formik, setHours }) => {
+const FormStepTwo: FC<Props> = ({ formik, setHours, setStep }) => {
   const [selectedHour, setSelectedHour] = useState('');
 
   // выбранное время
   const handleSelect = (id: string, hour: string): void => {
-    if (hoursData.filter((e) => e.id === id)) {
-      setSelectedHour(id);
-      formik.setFieldValue('time', hour);
-    }
-    return;
+    setSelectedHour(id);
+    formik.setFieldValue('time', hour);
   };
+
+  // проверка валидности формы для дальнейшего шага
+  const checkValid =
+    formik.values.name.length > 0 &&
+    formik.values.time.length > 0 &&
+    formik.isValid;
 
   return (
     <Container>
       <FormItem>
         <Text color='textSecond'>Выберите день</Text>
         <Input
-          placeholder='Имя'
           type='date'
           name='date'
-          value={formik.values.date}
-          onChange={formik.handleChange}
+          {...formik.getFieldProps('date')}
+          variant={
+            formik.touched.date && formik.errors.date
+              ? 'error'
+              : formik.touched.date && !formik.errors.date
+              ? 'complited'
+              : null
+          }
         />
       </FormItem>
       <FormItem>
@@ -57,7 +66,14 @@ const FormStepTwo: FC<Props> = ({ formik, setHours }) => {
         </FormHoursBox>
       </FormItem>
       <FormButtons>
-        <FormButton type='submit'>Далее</FormButton>
+        <FormButton
+          type='button'
+          disabled={checkValid ? false : true}
+          onClick={() => setStep((s) => s + 1)}
+          variant={checkValid ? 'successfully' : null}
+        >
+          Далее
+        </FormButton>
       </FormButtons>
     </Container>
   );

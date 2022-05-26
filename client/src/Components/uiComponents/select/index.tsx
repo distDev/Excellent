@@ -12,16 +12,17 @@ export const Select = styled.select<ISelect>`
     padding: 20px;
     width: 100%;
     border-radius: 10px;
+    border: none;
     background: ${({ theme, variant }) =>
       variant === 'complited'
         ? theme.background.white
         : theme.background.secondBg};
-    border: ${({ theme, variant }) =>
-      variant === 'error'
-        ? theme.colors.primary
-        : variant === 'complited'
-        ? theme.colors.border
-        : 'none'};
+    box-shadow: ${({ theme: { colors }, variant }) =>
+    variant === 'error'
+      ? `0px 0px 0px 1px ${colors.primary}`
+      : variant === 'complited'
+      ? `0px 0px 0px 1px ${colors.textSecond}`
+      : 'none'};
     color: ${({ theme, variant }) =>
       variant === 'error'
         ? theme.colors.primary

@@ -17,6 +17,6 @@ export const FormUserCarContainer = styled.div<IProps>`
     color: ${({ theme: { colors }, variant }) =>
       variant === 'active' ? colors.textMain : colors.textSecond};
     box-shadow: ${({ theme: { colors }, variant }) =>
-      variant === 'active' ? `0px 0px 0px 1px ${colors.green}` : 'none'};
+      variant === 'active' ? `0px 0px 0px 1px ${colors.textSecond}` : 'none'};
   }
 `;

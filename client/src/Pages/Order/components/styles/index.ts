@@ -4,6 +4,10 @@ interface IProps {
   variant?: 'active' | null;
 }
 
+interface IButton {
+  variant?: 'successfully' | null;
+}
+
 export const OrderWrapper = styled.div`
   @media screen and (max-width: 479px) {
     width: 100%;
@@ -32,14 +36,15 @@ export const FormButtons = styled.div`
   }
 `;
 
-export const FormButton = styled.button`
+export const FormButton = styled.button<IButton>`
   @media screen and (max-width: 479px) {
     width: 100%;
     padding: 20px;
     border-radius: 10px;
     border: none;
     font-size: ${({ theme: { size } }) => size.text.normal};
-    background: ${({ theme: { colors } }) => colors.textMain};
+    background: ${({ theme: { colors }, variant }) =>
+      variant === 'successfully' ? colors.primary : colors.textMain};
     color: ${({ theme: { colors } }) => colors.white};
     font-weight: 500;
   }
@@ -68,9 +73,7 @@ export const FormHour = styled.div<IProps>`
     color: ${({ theme: { colors }, variant }) =>
       variant === 'active' ? colors.textMain : colors.textSecond};
     box-shadow: ${({ theme: { colors }, variant }) =>
-      variant === 'active'
-        ? `0px 0px 0px 1px ${colors.green}`
-        : 'none'};
+      variant === 'active' ? `0px 0px 0px 1px ${colors.textSecond}` : 'none'};
     text-align: center;
     padding: 20px 0px;
     border-radius: 10px;
