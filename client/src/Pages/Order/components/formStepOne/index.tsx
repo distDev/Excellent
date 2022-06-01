@@ -13,7 +13,7 @@ const FormStepOne: FC<Props> = ({ formik, setStep }) => {
   const [addCar, setAddCar] = useState(false);
   const auth = true;
 
-  // Проверка полей формы на валидность для дальнейшего шага
+  // Проверка полей формы на валидность
   const checkValid =
     !formik.errors.phone &&
     String(formik.values.phone).length > 0 &&
