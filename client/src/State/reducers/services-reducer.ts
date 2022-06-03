@@ -1,3 +1,4 @@
+import { Dispatch } from 'react';
 import { ActionType } from '../action-type';
 import { Action } from '../actions/index';
 
@@ -25,3 +26,5 @@ export const servcieReducer = (
       return state;
   }
 };
+
+

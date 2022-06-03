@@ -5,6 +5,7 @@ import reducers from './reducers';
 import {
   useSelector as useReduxSelector,
   TypedUseSelectorHook,
+  useDispatch,
 } from 'react-redux';
 
 export const store = createStore(
@@ -13,7 +14,10 @@ export const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-let storeState = store.getState();
+export let storeState = store.getState();
 
 export const useAppSelector: TypedUseSelectorHook<typeof storeState> =
   useReduxSelector;
+
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();

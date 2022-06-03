@@ -1,8 +1,13 @@
 import { ActionType } from "../action-type";
 
-interface IGetServices {
+export interface IGetServices {
     type: ActionType.GET_SERVICES,
     payload: any;
+}
+
+export interface IAddToCart {
+  type: ActionType.GET_SERVICES;
+  payload: string;
 }
 
 

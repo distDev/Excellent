@@ -1,11 +1,16 @@
-import { Dispatch } from 'redux';
 import { ActionType } from '../action-type';
 
-const getServicesData = (data: any) => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.GET_SERVICES,
-      payload: data,
-    });
+
+export const getServicesData = (data: any) => {
+  return {
+    type: ActionType.GET_SERVICES,
+    payload: data,
+  };
+};
+
+export const addServiceToCart = (id: string) => {
+  return {
+    type: ActionType.GET_SERVICES,
+    payload: id,
   };
 };

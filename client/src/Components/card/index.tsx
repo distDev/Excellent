@@ -1,3 +1,4 @@
+import { IService } from '../../Types/serviceInterface';
 import {
   CardButton,
   CardContainer,
@@ -7,17 +8,18 @@ import {
   CardTitle,
 } from './styles/card';
 
-type Props = {};
+const Card = ({ name, price, img, id }: IService) => {
 
-const Card = (props: Props) => {
+  
+
   return (
     <CardContainer>
       <CardImage>
-        <img src='/dvig.png' alt='' />
+        <img src={img} alt='' />
       </CardImage>
       <CardContent>
-        <CardTitle>Замена амортизатора подвески (за 1 ось)</CardTitle>
-        <CardPrice>1000 ₽</CardPrice>
+        <CardTitle>{name.slice(0, 30)}</CardTitle>
+        <CardPrice>{price}</CardPrice>
       </CardContent>
       <CardButton>В корзину</CardButton>
     </CardContainer>
