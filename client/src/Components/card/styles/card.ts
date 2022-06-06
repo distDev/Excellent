@@ -1,5 +1,9 @@
 import styled from 'styled-components/macro';
 
+interface IButton {
+  variant?: 'inTheCart' | null;
+}
+
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,14 +80,19 @@ export const CardPrice = styled.h4`
   color: ${({ theme: { colors } }) => colors.textSecond};
 `;
 
-export const CardButton = styled.button`
+export const CardButton = styled.button<IButton>`
   width: 100%;
   margin-top: 15px;
   border: none;
   padding: 10px;
   border-radius: 10px;
-  background: ${({ theme: { background } }) => background.mainBg};
+  color: ${({ theme: { colors }, variant }) =>
+    variant === 'inTheCart' ? colors.white : colors.textMain};
+  background: ${({ theme: { background }, variant }) =>
+    variant === 'inTheCart' ? background.primary : background.mainBg};
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+ 
+  cursor: pointer;
 
   @media screen and (max-width: 479px) {
     width: 100%;
@@ -91,7 +100,12 @@ export const CardButton = styled.button`
     border: none;
     padding: 10px;
     border-radius: 10px;
-    background: ${({ theme: { background } }) => background.mainBg};
+    background: ${({ theme: { background }, variant }) =>
+      variant === 'inTheCart' ? background.primary : background.mainBg};
+    color: ${({ theme: { colors }, variant }) =>
+      variant === 'inTheCart' ? colors.white : colors.textMain};
+    
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
   }
 `;

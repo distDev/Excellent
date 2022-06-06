@@ -11,7 +11,7 @@ type Props = {
 
 const FormStepOne: FC<Props> = ({ formik, setStep }) => {
   const [addCar, setAddCar] = useState(false);
-  const auth = true;
+  const auth = false;
 
   // Проверка полей формы на валидность
   const checkValid =

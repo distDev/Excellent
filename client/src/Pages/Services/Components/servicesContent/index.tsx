@@ -4,21 +4,22 @@ import { ServicesContentContainer } from './styles/servicesContent';
 import { db } from '../../../../Firebase/firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
 import { useAppDispatch, useAppSelector } from '../../../../State/store';
+import { getServicesData } from '../../../../State/action-creators';
+import { useDispatch } from 'react-redux';
 
 export const ServicesContent = () => {
   const servicesData = useAppSelector((state) => state.services.services);
-  const [services, setServices] = useState<any[]>(servicesData);
   const servicesCollectionRef = collection(db, 'services');
-
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
 
   // Получение подкатегорий из массива
   const servicesSubcategories = [
-    ...new Set(services?.map((e) => e.subcategory)),
+    ...new Set(servicesData?.map((e: any) => e.subcategory)),
   ];
 
   // получение массива с услугами
   useEffect(() => {
+    // переписать на thunk
     const fetchData = async () => {
       const servicesCollectionRef = collection(db, 'services');
       const data = await getDocs(servicesCollectionRef);
@@ -26,7 +27,7 @@ export const ServicesContent = () => {
         ...doc.data(),
         id: doc.id,
       }));
-      setServices(filteredData);
+      dispatch(getServicesData(filteredData));
     };
 
     fetchData();
@@ -34,8 +35,8 @@ export const ServicesContent = () => {
 
   return (
     <ServicesContentContainer>
-      {servicesSubcategories?.map((e) => (
-        <ServicesCards title={e} key={e} data={services!} />
+      {servicesSubcategories.map((e: any) => (
+        <ServicesCards title={e} key={e} data={servicesData} />
       ))}
     </ServicesContentContainer>
   );

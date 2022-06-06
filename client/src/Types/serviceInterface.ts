@@ -11,7 +11,10 @@ export interface IService {
   subcategory?: string;
   category?: string;
   name: string;
-  price: string;
-  id?: string;
+  price: string | number;
+  id: string;
 }
 
+export interface ICartData {
+  id: string;
+}

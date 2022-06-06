@@ -14,7 +14,7 @@ export const Title = styled.h2<IText>`
         ? size.small
         : size.normal};
 
-    color: ${({ theme: colors, color }) =>
+    color: ${({ theme: {colors}, color }) =>
       color === 'green'
         ? colors.green
         : color === 'primary'

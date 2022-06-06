@@ -5,8 +5,6 @@ import MobileTab from '../../Components/mobileTab';
 import { profileTabs } from './utils/data';
 import Navbar from '../../Components/navbar/Navbar';
 
-
-
 type Props = {};
 
 const Profile: FC = (props: Props) => {
@@ -40,7 +38,6 @@ const Profile: FC = (props: Props) => {
         subtitle='Выйти из профиля'
         variant='col'
       />
-      
     </Container>
   );
 };

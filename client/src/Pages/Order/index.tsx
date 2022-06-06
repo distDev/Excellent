@@ -7,12 +7,16 @@ import FormStepThree from './components/formStepThree/index';
 import { useFormik } from 'formik';
 import { orderFormValidation } from '../../validationShemes/index';
 import axios from 'axios';
+import { useAppSelector } from '../../State/store';
 
 type Props = {};
 
 const Order = (props: Props) => {
   const [step, setStep] = useState(0);
   const [hours, setHours] = useState('');
+  const cartData = useAppSelector((state) => state.cart);
+  const servicesData = cartData.map((e) => e.name).join(', ');
+  console.log(servicesData);
 
   const token = '5170530941:AAGAyPvDQrlp29nrfiSbBZMlSMiW-CQTRao';
   const chatId = '-1001729364284';
@@ -29,11 +33,11 @@ const Order = (props: Props) => {
     initialValues: {
       brand: '',
       model: '',
-      phone: '89258764788',
-      name: 'Иван',
+      phone: '',
+      name: '',
       date: '',
       time: hours,
-      services: 'Замена масла, Ремонт ходовой, Диагностика двигателя', //тестовые данные
+      services: servicesData,
     },
     validationSchema: orderFormValidation,
     onSubmit: (values) => {
@@ -41,7 +45,6 @@ const Order = (props: Props) => {
     },
   });
 
- 
   return (
     <OrderWrapper>
       <FormSteps step={step} setStep={setStep} formik={formik}>

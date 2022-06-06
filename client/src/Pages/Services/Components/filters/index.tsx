@@ -12,6 +12,7 @@ import {
   ModalSelect,
 } from '../../../../Components/modal/styles/modal';
 import { filtersData } from './utils/filterData';
+import { Select } from '../../../../Components/uiComponents/select';
 
 type Props = {};
 
@@ -63,12 +64,8 @@ const Filters = (props: Props) => {
       </FiltersContainer>
       <ModalSmall show={show} setShow={setShow}>
         <ModalForm onSubmit={() => console.log('Submitted')}>
-          <ModalSelect onChange={handleCategoryChange}>
-            {categories}
-          </ModalSelect>
-          <ModalSelect onChange={handleSubcategoryChange}>
-            {subcategories}
-          </ModalSelect>
+          <Select onChange={handleCategoryChange}>{categories}</Select>
+          <Select onChange={handleSubcategoryChange}>{subcategories}</Select>
           <ModalFixButton type='submit'>Применить</ModalFixButton>
         </ModalForm>
       </ModalSmall>

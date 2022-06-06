@@ -2,7 +2,7 @@ import { FC } from 'react';
 import OrderCards from '../../../../Components/orderCards';
 import TotalCheck from '../../../../Components/TotalCheck';
 import { Container } from '../../../../Components/uiComponents/container';
-import {Input} from '../../../../Components/uiComponents/input';
+import { Input } from '../../../../Components/uiComponents/input';
 import { Text } from '../../../../Components/uiComponents/text';
 import {
   FormCheckboxContainer,

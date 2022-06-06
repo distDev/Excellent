@@ -1,5 +1,9 @@
 import { FC } from 'react';
 import { RiCloseFill } from 'react-icons/ri';
+import { useDispatch } from 'react-redux';
+import { removeServiceFromCart } from '../../State/action-creators';
+import { useAppSelector } from '../../State/store';
+import { ICartData, IService } from '../../Types/serviceInterface';
 import {
   CardOrderContainer,
   CardOrderDelete,
@@ -9,31 +13,33 @@ import {
 } from './styles/cardOrder';
 
 type Props = {
-  img: string;
-  name: string;
-  price: string;
-  id: string;
-  handleDeleteCard: (id: string) => void;
   del?: boolean;
 };
 
-const CardOrder: FC<Props> = ({
+const CardOrder: FC<IService & Props> = ({
   img,
   name,
   price,
-  handleDeleteCard,
   id,
   del = true,
 }) => {
+  const cartData: ICartData[] = useAppSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  // удаление из корзины
+  const removeService = (id: string) => {
+    dispatch(removeServiceFromCart(id));
+  };
+
   return (
     <CardOrderContainer>
       <CardOrderMedia>
         <img src={img} alt='img' />
       </CardOrderMedia>
       <CardOrderTitle>{name}</CardOrderTitle>
-      <CardOrderPrice>{price}</CardOrderPrice>
+      <CardOrderPrice>{price} ₽</CardOrderPrice>
       {del ? (
-        <CardOrderDelete onClick={() => handleDeleteCard(id)}>
+        <CardOrderDelete onClick={() => removeService(id)}>
           <RiCloseFill />
         </CardOrderDelete>
       ) : null}
