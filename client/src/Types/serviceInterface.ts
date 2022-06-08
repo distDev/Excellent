@@ -1,3 +1,5 @@
+import {storeState} from '../State/store';
+
 export interface IServices {
   title: string;
   img: string;
@@ -18,3 +20,5 @@ export interface IService {
 export interface ICartData {
   id: string;
 }
+
+export type IRootState = typeof storeState;

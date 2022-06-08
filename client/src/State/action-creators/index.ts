@@ -1,4 +1,7 @@
+import { Dispatch } from 'redux';
+import { IRootState, IService } from '../../Types/serviceInterface';
 import { ActionType } from '../action-type';
+import { Action } from '../actions';
 
 export const getServicesData = (data: any) => {
   return {
@@ -28,5 +31,22 @@ export const removeServiceFromCart = (id: string) => {
   return {
     type: ActionType.REMOVE_FROM_CART,
     payload: id,
+  };
+};
+
+export const getfilteringServices = (data: any) => {
+  return {
+    type: ActionType.FILTERING_SERVICES,
+    payload: data,
+  };
+};
+
+export const filterFirvices = (category: string, subcategory: string) => {
+  return (dispatch: Dispatch<Action>, getState: IRootState) => {
+    let result = getState.services;
+    result = result.services.map((e: any) => e.category === category);
+    result = result.services.map((e: any) => e.subcategory === subcategory);
+
+    dispatch(getfilteringServices(result));
   };
 };

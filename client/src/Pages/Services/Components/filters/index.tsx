@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FiltersContainer,
   FiltersOptions,
@@ -13,15 +13,31 @@ import {
 } from '../../../../Components/modal/styles/modal';
 import { filtersData } from './utils/filterData';
 import { Select } from '../../../../Components/uiComponents/select';
+import { IService } from '../../../../Types/serviceInterface';
+import { useAppSelector } from '../../../../State/store';
+import { useDispatch } from 'react-redux';
+import { getfilteringServices } from '../../../../State/action-creators';
 
 type Props = {};
 
 const Filters = (props: Props) => {
+  const initialData = useAppSelector((state) => state.services.services);
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [{ category, subcategory }, setData] = useState({
     category: 'Автосервис',
     subcategory: '',
   });
+
+  // фильтрация по категориям
+  const handleCategoriesFilter = (array: any) => {
+    return array.filter((item: any) => item.category === category);
+  };
+
+  // фильтрация по подкатегории
+  const handleSubcatFilter = (array: any) => {
+    return array.filter((item: any) => item.subcategory === subcategory);
+  };
 
   //  получение категорий
   const categories = filtersData.map((cat) => (
@@ -54,6 +70,15 @@ const Filters = (props: Props) => {
   const handleShow = () => {
     setShow((prev) => !prev);
   };
+
+  useEffect(() => {
+    let result =  initialData;
+    result = handleCategoriesFilter(result);
+    result = handleSubcatFilter(result);
+
+    dispatch(getfilteringServices(result));
+  }, [category, subcategory]);
+
   return (
     <>
       <FiltersContainer>

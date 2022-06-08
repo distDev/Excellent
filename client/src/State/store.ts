@@ -7,11 +7,23 @@ import {
   TypedUseSelectorHook,
   useDispatch,
 } from 'react-redux';
+import { loadState, saveState } from '../Utils/localStorage';
+import throttle from 'lodash/throttle';
+
+const persistedState = loadState();
 
 export const store = createStore(
   reducers,
-  {},
+  persistedState,
   composeWithDevTools(applyMiddleware(thunk))
+);
+
+store.subscribe(
+  throttle(() => {
+    saveState({
+      cart: store.getState().cart,
+    });
+  }, 1000)
 );
 
 export let storeState = store.getState();

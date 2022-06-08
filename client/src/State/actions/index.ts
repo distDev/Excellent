@@ -1,3 +1,4 @@
+import { IService } from '../../Types/serviceInterface';
 import { ActionType } from '../action-type';
 
 export interface IGetServices {
@@ -20,4 +21,9 @@ export interface IRemoveFromCart {
   payload: string;
 }
 
-export type Action = IGetServices | IAddToCart | IRemoveFromCart;
+export interface IFilteringServices {
+  type: ActionType.FILTERING_SERVICES;
+  payload: any;
+}
+
+export type Action = IGetServices | IAddToCart | IRemoveFromCart | IFilteringServices;
