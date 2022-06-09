@@ -1,6 +1,6 @@
-import { applyMiddleware, createStore } from 'redux';
+import { AnyAction, applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
+import thunk, { ThunkDispatch } from 'redux-thunk';
 import reducers from './reducers';
 import {
   useSelector as useReduxSelector,
@@ -9,6 +9,7 @@ import {
 } from 'react-redux';
 import { loadState, saveState } from '../Utils/localStorage';
 import throttle from 'lodash/throttle';
+import { IRootState } from '../Types/serviceInterface';
 
 const persistedState = loadState();
 
@@ -26,10 +27,11 @@ store.subscribe(
   }, 1000)
 );
 
-export let storeState = store.getState();
-
-export const useAppSelector: TypedUseSelectorHook<typeof storeState> =
+export const useAppSelector: TypedUseSelectorHook<IRootState> =
   useReduxSelector;
 
+export const storeState = store.getState();
+
 export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppDispatch = () =>
+  useDispatch<ThunkDispatch<IRootState, unknown, AnyAction>>();

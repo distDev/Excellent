@@ -18,13 +18,10 @@ const Order = (props: Props) => {
   const servicesData = cartData.map((e) => e.name).join(', ');
   console.log(servicesData);
 
-  const token = '5170530941:AAGAyPvDQrlp29nrfiSbBZMlSMiW-CQTRao';
-  const chatId = '-1001729364284';
-
   // отправка заявки в телеграм, тестовый бот
   const tgMessage = async () => {
     const data = await axios.post(
-      `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=Имя: ${formik.values.name}%0AНомер: ${formik.values.phone}%0AДень: ${formik.values.date}%0AЧас: ${formik.values.time}%0AМарка: ${formik.values.brand}%0AМодель: ${formik.values.model}%0AУслуги: ${formik.values.services}; `
+      `https://api.telegram.org/bot${process.env.REACT_APP_TELEGRAM_API_TOKEN}/sendMessage?chat_id=${process.env.REACT_APP_TELEGRAM_CHAT_ID}&text=Имя: ${formik.values.name}%0AНомер: ${formik.values.phone}%0AДень: ${formik.values.date}%0AЧас: ${formik.values.time}%0AМарка: ${formik.values.brand}%0AМодель: ${formik.values.model}%0AУслуги: ${formik.values.services}; `
     );
   };
 

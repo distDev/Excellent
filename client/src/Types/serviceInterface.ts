@@ -1,11 +1,4 @@
-import {storeState} from '../State/store';
-
-export interface IServices {
-  title: string;
-  img: string;
-  price: string;
-  id: string;
-}
+import { storeState } from "../State/store";
 
 export interface IService {
   img: string;
@@ -21,4 +14,26 @@ export interface ICartData {
   id: string;
 }
 
-export type IRootState = typeof storeState;
+export interface IActiveFilters {
+  category: string;
+  subcategory: string;
+}
+
+export interface IRootState {
+  services:
+    | {
+        services: any;
+        filteredServices: IService[];
+      }
+    | {
+        filteredServices: any;
+        services: IService[];
+      };
+  cart: IService[];
+  filters: {
+    category: string;
+    subcategory: string;
+  };
+}
+
+export type TRootState = typeof storeState;

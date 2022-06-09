@@ -1,5 +1,6 @@
+import { collection, getDocs } from 'firebase/firestore';
 import { Dispatch } from 'redux';
-import { IRootState, IService } from '../../Types/serviceInterface';
+import { db } from '../../Firebase/firebase-config';
 import { ActionType } from '../action-type';
 import { Action } from '../actions';
 
@@ -10,6 +11,7 @@ export const getServicesData = (data: any) => {
   };
 };
 
+// добавление в корзину
 export const addServiceToCart = (
   id: string,
   price: string | number,
@@ -27,6 +29,7 @@ export const addServiceToCart = (
   };
 };
 
+// удаление из корзины
 export const removeServiceFromCart = (id: string) => {
   return {
     type: ActionType.REMOVE_FROM_CART,
@@ -34,19 +37,38 @@ export const removeServiceFromCart = (id: string) => {
   };
 };
 
-export const getfilteringServices = (data: any) => {
+// получение выбранных фильтров для фильтрации массива услуг
+export const getfilteringServices = (category: string, subcategory: string) => {
   return {
     type: ActionType.FILTERING_SERVICES,
-    payload: data,
+    payload: {
+      category,
+      subcategory,
+    },
   };
 };
 
-export const filterFirvices = (category: string, subcategory: string) => {
-  return (dispatch: Dispatch<Action>, getState: IRootState) => {
-    let result = getState.services;
-    result = result.services.map((e: any) => e.category === category);
-    result = result.services.map((e: any) => e.subcategory === subcategory);
+// добавление в store выбранных фильтров
+export const activeFilters = (category: string, subcategory: string) => {
+  return {
+    type: ActionType.USE_FILTERS,
+    payload: {
+      category,
+      subcategory,
+    },
+  };
+};
 
-    dispatch(getfilteringServices(result));
+// получение услуг из firebase
+export const fetchServices = () => {
+  return async (dispatch: Dispatch<Action>) => {
+    const servicesCollectionRef = collection(db, 'services');
+    const data = await getDocs(servicesCollectionRef);
+    const filteredData = data?.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+
+    dispatch(getServicesData(filteredData));
   };
 };

@@ -9,35 +9,24 @@ import ModalSmall from '../../../../Components/modalSmall/index';
 import {
   ModalFixButton,
   ModalForm,
-  ModalSelect,
 } from '../../../../Components/modal/styles/modal';
 import { filtersData } from './utils/filterData';
 import { Select } from '../../../../Components/uiComponents/select';
-import { IService } from '../../../../Types/serviceInterface';
-import { useAppSelector } from '../../../../State/store';
-import { useDispatch } from 'react-redux';
-import { getfilteringServices } from '../../../../State/action-creators';
+import { useAppDispatch, useAppSelector } from '../../../../State/store';
+import { activeFilters } from '../../../../State/action-creators';
 
-type Props = {};
 
-const Filters = (props: Props) => {
+
+
+
+const Filters = () => {
   const initialData = useAppSelector((state) => state.services.services);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
   const [{ category, subcategory }, setData] = useState({
     category: 'Автосервис',
-    subcategory: '',
+    subcategory: 'Ходовая часть',
   });
-
-  // фильтрация по категориям
-  const handleCategoriesFilter = (array: any) => {
-    return array.filter((item: any) => item.category === category);
-  };
-
-  // фильтрация по подкатегории
-  const handleSubcatFilter = (array: any) => {
-    return array.filter((item: any) => item.subcategory === subcategory);
-  };
 
   //  получение категорий
   const categories = filtersData.map((cat) => (
@@ -67,16 +56,14 @@ const Filters = (props: Props) => {
     setData((data) => ({ ...data, subcategory: event.target.value }));
   }
 
+  // закрытие модального окна
   const handleShow = () => {
     setShow((prev) => !prev);
   };
 
+  // отправка выбранных фильтров в store
   useEffect(() => {
-    let result =  initialData;
-    result = handleCategoriesFilter(result);
-    result = handleSubcatFilter(result);
-
-    dispatch(getfilteringServices(result));
+    dispatch(activeFilters(category, subcategory));
   }, [category, subcategory]);
 
   return (

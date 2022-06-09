@@ -16,6 +16,14 @@ export interface IAddToCart {
   };
 }
 
+export interface IUseFilters {
+  type: ActionType.USE_FILTERS;
+  payload: {
+    category: string;
+    subcategory: string;
+  };
+}
+
 export interface IRemoveFromCart {
   type: ActionType.REMOVE_FROM_CART;
   payload: string;
@@ -26,4 +34,9 @@ export interface IFilteringServices {
   payload: any;
 }
 
-export type Action = IGetServices | IAddToCart | IRemoveFromCart | IFilteringServices;
+export type Action =
+  | IGetServices
+  | IAddToCart
+  | IRemoveFromCart
+  | IFilteringServices
+  | IUseFilters;

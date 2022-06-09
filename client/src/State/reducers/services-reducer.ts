@@ -5,13 +5,11 @@ import { Action } from '../actions/index';
 const initialState: IState = {
   services: [],
   filteredServices: [],
-  loading: false,
 };
 
 interface IState {
-  services: IService[];
   filteredServices: IService[];
-  loading: boolean;
+  services: IService[];
 }
 
 export const servcieReducer = (
@@ -27,7 +25,17 @@ export const servcieReducer = (
     case ActionType.FILTERING_SERVICES:
       return {
         ...state,
-        filteredServices: action.payload,
+        filteredServices:
+          state.services.filter((e) =>
+            e.subcategory === 'Все подкатегории'
+              ? e
+              : e.subcategory === action.payload.subcategory
+          ) ||
+          state.services.filter((e) =>
+            e.category === 'Все категории'
+              ? e
+              : e.category === action.payload.category
+          ),
       };
     default:
       return state;

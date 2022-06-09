@@ -1,16 +1,11 @@
+import { IService } from '../../Types/serviceInterface';
 import { ActionType } from '../action-type';
 import { Action } from '../actions/index';
 
-const cartState: IState[] | [] = [];
+const cartState: IService[] | [] = [];
 
-interface IState {
-  id: string;
-  price: string | number;
-  img: string;
-  name: string;
-}
 
-export const cartReducer = (state: IState[] = cartState, action: Action) => {
+export const cartReducer = (state: IService[] = cartState, action: Action) => {
   switch (action.type) {
     case ActionType.ADD_TO_CART:
       return [
