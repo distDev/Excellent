@@ -22,20 +22,11 @@ export const servcieReducer = (
         ...state,
         services: action.payload,
       };
+
     case ActionType.FILTERING_SERVICES:
       return {
         ...state,
-        filteredServices:
-          state.services.filter((e) =>
-            e.subcategory === 'Все подкатегории'
-              ? e
-              : e.subcategory === action.payload.subcategory
-          ) ||
-          state.services.filter((e) =>
-            e.category === 'Все категории'
-              ? e
-              : e.category === action.payload.category
-          ),
+        filteredServices: action.payload,
       };
     default:
       return state;

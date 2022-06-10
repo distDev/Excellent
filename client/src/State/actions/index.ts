@@ -34,9 +34,11 @@ export interface IFilteringServices {
   payload: any;
 }
 
+
 export type Action =
   | IGetServices
   | IAddToCart
   | IRemoveFromCart
   | IFilteringServices
-  | IUseFilters;
+  | IUseFilters
+  ;

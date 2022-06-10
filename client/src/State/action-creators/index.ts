@@ -37,14 +37,11 @@ export const removeServiceFromCart = (id: string) => {
   };
 };
 
-// получение выбранных фильтров для фильтрации массива услуг
-export const getfilteringServices = (category: string, subcategory: string) => {
+// фильтрованные услуги
+export const filteredServicesData = (data: any) => {
   return {
     type: ActionType.FILTERING_SERVICES,
-    payload: {
-      category,
-      subcategory,
-    },
+    payload: data,
   };
 };
 
@@ -60,15 +57,27 @@ export const activeFilters = (category: string, subcategory: string) => {
 };
 
 // получение услуг из firebase
-export const fetchServices = () => {
+export const fetchServices = (category: string, subcategory: string) => {
   return async (dispatch: Dispatch<Action>) => {
     const servicesCollectionRef = collection(db, 'services');
     const data = await getDocs(servicesCollectionRef);
-    const filteredData = data?.docs.map((doc) => ({
+    const initialData: any = data?.docs.map((doc) => ({
       ...doc.data(),
       id: doc.id,
     }));
 
-    dispatch(getServicesData(filteredData));
+    // фильтрация данных
+    let filteredData = initialData;
+    filteredData =
+      category === 'Все категории'
+        ? filteredData
+        : filteredData.filter((e: any) => e.category === category);
+    filteredData =
+      subcategory === 'Все подкатегории'
+        ? filteredData
+        : filteredData.filter((e: any) => e.subcategory === subcategory);
+
+    dispatch(getServicesData(initialData));
+    dispatch(filteredServicesData(filteredData));
   };
 };

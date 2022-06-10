@@ -3,6 +3,6 @@ export enum ActionType {
   ADD_TO_CART = 'addToCart',
   REMOVE_FROM_CART = 'removeFromCart',
   FILTERING_SERVICES = 'filteringServices',
-  USE_FILTERS = 'useFilters'
+  USE_FILTERS = 'useFilters',
 
 }

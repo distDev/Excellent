@@ -10,46 +10,53 @@ import {
   ModalFixButton,
   ModalForm,
 } from '../../../../Components/modal/styles/modal';
-import { filtersData } from './utils/filterData';
 import { Select } from '../../../../Components/uiComponents/select';
 import { useAppDispatch, useAppSelector } from '../../../../State/store';
 import { activeFilters } from '../../../../State/action-creators';
-
-
-
-
+import { IService } from '../../../../Types/serviceInterface';
 
 const Filters = () => {
-  const initialData = useAppSelector((state) => state.services.services);
-  const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
   const [{ category, subcategory }, setData] = useState({
     category: 'Автосервис',
-    subcategory: 'Ходовая часть',
+    subcategory: 'Все подкатегории',
   });
+  const initialData: IService[] = useAppSelector(
+    (state) => state.services.services
+  );
+  const dispatch = useAppDispatch();
 
-  //  получение категорий
-  const categories = filtersData.map((cat) => (
-    <option key={cat.name} value={cat.name}>
-      {cat.name}
+  // фильтрация категорий
+  const categoriesData = [...new Set(initialData?.map((e) => e.category))];
+  // фильтрация подкатегорий
+  const subcategoriesData = [
+    ...new Set(
+      initialData
+        ?.filter((e) => e.category === category)
+        .map((e) => e.subcategory)
+    ),
+  ];
+
+  // рендер категорий
+  const categories = categoriesData.map((e) => (
+    <option key={e} value={e}>
+      {e}
     </option>
   ));
 
-  //  получение подкатегории
-  const subcategories = filtersData
-    .find((item) => item.name === category)
-    ?.subcategories.map((state) => (
-      <option key={state} value={state}>
-        {state}
-      </option>
-    ));
+  // рендер подкатегорий
+  const subcategories = subcategoriesData.map((e) => (
+    <option key={e} value={e}>
+      {e}
+    </option>
+  ));
 
-  // получение категорий с селекта
+  // получение значение с селекта для категории
   function handleCategoryChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    setData((data) => ({ subcategory: '', category: event.target.value }));
+    setData(() => ({ subcategory: '', category: event.target.value }));
   }
 
-  // получение подкатегорий с селекта
+  //получение значение с селекта для подкатегории
   function handleSubcategoryChange(
     event: React.ChangeEvent<HTMLSelectElement>
   ) {
