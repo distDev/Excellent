@@ -3,4 +3,4 @@
 Используемый стек:
 
 Frontend: React, TypeScript, Redux, Redux Thunk, Swiper, Axios, Styled-Components, Formik, React Router
-Backend: Firebase
+<br> Backend: Firebase
