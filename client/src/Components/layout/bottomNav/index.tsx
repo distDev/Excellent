@@ -6,13 +6,14 @@ import { BottomNavContainer, BottomNavIcon } from './styles/bottomNav';
 import { bottomNavLinks } from './utils/bottomNavLinks';
 import Auth from '../../auth/index';
 import ModalMedium from '../../modalMedium/index';
+import { useAppSelector } from '../../../State/store';
 
 type Props = {};
 
 export const BottomNav = (props: Props) => {
   const [show, setShow] = useState(false);
 
-  const user = true;
+  const user = useAppSelector((state) => state.user.phoneNumber);
 
   const handleShow = () => {
     setShow((prev) => !prev);

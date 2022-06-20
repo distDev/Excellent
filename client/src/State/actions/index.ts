@@ -1,4 +1,3 @@
-import { IService } from '../../Types/serviceInterface';
 import { ActionType } from '../action-type';
 
 export interface IGetServices {
@@ -34,6 +33,17 @@ export interface IFilteringServices {
   payload: any;
 }
 
+export interface ILoginUser {
+  type: ActionType.LOGIN_USER;
+  payload: {
+    id: string;
+    phone: string;
+  };
+}
+
+export interface ILogout {
+  type: ActionType.LOGOUT_USER;
+}
 
 export type Action =
   | IGetServices
@@ -41,4 +51,5 @@ export type Action =
   | IRemoveFromCart
   | IFilteringServices
   | IUseFilters
-  ;
+  | ILoginUser
+  | ILogout;

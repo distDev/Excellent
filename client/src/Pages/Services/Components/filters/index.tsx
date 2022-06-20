@@ -17,15 +17,18 @@ import { IService } from '../../../../Types/serviceInterface';
 
 const Filters = () => {
   const [show, setShow] = useState(false);
+  const filtersData = useAppSelector((state) => state.filters.subcategory);
   const [{ category, subcategory }, setData] = useState({
     category: 'Автосервис',
-    subcategory: 'Все подкатегории',
+    subcategory: '',
   });
   const initialData: IService[] = useAppSelector(
     (state) => state.services.services
   );
+
   const dispatch = useAppDispatch();
 
+  console.log(filtersData);
   // фильтрация категорий
   const categoriesData = [...new Set(initialData?.map((e) => e.category))];
   // фильтрация подкатегорий
@@ -61,6 +64,7 @@ const Filters = () => {
     event: React.ChangeEvent<HTMLSelectElement>
   ) {
     setData((data) => ({ ...data, subcategory: event.target.value }));
+    dispatch(activeFilters('Автосервис', event.target.value));
   }
 
   // закрытие модального окна
@@ -69,9 +73,7 @@ const Filters = () => {
   };
 
   // отправка выбранных фильтров в store
-  useEffect(() => {
-    dispatch(activeFilters(category, subcategory));
-  }, [category, subcategory]);
+  useEffect(() => {}, []);
 
   return (
     <>

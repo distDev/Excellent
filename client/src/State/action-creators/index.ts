@@ -56,6 +56,17 @@ export const activeFilters = (category: string, subcategory: string) => {
   };
 };
 
+// авторизация пользователя
+export const loginUser = (id: string, phone: string) => {
+  return {
+    type: ActionType.LOGIN_USER,
+    payload: {
+      id,
+      phone
+    },
+  };
+};
+
 // получение услуг из firebase
 export const fetchServices = (category: string, subcategory: string) => {
   return async (dispatch: Dispatch<Action>) => {
@@ -69,11 +80,11 @@ export const fetchServices = (category: string, subcategory: string) => {
     // фильтрация данных
     let filteredData = initialData;
     filteredData =
-      category === 'Все категории'
+      category === ''
         ? filteredData
         : filteredData.filter((e: any) => e.category === category);
     filteredData =
-      subcategory === 'Все подкатегории'
+      subcategory === ''
         ? filteredData
         : filteredData.filter((e: any) => e.subcategory === subcategory);
 

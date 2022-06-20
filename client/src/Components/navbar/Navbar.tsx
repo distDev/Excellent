@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { IoChevronBackSharp } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useAppSelector } from '../../State/store';
 import { PROFILE_ROUTE } from '../../Utils/routerConst';
 import {
   NavbarContainer,
@@ -12,13 +13,15 @@ import {
 
 type Props = {
   back?: boolean;
-  title: string;
-  phone?: string;
   variant?: string;
   justify?: string;
+  title?: string;
 };
 
-const Navbar: FC<Props> = ({ back, title, variant, justify, phone }) => {
+const Navbar: FC<Props> = ({ back, variant, justify, title }) => {
+  const phoneNumber = useAppSelector((state) => state.user?.phoneNumber);
+  const location = useLocation();
+
   return (
     <NavbarContainer variant={variant}>
       {back && (
@@ -30,7 +33,9 @@ const Navbar: FC<Props> = ({ back, title, variant, justify, phone }) => {
       )}
       <NavbarContent justify={justify}>
         <NavbarTitle>{title}</NavbarTitle>
-        <NavbarPhone>{phone}</NavbarPhone>
+        {phoneNumber !== null && location.pathname === '/profile' && (
+          <NavbarPhone>{phoneNumber}</NavbarPhone>
+        )}
       </NavbarContent>
     </NavbarContainer>
   );

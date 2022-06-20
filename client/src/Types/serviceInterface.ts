@@ -1,4 +1,4 @@
-import { storeState } from "../State/store";
+import { storeState } from '../State/store';
 
 export interface IService {
   img: string;
@@ -33,6 +33,10 @@ export interface IRootState {
   filters: {
     category: string;
     subcategory: string;
+  };
+  user: {
+    id: string;
+    phoneNumber: string | null;
   };
 }
 

@@ -3,8 +3,8 @@ import { ActionType } from '../action-type';
 import { Action } from '../actions/index';
 
 const initialState = {
-  category: 'Все категории',
-  subcategory: 'Ходовая часть',
+  category: 'Автосервис',
+  subcategory: '',
 };
 
 export const filterReducer = (

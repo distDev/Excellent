@@ -17,8 +17,6 @@ const Profile: FC = (props: Props) => {
   return (
     <Container>
       <Navbar
-        title='Дмитрий'
-        phone='+7 925 412 21 44'
         variant='bottomLine'
         justify='start'
       />

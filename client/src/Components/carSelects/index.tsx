@@ -9,14 +9,29 @@ type Props = {
 
 const CarSelects: FC<Props> = ({ formik }) => {
   const acriveBrand = formik.values.brand;
- 
+
   // получение брендов
-  const brands = Object.keys(carsData.list).map((e) => e);
-  
+  const brandsData = Object.keys(carsData.list).map((e) => e);
+
   // получение моделей
-  const models = Object.entries(carsData.list)
+  const modelsData = Object.entries(carsData.list)
     .filter((e) => e[0] === acriveBrand)
-    .map((e) => e[1]);
+    .flat(2)
+    .slice(1);
+
+  // рендер брендов
+  const brands = brandsData.map((e) => (
+    <option key={e} value={e}>
+      {e}
+    </option>
+  ));
+
+  // рендер моделей
+  const models = modelsData.map((e) => (
+    <option key={e} value={e}>
+      {e}
+    </option>
+  ));
 
   return (
     <CarSelectsContainer>
@@ -32,11 +47,7 @@ const CarSelects: FC<Props> = ({ formik }) => {
         {...formik.getFieldProps('brand')}
       >
         <option value='Марка'>Марка</option>
-        {brands.map((e) => (
-          <option key={e} value={e}>
-            {e}
-          </option>
-        ))}
+        {brands}
       </Select>
       <Select
         name='model'
@@ -50,11 +61,7 @@ const CarSelects: FC<Props> = ({ formik }) => {
         {...formik.getFieldProps('model')}
       >
         <option value='Модель'>Модель</option>
-        {[...models][0]?.map((e) => (
-          <option key={e} value={e}>
-            {e}
-          </option>
-        ))}
+        {models}
       </Select>
     </CarSelectsContainer>
   );
