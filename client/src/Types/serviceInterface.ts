@@ -36,7 +36,7 @@ export interface IRootState {
   };
   user: {
     id: string;
-    phoneNumber: string | null;
+    phoneNumber: string;
   };
 }
 

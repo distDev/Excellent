@@ -57,7 +57,7 @@ export const activeFilters = (category: string, subcategory: string) => {
 };
 
 // авторизация пользователя
-export const loginUser = (id: string, phone: string) => {
+export const loginUser = (id: string, phone: string | null) => {
   return {
     type: ActionType.LOGIN_USER,
     payload: {

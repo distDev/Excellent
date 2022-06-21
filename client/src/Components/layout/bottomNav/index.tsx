@@ -13,7 +13,7 @@ type Props = {};
 export const BottomNav = (props: Props) => {
   const [show, setShow] = useState(false);
 
-  const user = useAppSelector((state) => state.user.phoneNumber);
+  const user = useAppSelector((state) => state.user?.phoneNumber);
 
   const handleShow = () => {
     setShow((prev) => !prev);
