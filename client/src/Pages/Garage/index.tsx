@@ -1,28 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container } from '../../Components/StyledComponents/Container';
 import { IoCarSportOutline } from 'react-icons/io5';
 import { AddCarButton } from './components/styles/index';
+import CarItem from './components/carItem/index';
 import Modal from '../../Components/modal/index';
 import MobileTab from '../../Components/mobileTab';
 import Navbar from '../../Components/navbar/Navbar';
 import GarageModalContent from './components/garageModalContent/index';
 
-
 import AddCarContent from './components/addCarContent/index';
+import { db } from '../../Firebase/firebase-config';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { useAppSelector } from '../../State/store';
 
-interface Props {};
-
+interface Props {}
 
 const Garage = () => {
   const [show, setShow] = useState(false);
+  const [selectedCar, setSelectedCar] = useState('');
+  const [cars, setCars] = useState<any>([]);
   const [activeModal, setActiveModal] = useState<'AddCar' | 'GarageContent'>(
     'AddCar'
   );
+  const user = useAppSelector((state) => state.user?.phoneNumber);
 
+  
   // открытие модального окна с информацией об автомобиле
-  const handleGarageContentShow = () => {
+  const handleGarageContentShow = (id: string) => {
     setShow((prev) => !prev);
     setActiveModal('GarageContent');
+    setSelectedCar(id);
   };
 
   // открытие модального окна с добавлением нового автомобиля
@@ -31,19 +38,44 @@ const Garage = () => {
     setActiveModal('AddCar');
   };
 
+  useEffect(() => {
+    const getCars = async () => {
+      const carsCollectionRef = query(
+        collection(db, 'cars'),
+        where('user', '==', user)
+      );
+      const data = await getDocs(carsCollectionRef);
+      const initialData: any = data?.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+
+      setCars(initialData);
+    };
+
+    getCars();
+  }, []);
+
   return (
     <Container>
       <Navbar title='Гараж' back={true} variant='bottomLine' />
-      <MobileTab
-        icon={<IoCarSportOutline />}
-        title='Reno Logan'
-        onClick={handleGarageContentShow}
-      />
+      {cars.length > 0 &&
+        cars.map((e: any) => (
+          <CarItem
+            key={e.id}
+            id={e.id}
+            brand={e.brand}
+            model={e.model}
+            year={e.year}
+            onClick={() => handleGarageContentShow(e.id)}
+          />
+        ))}
+
       <AddCarButton onClick={handleAddCarShow}>
         Добавить автомобиль
       </AddCarButton>
       <Modal show={show} setShow={setShow}>
-        {activeModal === 'AddCar' ? <AddCarContent /> : <GarageModalContent />}
+        {activeModal === 'AddCar' ? <AddCarContent /> : <GarageModalContent cars={cars} selectedCar={selectedCar} />}
       </Modal>
     </Container>
   );

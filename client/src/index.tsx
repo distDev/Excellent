@@ -8,9 +8,7 @@ import App from './App';
 
 ReactDOM.render(
   <Provider store={store}>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <App />
     <GlobalStyle />
   </Provider>,
   document.getElementById('root')

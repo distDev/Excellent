@@ -62,8 +62,14 @@ export const loginUser = (id: string, phone: string | null) => {
     type: ActionType.LOGIN_USER,
     payload: {
       id,
-      phone
+      phone,
     },
+  };
+};
+
+export const logoutUser = () => {
+  return {
+    type: ActionType.LOGOUT_USER,
   };
 };
 

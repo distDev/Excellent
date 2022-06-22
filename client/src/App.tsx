@@ -3,10 +3,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Layout from './Components/layout';
 import { ThemeProvider } from 'styled-components';
 import { light } from './Theme/light';
+import AuthProvider from './Components/authProvider';
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Router>
         <ThemeProvider theme={light}>
           <Layout>
@@ -14,7 +15,7 @@ function App() {
           </Layout>
         </ThemeProvider>
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 

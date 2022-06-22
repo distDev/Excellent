@@ -4,22 +4,37 @@ import { Container } from '../../Components/StyledComponents/Container';
 import MobileTab from '../../Components/mobileTab';
 import { profileTabs } from './utils/data';
 import Navbar from '../../Components/navbar/Navbar';
+import { signOut } from 'firebase/auth';
+import { authentication } from '../../Firebase/firebase-config';
+import { useAppDispatch } from '../../State/store';
+import { logoutUser } from '../../State/action-creators';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
 const Profile: FC = (props: Props) => {
   const [show, setShow] = useState(false);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleShow = () => {
     setShow((prev) => !prev);
   };
 
+  const handleLogout = () => {
+    signOut(authentication)
+      .then(() => {
+        dispatch(logoutUser());
+        navigate('/services');
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+
   return (
     <Container>
-      <Navbar
-        variant='bottomLine'
-        justify='start'
-      />
+      <Navbar variant='bottomLine' justify='start' />
       {profileTabs.map((e) => (
         <MobileTab
           key={e.title}
@@ -35,6 +50,7 @@ const Profile: FC = (props: Props) => {
         title='Выйти'
         subtitle='Выйти из профиля'
         variant='col'
+        onClick={handleLogout}
       />
     </Container>
   );
