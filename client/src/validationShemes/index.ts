@@ -6,8 +6,8 @@ export const orderFormValidation = Yup.object().shape({
     .max(50, 'Слишком длинный!!')
     .required('Обязательное поле'),
   phone: Yup.string()
-    .min(10, 'Слишком короткий!!')
-    .max(11, 'Слишком длинный!!')
+    .min(11, 'Слишком короткий!!')
+    .max(12, 'Слишком длинный!!')
     .required('Обязательное поле'),
   brand: Yup.string()
     .min(2, 'Too Short!')

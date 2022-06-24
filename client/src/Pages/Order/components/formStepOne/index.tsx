@@ -3,6 +3,7 @@ import { Container } from '../../../../Components/uiComponents/container/index';
 import { FormAddCarButton, FormButton, FormButtons } from '../styles';
 import FormNormalUser from './normalUser/index';
 import FormAuthUser from './authUser/index';
+import { useAppSelector } from '../../../../State/store';
 
 type Props = {
   formik: any;
@@ -11,7 +12,7 @@ type Props = {
 
 const FormStepOne: FC<Props> = ({ formik, setStep }) => {
   const [addCar, setAddCar] = useState(false);
-  const auth = false;
+  const auth = useAppSelector((state) => state.user?.phoneNumber);
 
   // Проверка полей формы на валидность
   const checkValid =

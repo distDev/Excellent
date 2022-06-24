@@ -4,6 +4,7 @@ import TotalCheck from '../../../../Components/TotalCheck';
 import { Container } from '../../../../Components/uiComponents/container';
 import { Input } from '../../../../Components/uiComponents/input';
 import { Text } from '../../../../Components/uiComponents/text';
+import { useAppSelector } from '../../../../State/store';
 import {
   FormCheckboxContainer,
   FormCheckboxItem,
@@ -16,13 +17,21 @@ type Props = {
 };
 
 const FormStepThree: FC<Props> = ({ formik }) => {
+  const cartData = useAppSelector((state) => state.cart);
+  const totalSum =
+    cartData &&
+    [...cartData].map((e) => Number(e.price)).reduce((a, b) => a + b);
   return (
     <>
       <Container>
-        <OrderCards del={false} />
+        <OrderCards data={cartData} del={false} />
       </Container>
       <Container variant='large'>
-        <TotalCheck />
+        <TotalCheck
+          date={formik.values.date}
+          time={formik.values.time}
+          amount={totalSum}
+        />
         <Container bg='secondBg'>
           <FormSubmit>
             <FormCheckboxContainer>

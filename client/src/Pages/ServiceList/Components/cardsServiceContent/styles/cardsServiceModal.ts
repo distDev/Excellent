@@ -1,5 +1,9 @@
 import styled from 'styled-components/macro';
 
+interface IIndicator {
+  color: string;
+}
+
 export const ModalStatus = styled.div`
   @media screen and (max-width: 479px) {
     display: flex;
@@ -10,7 +14,7 @@ export const ModalStatus = styled.div`
   }
 `;
 
-export const ModalStatusIcon = styled.div`
+export const ModalStatusIcon = styled.div<IIndicator>`
   @media screen and (max-width: 479px) {
     width: 38px;
     height: 38px;
@@ -19,12 +23,18 @@ export const ModalStatusIcon = styled.div`
     justify-content: center;
     align-items: center;
     color: ${({ theme: { colors } }) => colors.white};
-    background: ${({ theme: { background } }) => background.green};
+    background: ${({ theme, color }) =>
+      color === 'Выполнено'
+        ? theme.background.green
+        : color === 'В процессе'
+        ? theme.background.purple
+        : color === 'Заявка принята'
+        ? '#DEE21A'
+        : theme.background.primary};
 
     svg {
-        width: 80%;
-        height: 80%;
-
+      width: 80%;
+      height: 80%;
     }
   }
 `;

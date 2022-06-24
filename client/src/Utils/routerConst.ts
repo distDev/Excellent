@@ -8,3 +8,4 @@ export const PROFILE_SERVICELIST_ROUTE = '/profile/servicelist';
 export const PROFILE_GARAGE_ROUTE = '/profile/garage';
 export const SERVICEORDER_ROUTE = '/serviceorder';
 export const LOGIN_ROUTE = '/login';
+export const SUCCESS_ROUTE = '/cart/success';

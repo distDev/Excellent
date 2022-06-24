@@ -1,5 +1,4 @@
 import { RiCheckFill } from 'react-icons/ri';
-import OrderCards from '../../../../Components/orderCards';
 import {
   ModalStatus,
   ModalStatusIcon,
@@ -7,22 +6,37 @@ import {
 } from './styles/cardsServiceModal';
 import TotalCheck from '../../../../Components/TotalCheck/index';
 import { Container } from '../../../../Components/uiComponents/container';
+import { FC } from 'react';
+import { IService } from '../../../../Types/serviceInterface';
+import OrderCards from '../../../../Components/orderCards';
 
-type Props = {};
+interface Props {
+  data: IService[];
+  status: string;
+  date: string;
+  time: string;
+  amount: number;
+}
 
-const CardsServiceContent = (props: Props) => {
+const CardsServiceContent: FC<Props> = ({
+  data,
+  status,
+  date,
+  time,
+  amount,
+}) => {
   return (
     <>
       <ModalStatus>
-        <ModalStatusIcon>
+        <ModalStatusIcon color={status}>
           <RiCheckFill />
         </ModalStatusIcon>
-        <ModalStatusTitle>Выполнено</ModalStatusTitle>
+        <ModalStatusTitle>{status}</ModalStatusTitle>
       </ModalStatus>
       <Container>
-        <OrderCards del={false} />
+        <OrderCards del={false} data={data} />
       </Container>
-      <TotalCheck />
+      <TotalCheck date={date} time={time} amount={amount} />
     </>
   );
 };

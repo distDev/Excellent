@@ -1,8 +1,12 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import FormUserCar from '../../formUserCar/index';
 import CarSelects from '../../../../../Components/carSelects/index';
 import { Text } from '../../../../../Components/uiComponents/text';
 import { FormItem } from '../../styles/index';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../../../../Firebase/firebase-config';
+import { useAppSelector } from '../../../../../State/store';
+import { ICar } from '../../../../../Types/userInterfaces';
 
 type Props = {
   addCar: boolean;
@@ -11,21 +15,27 @@ type Props = {
 
 const FormAuthUser: FC<Props> = ({ addCar, formik }) => {
   const [selectedCar, setSelectedCar] = useState('');
+  const [cars, setCars] = useState<ICar[] | []>([]);
+  const user = useAppSelector((state) => state.user?.phoneNumber);
 
-  const authCarData = [
-    {
-      id: 'r21r21r2',
-      brand: 'Toyota',
-      model: 'Corolla',
-      year: '2015',
-    },
-    {
-      id: '2r1r12ge',
-      brand: 'Hyndai',
-      model: 'Elantra',
-      year: '2020',
-    },
-  ];
+  // получение автомобилей пользователя с сервера
+  useEffect(() => {
+    const getCars = async () => {
+      const carsCollectionRef = query(
+        collection(db, 'cars'),
+        where('user', '==', user)
+      );
+      const data = await getDocs(carsCollectionRef);
+      const initialData: any = data?.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+
+      setCars(initialData);
+    };
+
+    getCars();
+  }, []);
 
   // выбранный автомобиль
   const handleSelect = (id: string, brand: string, model: string) => {
@@ -34,7 +44,6 @@ const FormAuthUser: FC<Props> = ({ addCar, formik }) => {
     formik.setFieldValue('model', model);
   };
 
-  console.log(formik.values);
 
   return (
     <>
@@ -49,8 +58,9 @@ const FormAuthUser: FC<Props> = ({ addCar, formik }) => {
         <>
           <FormItem>
             <Text color='textSecond'>Выберите автомобиль</Text>
-            {authCarData.map((e) => (
+            {cars.map((e) => (
               <FormUserCar
+                id={e.id}
                 key={e.id}
                 brand={e.brand}
                 model={e.model}

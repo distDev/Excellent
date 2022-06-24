@@ -37,6 +37,12 @@ export const removeServiceFromCart = (id: string) => {
   };
 };
 
+export const clearCart = () => {
+  return {
+    type: ActionType.CLEAR_CART,
+  };
+};
+
 // фильтрованные услуги
 export const filteredServicesData = (data: any) => {
   return {

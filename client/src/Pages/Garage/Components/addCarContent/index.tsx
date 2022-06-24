@@ -35,6 +35,8 @@ const AddCarContent = (props: Props) => {
         milleage: values.milleage,
         user: values.user,
       });
+
+      window.location.reload();
     },
   });
 

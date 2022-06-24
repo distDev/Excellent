@@ -51,6 +51,8 @@ export const CardServiceIndicator = styled.div<IServiceIndicator>`
         ? theme.background.green
         : color === 'В процессе'
         ? theme.background.purple
+        : color === 'Заявка принята'
+        ? '#DEE21A'
         : theme.background.primary};
   }
 `;

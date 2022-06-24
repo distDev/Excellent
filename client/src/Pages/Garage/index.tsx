@@ -38,6 +38,7 @@ const Garage = () => {
     setActiveModal('AddCar');
   };
 
+  // получение автомобилей пользователя
   useEffect(() => {
     const getCars = async () => {
       const carsCollectionRef = query(

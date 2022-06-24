@@ -1,4 +1,6 @@
 import React, { FC, useState } from 'react';
+import moment from 'moment';
+import 'moment/locale/ru';
 import { Container } from '../../../../Components/uiComponents/container';
 import { Input } from '../../../../Components/uiComponents/input';
 import { Text } from '../../../../Components/uiComponents/text';

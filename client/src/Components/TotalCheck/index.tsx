@@ -1,3 +1,6 @@
+import moment from 'moment';
+import { FC } from 'react';
+import { useAppSelector } from '../../State/store';
 import {
   TotalCheckContainer,
   TotalCheckInfo,
@@ -9,24 +12,24 @@ import {
   TotalCheckTotalTitle,
 } from './styles/totalCheck';
 
-type Props = {};
+type Props = {
+  date: string;
+  time: string;
+  amount: number;
+};
 
-const TotalCheck = (props: Props) => {
+const TotalCheck: FC<Props> = ({ date, time, amount }) => {
   return (
     <TotalCheckContainer>
       <TotalCheckTotal>
         <TotalCheckTotalSubtitle>Итого</TotalCheckTotalSubtitle>
-        <TotalCheckTotalTitle>1500 ₽</TotalCheckTotalTitle>
+        <TotalCheckTotalTitle>~{amount} ₽</TotalCheckTotalTitle>
       </TotalCheckTotal>
       <TotalCheckInfo>
         <TotalCheckInfoItem>
-          <TotalCheckInfoTitle>Номер записи</TotalCheckInfoTitle>
-          <TotalCheckInfoSubtitle>532326</TotalCheckInfoSubtitle>
-        </TotalCheckInfoItem>
-        <TotalCheckInfoItem>
           <TotalCheckInfoTitle>Дата записи</TotalCheckInfoTitle>
           <TotalCheckInfoSubtitle>
-            12 февраля 2022 в 12:30
+            {date} в {time}
           </TotalCheckInfoSubtitle>
         </TotalCheckInfoItem>
         <TotalCheckInfoItem>

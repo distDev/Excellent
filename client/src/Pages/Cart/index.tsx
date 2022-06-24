@@ -12,7 +12,8 @@ const Cart = (props: Props) => {
   return (
     <Container>
       <Navbar title='Корзина' justify='start' />
-      <OrderCards />
+      {!cartData.length && <h2>Корзина пуста</h2>}
+      {cartData.length > 0 && <OrderCards data={cartData} />}
       {cartData.length > 0 && <CartController />}
     </Container>
   );

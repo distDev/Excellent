@@ -14,27 +14,19 @@ import {
   CardServiceTitle,
 } from './styles/cardService';
 import { FC } from 'react';
-
-interface Serv {
-  id: string;
-  img: string;
-}
+import { IServiceList } from '../../../../Types/serviceInterface';
 
 interface Props {
-  date: string;
-  id: string;
-  status: string;
-  amount: string;
-  services: Serv[];
   onClick: () => void;
 }
 
-export const CardService: FC<Props> = ({
+export const CardService: FC<Props & IServiceList> = ({
   date,
   id,
   status,
   amount,
   services,
+  time,
   onClick,
 }) => {
   return (
@@ -42,11 +34,13 @@ export const CardService: FC<Props> = ({
       <CardServiceBody>
         <CardServiceHeader>
           <CardServiceStatus>
-            <CardServiceIndicator color={status}/>
+            <CardServiceIndicator color={status} />
             <CardServiceTitle>{status}</CardServiceTitle>
           </CardServiceStatus>
           <CardServiceInfo>
-            <CardServiceSubtitle>{date}</CardServiceSubtitle>
+            <CardServiceSubtitle>
+              {date} в {time}
+            </CardServiceSubtitle>
             <CardServiceSubtitle>{amount} ₽</CardServiceSubtitle>
           </CardServiceInfo>
         </CardServiceHeader>

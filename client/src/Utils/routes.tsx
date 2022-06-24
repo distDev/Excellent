@@ -7,6 +7,7 @@ import ServiceList from '../Pages/ServiceList';
 import Settings from '../Pages/Settings';
 import Services from '../Pages/Services';
 import Order from '../Pages/Order/index';
+import OrderSuccess from '../Pages/OrderSuccess';
 import {
   CART_ORDER_ROUTE,
   CART_ROUTE,
@@ -17,6 +18,7 @@ import {
   PROFILE_SERVICELIST_ROUTE,
   PROFILE_SETTINGS_ROUTE,
   SERVICES_ROUTE,
+  SUCCESS_ROUTE,
 } from './routerConst';
 
 export const PublicRoutes = [
@@ -55,6 +57,10 @@ export const PublicRoutes = [
   {
     path: PROFILE_SERVICELIST_ROUTE,
     component: <ServiceList />,
+  },
+  {
+    path: SUCCESS_ROUTE,
+    component: <OrderSuccess />,
   },
 ];
 

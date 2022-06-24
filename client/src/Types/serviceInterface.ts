@@ -19,6 +19,24 @@ export interface IActiveFilters {
   subcategory: string;
 }
 
+export interface IServiceList {
+  id: string;
+  amount: number;
+  brand?: string;
+  date: string;
+  time: string;
+  model?: string;
+  name?: string;
+  phone?: string;
+  status: string;
+  services: {
+    id: string;
+    img: string;
+    name: string;
+    price: string;
+  }[];
+}
+
 export interface IRootState {
   services:
     | {

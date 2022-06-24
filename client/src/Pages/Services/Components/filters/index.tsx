@@ -25,10 +25,8 @@ const Filters = () => {
   const initialData: IService[] = useAppSelector(
     (state) => state.services.services
   );
-
   const dispatch = useAppDispatch();
-
-  console.log(filtersData);
+  
   // фильтрация категорий
   const categoriesData = [...new Set(initialData?.map((e) => e.category))];
   // фильтрация подкатегорий

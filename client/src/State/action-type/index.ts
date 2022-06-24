@@ -6,4 +6,5 @@ export enum ActionType {
   USE_FILTERS = 'useFilters',
   LOGIN_USER = 'loginUser',
   LOGOUT_USER = 'logoutUser',
+  CLEAR_CART = 'clearCart',
 }

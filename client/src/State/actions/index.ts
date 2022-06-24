@@ -45,6 +45,10 @@ export interface ILogout {
   type: ActionType.LOGOUT_USER;
 }
 
+export interface IClearCart {
+  type: ActionType.CLEAR_CART;
+}
+
 export type Action =
   | IGetServices
   | IAddToCart
@@ -52,4 +56,5 @@ export type Action =
   | IFilteringServices
   | IUseFilters
   | ILoginUser
-  | ILogout;
+  | ILogout
+  | IClearCart;

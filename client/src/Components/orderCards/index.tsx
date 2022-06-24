@@ -1,20 +1,18 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
+import { IService } from '../../Types/serviceInterface';
 import CardOrder from '../cardOrder';
-import { smallCards } from '../../Utils/content';
 import { OrderCardsContainer } from './styles/orderCards';
-import { useAppSelector } from '../../State/store';
 
 type Props = {
   del?: boolean;
+  data: IService[];
 };
 
-const OrderCards: FC<Props> = ({ del }) => {
-  const cartData = useAppSelector((state) => state.cart);
-
+const OrderCards: FC<Props> = ({ del, data }) => {
   return (
     <OrderCardsContainer>
-      {cartData.length > 0 &&
-        cartData.map(({ name, price, img, id }) => (
+      {data.length > 0 &&
+        data.map(({ name, price, img, id }) => (
           <CardOrder
             id={id}
             key={id}
@@ -24,7 +22,6 @@ const OrderCards: FC<Props> = ({ del }) => {
             del={del}
           />
         ))}
-      {cartData.length === 0 && <h2>Корзина пуста!</h2>}
     </OrderCardsContainer>
   );
 };

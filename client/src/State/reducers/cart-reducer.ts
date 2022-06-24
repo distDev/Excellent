@@ -4,7 +4,6 @@ import { Action } from '../actions/index';
 
 const cartState: IService[] | [] = [];
 
-
 export const cartReducer = (state: IService[] = cartState, action: Action) => {
   switch (action.type) {
     case ActionType.ADD_TO_CART:
@@ -19,6 +18,8 @@ export const cartReducer = (state: IService[] = cartState, action: Action) => {
       ];
     case ActionType.REMOVE_FROM_CART:
       return state.filter((e) => e.id !== action.payload);
+    case ActionType.CLEAR_CART:
+      return (state = []);
     default:
       return state;
   }

@@ -11,9 +11,9 @@ const PopupButton = (props: Props) => {
   const cartData = useAppSelector((state) => state.cart);
 
   // сумма выбранных услуг
-  const totalSum = [...cartData]
-    .map((e) => Number(e.price))
-    .reduce((a, b) => a + b);
+  const totalSum =
+    cartData &&
+    [...cartData].map((e) => Number(e.price)).reduce((a, b) => a + b);
 
   return (
     <>
