@@ -15,7 +15,10 @@ import { loginUser } from '../../../State/action-creators';
 import { useNavigate } from 'react-router-dom';
 import { PROFILE_ROUTE } from '../../../Utils/routerConst';
 
-type Props = {};
+type Props = {
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
 declare global {
   interface Window {
     recaptchaVerifier: any;
@@ -23,12 +26,10 @@ declare global {
   }
 }
 
-const Login: FC<Props> = () => {
+const Login: FC<Props> = ({ setShow }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [OTP, setOTP] = useState('');
-  const [activeTab, setActiveTab] = useState<
-    'login' | 'verify' | 'addName' | 'success'
-  >('login');
+  const [activeTab, setActiveTab] = useState<'login' | 'verify'>('login');
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -71,12 +72,12 @@ const Login: FC<Props> = () => {
         .then((result: any) => {
           // отправка данных в стор
           dispatch(loginUser(result.user.uid, result.user.phoneNumber));
+          setShow(false);
+          navigate(PROFILE_ROUTE);
         })
         .catch((error: any) => {
           console.log(error);
         });
-
-      navigate(PROFILE_ROUTE);
     }
   };
 
@@ -110,27 +111,6 @@ const Login: FC<Props> = () => {
           <LoginBottom>
             <LoginButton onClick={verifyOTP}>Проверить код</LoginButton>
           </LoginBottom>
-        </>
-      )}
-      {activeTab === 'addName' && (
-        <>
-          <LoginTop>
-            <ModalInput placeholder='Как к вам обращаться?' />
-          </LoginTop>
-          <LoginBottom>
-            <LoginButton onClick={() => setActiveTab('success')}>
-              Зарегистрироваться
-            </LoginButton>
-          </LoginBottom>
-        </>
-      )}
-      {activeTab === 'success' && (
-        <>
-          <LoginTop>
-            <Title variant='normal' color='textMain'>
-              Регистрация успешно завершена
-            </Title>
-          </LoginTop>
         </>
       )}
     </LoginContainer>

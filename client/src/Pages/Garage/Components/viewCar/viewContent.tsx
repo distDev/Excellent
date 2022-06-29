@@ -13,11 +13,11 @@ interface Props {
   setEditing: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const MainContent: FC<Props> = ({ data, setEditing }) => {
+export const ViewContent: FC<Props> = ({ data, setEditing }) => {
   return (
     <>
       {data.map((e) => (
-        <Container gap='20px'>
+        <Container key={e.id}>
           <GarageModalContentItem>
             <ModalSubtitle>Бренд</ModalSubtitle>
             <ModalTitle>{e.brand}</ModalTitle>
@@ -28,15 +28,15 @@ export const MainContent: FC<Props> = ({ data, setEditing }) => {
           </GarageModalContentItem>
           <GarageModalContentItem>
             <ModalSubtitle>VIN номер</ModalSubtitle>
-            <ModalTitle>{e.vin}</ModalTitle>
+            <ModalTitle>{e.vin || 'Пусто'}</ModalTitle>
           </GarageModalContentItem>
           <GarageModalContentItem>
             <ModalSubtitle>Год</ModalSubtitle>
-            <ModalTitle>{e.year}</ModalTitle>
+            <ModalTitle>{e.year || 'Пусто'}</ModalTitle>
           </GarageModalContentItem>
           <GarageModalContentItem>
             <ModalSubtitle>Пробег</ModalSubtitle>
-            <ModalTitle>{e.milleage} км</ModalTitle>
+            <ModalTitle>{e.milleage || 'Пусто'}</ModalTitle>
           </GarageModalContentItem>
           <ModalFixButton onClick={() => setEditing(true)}>
             Изменить

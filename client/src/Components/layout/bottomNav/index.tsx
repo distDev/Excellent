@@ -43,7 +43,7 @@ export const BottomNav = (props: Props) => {
         </BottomNavIcon>
       )}
       <ModalMedium show={show} setShow={setShow}>
-        <Auth />
+        <Auth setShow={setShow} />
       </ModalMedium>
     </BottomNavContainer>
   );

@@ -1,14 +1,17 @@
+import { FC } from 'react';
 import Login from './login';
 import { AuthContainer, AuthContent, AuthTitle } from './styles/auth';
 
-type Props = {};
+type Props = {
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const Auth = (props: Props) => {
+const Auth: FC<Props> = ({ setShow }) => {
   return (
     <AuthContainer>
       <AuthTitle>Авторизация</AuthTitle>
       <AuthContent>
-        <Login />
+        <Login setShow={setShow} />
       </AuthContent>
     </AuthContainer>
   );

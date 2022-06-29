@@ -4,11 +4,10 @@ import { IoCarSportOutline } from 'react-icons/io5';
 import { AddCarButton } from './components/styles/index';
 import CarItem from './components/carItem/index';
 import Modal from '../../Components/modal/index';
-import MobileTab from '../../Components/mobileTab';
 import Navbar from '../../Components/navbar/Navbar';
-import GarageModalContent from './components/garageModalContent/index';
+import GarageModalContent from './components/viewCar/index';
 
-import AddCarContent from './components/addCarContent/index';
+import AddCarContent from './components/addCar/index';
 import { db } from '../../Firebase/firebase-config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useAppSelector } from '../../State/store';
@@ -76,7 +75,16 @@ const Garage = () => {
         Добавить автомобиль
       </AddCarButton>
       <Modal show={show} setShow={setShow}>
-        {activeModal === 'AddCar' ? <AddCarContent /> : <GarageModalContent cars={cars} selectedCar={selectedCar} />}
+        {activeModal === 'AddCar' ? (
+          <AddCarContent setShow={setShow} setCars={setCars} />
+        ) : (
+          <GarageModalContent
+            cars={cars}
+            selectedCar={selectedCar}
+            setCars={setCars}
+            setShow={setShow}
+          />
+        )}
       </Modal>
     </Container>
   );

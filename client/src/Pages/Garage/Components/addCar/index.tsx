@@ -1,5 +1,6 @@
 import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 import { useFormik } from 'formik';
+import { FC } from 'react';
 import CarSelects from '../../../../Components/carSelects';
 import { ModalFixButton } from '../../../../Components/modal/styles/modal';
 import { Container } from '../../../../Components/uiComponents/container';
@@ -9,9 +10,12 @@ import { useAppSelector } from '../../../../State/store';
 import { addCarValidation } from '../../../../validationShemes';
 import { AddCarForm } from './styles/addCarContent';
 
-type Props = {};
+type Props = {
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+  setCars: React.Dispatch<any>;
+};
 
-const AddCarContent = (props: Props) => {
+const AddCarContent: FC<Props> = ({ setShow, setCars }) => {
   const user = useAppSelector((state) => state.user?.phoneNumber);
   const carsCollectionRef = collection(db, 'cars');
 
@@ -27,6 +31,7 @@ const AddCarContent = (props: Props) => {
     },
     validationSchema: addCarValidation,
     onSubmit: async (values) => {
+      // добавление автомобиля на сервер
       await addDoc(carsCollectionRef, {
         brand: values.brand,
         model: values.model,
@@ -35,8 +40,20 @@ const AddCarContent = (props: Props) => {
         milleage: values.milleage,
         user: values.user,
       });
-
-      window.location.reload();
+      // добавление автомобиля в state
+      setCars((data: any) => [
+        ...data,
+        {
+          brand: values.brand,
+          model: values.model,
+          vin: values.vin,
+          year: values.year,
+          milleage: values.milleage,
+          user: values.user,
+        },
+      ]);
+      // закрытие модального окна
+      setShow(false);
     },
   });
 

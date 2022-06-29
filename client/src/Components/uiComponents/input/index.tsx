@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 interface IInput {
-  variant?: string;
+  variant?: 'complited' | 'error';
 }
 
 export const Input = styled.input<IInput>`
@@ -15,12 +15,12 @@ export const Input = styled.input<IInput>`
       : variant === 'error'
       ? theme.background.white
       : theme.background.secondBg};
-  color: ${({ theme: colors, variant }) =>
+  color: ${({ theme: { colors }, variant }) =>
     variant === 'error'
       ? colors.primary
       : variant === 'complited'
       ? colors.textMain
-      : colors.textSecond} !important;
+      : colors.textMain};
   box-shadow: ${({ theme: { colors }, variant }) =>
     variant === 'error'
       ? `0px 0px 0px 1px ${colors.primary}`
@@ -31,11 +31,7 @@ export const Input = styled.input<IInput>`
   font-weight: 600;
 
   &::placeholder {
-    color: ${({ theme: colors, variant }) =>
-      variant === 'error'
-        ? colors.primary
-        : variant === 'complited'
-        ? colors.textMain
-        : colors.textSecond};
+    color: ${({ theme: { colors }, variant }) =>
+      variant === 'error' ? colors.primary : colors.textSecond};
   }
 `;
