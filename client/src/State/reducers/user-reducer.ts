@@ -8,7 +8,8 @@ export const userReducer = (state: any = initialState, action: Action) => {
     case ActionType.LOGIN_USER:
       return (state = {
         id: action.payload.id,
-        phoneNumber: action.payload.phone
+        phoneNumber: action.payload.phone,
+        name: action.payload.name,
       });
     case ActionType.LOGOUT_USER:
       return (state = '');

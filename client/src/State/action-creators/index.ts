@@ -1,3 +1,4 @@
+import { NoInfer } from '@react-spring/types';
 import { collection, getDocs } from 'firebase/firestore';
 import { Dispatch } from 'redux';
 import { db } from '../../Firebase/firebase-config';
@@ -37,6 +38,7 @@ export const removeServiceFromCart = (id: string) => {
   };
 };
 
+// очистка корзины
 export const clearCart = () => {
   return {
     type: ActionType.CLEAR_CART,
@@ -63,12 +65,17 @@ export const activeFilters = (category: string, subcategory: string) => {
 };
 
 // авторизация пользователя
-export const loginUser = (id: string, phone: string | null) => {
+export const loginUser = (
+  id: string,
+  phone: string | null,
+  name: string | null
+) => {
   return {
     type: ActionType.LOGIN_USER,
     payload: {
       id,
       phone,
+      name,
     },
   };
 };

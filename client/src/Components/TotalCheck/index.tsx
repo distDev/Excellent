@@ -16,9 +16,12 @@ type Props = {
   date: string;
   time: string;
   amount: number;
+  phone?: string;
+  model?: string;
+  brand?: string;
 };
 
-const TotalCheck: FC<Props> = ({ date, time, amount }) => {
+const TotalCheck: FC<Props> = ({ date, time, amount, phone, model, brand }) => {
   return (
     <TotalCheckContainer>
       <TotalCheckTotal>
@@ -32,6 +35,24 @@ const TotalCheck: FC<Props> = ({ date, time, amount }) => {
             {date} в {time}
           </TotalCheckInfoSubtitle>
         </TotalCheckInfoItem>
+        {phone && (
+          <TotalCheckInfoItem>
+            <TotalCheckInfoTitle>Телефон</TotalCheckInfoTitle>
+            <TotalCheckInfoSubtitle>{phone}</TotalCheckInfoSubtitle>
+          </TotalCheckInfoItem>
+        )}
+        {brand && (
+          <TotalCheckInfoItem>
+            <TotalCheckInfoTitle>Марка</TotalCheckInfoTitle>
+            <TotalCheckInfoSubtitle>{brand}</TotalCheckInfoSubtitle>
+          </TotalCheckInfoItem>
+        )}
+        {model && (
+          <TotalCheckInfoItem>
+            <TotalCheckInfoTitle>Модель</TotalCheckInfoTitle>
+            <TotalCheckInfoSubtitle>{model}</TotalCheckInfoSubtitle>
+          </TotalCheckInfoItem>
+        )}
         <TotalCheckInfoItem>
           <TotalCheckInfoTitle>Адрес автосервиса</TotalCheckInfoTitle>
           <TotalCheckInfoSubtitle>

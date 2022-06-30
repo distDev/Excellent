@@ -38,6 +38,7 @@ export interface ILoginUser {
   payload: {
     id: string;
     phone: string;
+    name: string | null;
   };
 }
 

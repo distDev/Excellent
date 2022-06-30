@@ -27,6 +27,8 @@ export const ServiceListCards = (props: Props) => {
     (e) => e.id === selectedAppointment
   );
 
+  console.log(filteredAppointment);
+
   // получение истории записей на ремонт
   useEffect(() => {
     const fetchAppointments = async () => {
@@ -66,11 +68,17 @@ export const ServiceListCards = (props: Props) => {
         {filteredAppointment.map((e) => (
           <CardsServiceContent
             key={e.id}
+            id={e.id}
             date={e.date}
             time={e.time}
             amount={e.amount}
             data={e.services}
             status={e.status}
+            brand={e.brand}
+            model={e.model}
+            phone={e.phone}
+            setShow={setShow}
+            setAppointments={setAppointments}
           />
         ))}
       </Modal>

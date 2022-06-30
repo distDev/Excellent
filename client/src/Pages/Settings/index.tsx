@@ -6,9 +6,14 @@ import Navbar from '../../Components/navbar/Navbar';
 import Modal from '../../Components/modal';
 import { useState } from 'react';
 import { SettingsModalContent } from './components/modalContent/SettingsModalContent';
-type Props = {};
+import { useAppSelector } from '../../State/store';
+
+interface Props {}
 
 const Settings = (props: Props) => {
+  const userPhone = useAppSelector((state) => state.user.phoneNumber);
+  const userName = useAppSelector((state) => state.user.name);
+  const [name, setName] = useState(userName);
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -18,10 +23,14 @@ const Settings = (props: Props) => {
   return (
     <Container>
       <Navbar title='Настройки' back={true} variant='bottomLine' />
-      <MobileTab icon={<CgSmartphone />} title='+7 (925) 380-25-73' />
-      <MobileTab icon={<RiUser3Line />} title='Дмитрий' onClick={handleShow} />
+      <MobileTab icon={<CgSmartphone />} title={userPhone} />
+      <MobileTab
+        icon={<RiUser3Line />}
+        title={name ? name : 'Нет имени'}
+        onClick={handleShow}
+      />
       <Modal show={show} setShow={setShow}>
-        <SettingsModalContent />
+        <SettingsModalContent name={name} setName={setName} setShow={setShow} />
       </Modal>
     </Container>
   );

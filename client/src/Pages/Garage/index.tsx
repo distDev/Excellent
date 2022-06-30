@@ -68,6 +68,7 @@ const Garage = () => {
             model={e.model}
             year={e.year}
             onClick={() => handleGarageContentShow(e.id)}
+            setCars={setCars}
           />
         ))}
 

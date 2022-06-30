@@ -41,6 +41,9 @@ export const CardServiceStatus = styled.div`
   }
 `;
 
+
+
+
 export const CardServiceIndicator = styled.div<IServiceIndicator>`
   @media screen and (max-width: 479px) {
     height: 12px;

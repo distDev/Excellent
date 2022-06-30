@@ -33,7 +33,7 @@ export const EditingContent: FC<Props> = ({
     year: 0,
     milleage: '',
   };
-
+  
   const filterCarData = data.map((e) => {
     return (carData = {
       id: e.id,
@@ -76,12 +76,11 @@ export const EditingContent: FC<Props> = ({
             : e
         )
       );
-      // переключение на режим просмотра
+      // закрытие модального окна
       setShow(false);
     },
   });
 
-  console.log(data);
 
   return (
     <>

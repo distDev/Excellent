@@ -71,7 +71,13 @@ const Login: FC<Props> = ({ setShow }) => {
         .confirm(OTP)
         .then((result: any) => {
           // отправка данных в стор
-          dispatch(loginUser(result.user.uid, result.user.phoneNumber));
+          dispatch(
+            loginUser(
+              result.user.uid,
+              result.user.phoneNumber,
+              result.user.displayName
+            )
+          );
           setShow(false);
           navigate(PROFILE_ROUTE);
         })

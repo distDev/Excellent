@@ -34,3 +34,23 @@ export const CartControllerButton = styled.button`
     font-weight: 500;
   }
 `;
+
+export const ClearCartButton = styled.button`
+  @media screen and (max-width: 479px) {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    background: ${({ theme: { background } }) => background.button};
+    cursor: pointer;
+
+    svg {
+      width: 60%;
+      height: 60%;
+      color: ${({ theme: { colors } }) => colors.textSecond};
+    }
+  }
+`;

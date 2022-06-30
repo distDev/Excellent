@@ -13,7 +13,7 @@ const AuthProvider: FC = ({ children }) => {
     const checkAuth = () => {
       authentication.onAuthStateChanged((user) => {
         if (user) {
-          dispatch(loginUser(user.uid, user.phoneNumber));
+          dispatch(loginUser(user.uid, user.phoneNumber, user.displayName));
           setPending(false);
         } else {
           console.log('пользователь не авторизован');

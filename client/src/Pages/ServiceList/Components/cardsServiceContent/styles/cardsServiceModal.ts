@@ -45,4 +45,14 @@ export const ModalStatusTitle = styled.h2`
   }
 `;
 
-
+export const CardServiceCancelButton = styled.button`
+  @media screen and (max-width: 479px) {
+    padding: 20px 40px;
+    border-radius: 30px;
+    margin-top: 25px;
+    border: none;
+    background: ${({ theme: { background } }) => background.button};
+    color: ${({ theme: { colors } }) => colors.textSecond};
+    cursor: pointer;
+  }
+`;

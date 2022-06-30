@@ -28,7 +28,7 @@ const Profile: FC = (props: Props) => {
         navigate('/services');
       })
       .catch((error) => {
-        // An error happened.
+        console.log(error)
       });
   };
 
