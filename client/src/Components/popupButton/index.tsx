@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../State/store';
 import { CART_ORDER_ROUTE, CART_ROUTE } from '../../Utils/routerConst';
-import { StyledPopupButton } from '../StyledComponents/StyledPopupButton';
+import { StyledPopupButton } from './styles/popupButton';
 
 type Props = {};
 

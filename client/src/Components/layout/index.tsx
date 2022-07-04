@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useAppSelector } from '../../State/store';
-import PopupButton from '../popupButton/PopupButton';
+import PopupButton from '../popupButton/index';
 import { Wrapper } from '../StyledComponents/Wrapper';
 import { BottomNav } from './bottomNav/index';
 import Header from './header/index';

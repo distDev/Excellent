@@ -7,8 +7,8 @@ export const BottomNavContainer = styled.header`
   display: flex;
   justify-content: center;
   position: fixed;
-  background: #ffffff;
-  border-top: 1px solid #e5e5e5;
+  background: ${({theme: {background}}) => background.white};
+  border-top: 1px solid ${({theme: {colors}}) => colors.border};
   bottom: 0;
   z-index: 100;
   

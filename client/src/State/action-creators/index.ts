@@ -85,7 +85,7 @@ export const logoutUser = () => {
   };
 };
 
-// fetch data 
+// получение услуг с firebase 
 export const fetchServices = (category: string, subcategory: string) => {
   return async (dispatch: Dispatch<Action>) => {
     const servicesCollectionRef = collection(db, 'services');
@@ -95,7 +95,7 @@ export const fetchServices = (category: string, subcategory: string) => {
       id: doc.id,
     }));
 
-    // data filtering
+    // фильтрация данных
     let filteredData = initialData;
     filteredData =
       category === ''
@@ -110,3 +110,11 @@ export const fetchServices = (category: string, subcategory: string) => {
     dispatch(filteredServicesData(filteredData));
   };
 };
+
+// смена темы
+export const switchTheme = () => {
+  return {
+    type: ActionType.SWITCH_THEME,
+  };
+};
+

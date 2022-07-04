@@ -7,14 +7,14 @@ interface IText {
 
 export const Title = styled.h2<IText>`
   @media screen and (max-width: 479px) {
-    font-size: ${({ theme: size, variant }) =>
+    font-size: ${({ theme: { size }, variant }) =>
       variant === 'extraSmall'
         ? size.extraSmall
         : variant === 'small'
         ? size.small
         : size.normal};
 
-    color: ${({ theme: {colors}, color }) =>
+    color: ${({ theme: { colors }, color }) =>
       color === 'green'
         ? colors.green
         : color === 'primary'

@@ -11,6 +11,7 @@ export const light = {
     green: '#41D3A0',
   },
   background: {
+    body: '#FFFFFF',
     white: '#FFFFFF',
     mainBg: '#FFFFFF',
     secondBg: '#F7F7F7',

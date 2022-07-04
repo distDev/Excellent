@@ -10,6 +10,7 @@ export const HeaderContainer = styled.header`
   svg {
     width: 25px;
     height: 25px;
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 

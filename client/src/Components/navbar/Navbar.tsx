@@ -3,6 +3,7 @@ import { IoChevronBackSharp } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../State/store';
 import { PROFILE_ROUTE } from '../../Utils/routerConst';
+import { Title } from '../uiComponents/title';
 import {
   NavbarContainer,
   NavbarContent,
@@ -32,9 +33,13 @@ const Navbar: FC<Props> = ({ back, variant, justify, title }) => {
         </Link>
       )}
       <NavbarContent justify={justify}>
-        <NavbarTitle>{title}</NavbarTitle>
+        <Title color='textMain' variant='normal'>
+          {title}
+        </Title>
         {phoneNumber !== null && location.pathname === '/profile' && (
-          <NavbarPhone>{phoneNumber}</NavbarPhone>
+          <Title color='textSecond' variant='extraSmall' as='h3'>
+            {phoneNumber}
+          </Title>
         )}
       </NavbarContent>
     </NavbarContainer>

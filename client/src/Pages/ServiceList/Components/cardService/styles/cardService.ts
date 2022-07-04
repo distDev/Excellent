@@ -77,7 +77,7 @@ export const CardServiceSliderItem = styled.div`
   @media screen and (max-width: 479px) {
     height: 100px;
     border-radius: 10px;
-    background: #f8f7f5;
+    background: ${({theme: {background}}) => background.secondBg};
     display: flex;
     align-items: center;
     justify-content: center;

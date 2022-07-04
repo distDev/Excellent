@@ -57,6 +57,7 @@ export interface IRootState {
     phoneNumber: string;
     name: string;
   };
+  theme: string;
 }
 
 export type TRootState = typeof storeState;

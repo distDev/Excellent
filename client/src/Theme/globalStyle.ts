@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import { ThemeTypes } from './light';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<{ theme: ThemeTypes }>`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
   @font-face {
     font-family: 'Euclid Circular A';
@@ -65,10 +66,11 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0px;
     margin: 0px;
-   
+    background: ${({ theme: { background } }) => background.body};
     width: 100%;
     font-family: 'Euclid Circular A', sans-serif;
     position: relative;
+    transition: 0.3s;
     
   }
  
@@ -76,6 +78,7 @@ const GlobalStyle = createGlobalStyle`
    box-sizing: border-box;
    margin: 0px;
    padding: 0px;
+   
  }
 `;
 

@@ -5,21 +5,21 @@ export const CardOrderContainer = styled.div`
   padding: 20px 0px;
   display: flex;
   gap: 12px;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.border};
 
   @media screen and (max-width: 479px) {
     position: relative;
     padding: 20px 0px;
     display: flex;
     gap: 12px;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid ${({ theme: { colors } }) => colors.border};
   }
 `;
 
 export const CardOrderMedia = styled.div`
   width: 86px;
   border-radius: 11px;
-  background: #f8f7f5;
+  background: ${({ theme: { background } }) => background.secondBg};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@ export const CardOrderMedia = styled.div`
   @media screen and (max-width: 479px) {
     width: 86px;
     border-radius: 11px;
-    background: #f8f7f5;
+    background: ${({ theme: { background } }) => background.secondBg};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,10 +49,11 @@ export const CardOrderMedia = styled.div`
 export const CardOrderTitle = styled.p`
   font-size: ${({ theme: { size } }) => size.text.small};
   max-width: 50%;
-
+  color: ${({ theme: { colors } }) => colors.textMain};
   @media screen and (max-width: 479px) {
     font-size: ${({ theme: { size } }) => size.text.small};
     max-width: 50%;
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 
@@ -78,6 +79,7 @@ export const CardOrderDelete = styled.div`
   height: 20px;
 
   svg {
+    color: ${({ theme: { colors } }) => colors.textSecond};
   }
 
   @media screen and (max-width: 479px) {
@@ -88,6 +90,7 @@ export const CardOrderDelete = styled.div`
     height: 20px;
 
     svg {
+      color: ${({ theme: { colors } }) => colors.textSecond};
     }
   }
 `;

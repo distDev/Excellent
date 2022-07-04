@@ -4,10 +4,11 @@ export const ThemeSwitcherBox = styled.header`
   position: absolute;
   top: 20px;
   right: 20px;
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   svg {
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;

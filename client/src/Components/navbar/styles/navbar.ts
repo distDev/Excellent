@@ -11,8 +11,8 @@ export const NavbarContainer = styled.div<Props>`
     display: flex;
     padding: 15px 0px;
     align-items: center;
-    border-bottom: ${({ variant }) =>
-      variant === 'bottomLine' ? '1px solid #f2f2f2' : ''};
+    border-bottom: ${({ theme: { colors }, variant }) =>
+      variant === 'bottomLine' ? `1px solid ${colors.border}` : ''};
 
     a {
       position: absolute;
@@ -37,6 +37,7 @@ export const NavbarContent = styled.div<Props>`
 export const NavbarTitle = styled.h3`
   @media screen and (max-width: 479px) {
     font-size: ${({ theme: { size } }) => size.title.normal};
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 

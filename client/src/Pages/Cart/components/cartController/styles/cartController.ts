@@ -7,6 +7,7 @@ export const CartControllerContainer = styled.div`
     bottom: 49px;
     padding: 15px;
     background: ${({ theme: { background } }) => background.white};
+    border-top: 1px solid ${({ theme: { colors } }) => colors.border};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +31,7 @@ export const CartControllerButton = styled.button`
     border: none;
     font-size: ${({ theme: { size } }) => size.text.normal};
     background: ${({ theme: { colors } }) => colors.textMain};
-    color: ${({ theme: { colors } }) => colors.white};
+    color: ${({ theme: { background } }) => background.secondBg};
     font-weight: 500;
   }
 `;
