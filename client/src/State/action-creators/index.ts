@@ -1,4 +1,3 @@
-import { NoInfer } from '@react-spring/types';
 import { collection, getDocs } from 'firebase/firestore';
 import { Dispatch } from 'redux';
 import { db } from '../../Firebase/firebase-config';
@@ -86,7 +85,7 @@ export const logoutUser = () => {
   };
 };
 
-// получение услуг из firebase
+// fetch data 
 export const fetchServices = (category: string, subcategory: string) => {
   return async (dispatch: Dispatch<Action>) => {
     const servicesCollectionRef = collection(db, 'services');
@@ -96,7 +95,7 @@ export const fetchServices = (category: string, subcategory: string) => {
       id: doc.id,
     }));
 
-    // фильтрация данных
+    // data filtering
     let filteredData = initialData;
     filteredData =
       category === ''

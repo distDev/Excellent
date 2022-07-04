@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import {
   FiltersContainer,
   FiltersOptions,
@@ -17,16 +17,15 @@ import { IService } from '../../../../Types/serviceInterface';
 
 const Filters = () => {
   const [show, setShow] = useState(false);
-  const filtersData = useAppSelector((state) => state.filters.subcategory);
   const [{ category, subcategory }, setData] = useState({
-    category: 'Автосервис',
+    category: '',
     subcategory: '',
   });
   const initialData: IService[] = useAppSelector(
     (state) => state.services.services
   );
   const dispatch = useAppDispatch();
-  
+
   // фильтрация категорий
   const categoriesData = [...new Set(initialData?.map((e) => e.category))];
   // фильтрация подкатегорий
@@ -70,9 +69,6 @@ const Filters = () => {
     setShow((prev) => !prev);
   };
 
-  // отправка выбранных фильтров в store
-  useEffect(() => {}, []);
-
   return (
     <>
       <FiltersContainer>
@@ -82,10 +78,27 @@ const Filters = () => {
         </FiltersOptions>
       </FiltersContainer>
       <ModalSmall show={show} setShow={setShow}>
-        <ModalForm onSubmit={() => console.log('Submitted')}>
-          <Select onChange={handleCategoryChange}>{categories}</Select>
-          <Select onChange={handleSubcategoryChange}>{subcategories}</Select>
-          <ModalFixButton type='submit'>Применить</ModalFixButton>
+        <ModalForm>
+          <Select
+            variant={category ? 'complited' : null}
+            value={category}
+            onChange={handleCategoryChange}
+          >
+            <option value=''>Все категории</option>
+            {categories}
+          </Select>
+          <Select
+            value={subcategory}
+            disabled={category ? false : true}
+            onChange={handleSubcategoryChange}
+            variant={subcategory ? 'complited' : null}
+          >
+            <option value=''>Все подкатегории</option>
+            {subcategories}
+          </Select>
+          <ModalFixButton type='button' onClick={() => setShow(false)}>
+            Применить
+          </ModalFixButton>
         </ModalForm>
       </ModalSmall>
     </>

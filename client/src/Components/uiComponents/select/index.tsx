@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 
 interface ISelect {
-  variant?: string;
+  variant?: 'complited' | 'error' | null;
 }
 
 

@@ -3,7 +3,7 @@ import { ActionType } from '../action-type';
 import { Action } from '../actions/index';
 
 const initialState = {
-  category: 'Автосервис',
+  category: '',
   subcategory: '',
 };
 

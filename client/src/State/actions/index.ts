@@ -50,6 +50,10 @@ export interface IClearCart {
   type: ActionType.CLEAR_CART;
 }
 
+export interface ISwitchTheme {
+  type: ActionType.SWITCH_THEME;
+}
+
 export type Action =
   | IGetServices
   | IAddToCart
@@ -58,4 +62,5 @@ export type Action =
   | IUseFilters
   | ILoginUser
   | ILogout
-  | IClearCart;
+  | IClearCart
+  | ISwitchTheme;
