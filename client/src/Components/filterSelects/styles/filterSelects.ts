@@ -2,11 +2,10 @@ import styled from 'styled-components/macro';
 
 export const FiltersContainer = styled.div`
   display: grid;
-  grid-template-columns: 6fr 2fr 2fr;
-  grid-auto-rows: 60px;
+  grid-template-columns: 5fr 1fr;
+  grid-auto-rows: 50px;
   margin-top: 10px;
   gap: 10px;
-  
   @media screen and (max-width: 479px) {
     display: grid;
     grid-template-columns: 5fr 1fr;
@@ -27,7 +26,6 @@ export const FiltersSearch = styled.input`
   &::placeholder {
     color: #979692;
   }
- 
   @media screen and (max-width: 479px) {
     border: none;
     border-radius: 16px;
@@ -56,7 +54,6 @@ export const FiltersOptions = styled.div`
     height: 20px;
     width: 20px;
   }
- 
   @media screen and (max-width: 479px) {
     display: flex;
     justify-content: center;

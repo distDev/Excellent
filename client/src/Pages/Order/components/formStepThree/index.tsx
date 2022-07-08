@@ -30,6 +30,8 @@ const FormStepThree: FC<Props> = ({ formik }) => {
         <TotalCheck
           date={formik.values.date}
           time={formik.values.time}
+          brand={formik.values.brand}
+          model={formik.values.model}
           amount={totalSum}
         />
         <Container bg='secondBg'>

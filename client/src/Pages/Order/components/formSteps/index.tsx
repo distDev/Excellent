@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import FormStepper from '../formStepper/index';
+import { FormStepsContainer } from './styles/formSteps';
 
 interface Props {
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
   formik: any;
-};
+}
 
 const FormSteps: FC<Props> = ({ children, formik, step, setStep }) => {
   // делаю массив из потомков
@@ -15,10 +16,10 @@ const FormSteps: FC<Props> = ({ children, formik, step, setStep }) => {
   const currentChild = childArray[step];
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <FormStepsContainer onSubmit={formik.handleSubmit}>
       <FormStepper step={step} />
       {currentChild}
-    </form>
+    </FormStepsContainer>
   );
 };
 

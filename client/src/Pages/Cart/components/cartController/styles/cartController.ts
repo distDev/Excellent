@@ -1,6 +1,17 @@
 import styled from 'styled-components/macro';
 
 export const CartControllerContainer = styled.div`
+  max-height: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 20px;
+  gap: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  background: ${({ theme: { background } }) => background.mainBg};
+
   @media screen and (max-width: 479px) {
     width: 100%;
     position: fixed;
@@ -15,7 +26,23 @@ export const CartControllerContainer = styled.div`
   }
 `;
 
+export const CartContainer = styled.div`
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  height: auto;
+  gap: 100px;
+
+  @media screen and (max-width: 479px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
 export const CartControllerTotal = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
   @media screen and (max-width: 479px) {
     width: 100%;
     display: flex;
@@ -24,6 +51,16 @@ export const CartControllerTotal = styled.div`
 `;
 
 export const CartControllerButton = styled.button`
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: ${({ theme: { size } }) => size.text.normal};
+  background: ${({ theme: { colors } }) => colors.primary};
+  color: ${({ theme: { background } }) => background.secondBg};
+  font-weight: 500;
+  cursor: pointer;
+
   @media screen and (max-width: 479px) {
     width: 100%;
     padding: 20px;

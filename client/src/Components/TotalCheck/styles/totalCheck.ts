@@ -1,6 +1,14 @@
 import styled from 'styled-components/macro';
 
 export const TotalCheckContainer = styled.div`
+  width: 100%;
+  border-radius: 10px;
+  left: 0;
+  padding: 20px 13px;
+  display: flex;
+  flex-direction: column;
+  background: ${({ theme: { background } }) => background.secondBg};
+
   @media screen and (max-width: 479px) {
     width: 100%;
     border-radius: 10px;
@@ -13,6 +21,11 @@ export const TotalCheckContainer = styled.div`
 `;
 
 export const TotalCheckTotal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto;
+
   @media screen and (max-width: 479px) {
     display: flex;
     flex-direction: column;
@@ -22,6 +35,9 @@ export const TotalCheckTotal = styled.div`
 `;
 
 export const TotalCheckInfo = styled.div`
+  width: 100%;
+  margin-top: 30px;
+
   @media screen and (max-width: 479px) {
     width: 100%;
     margin-top: 30px;
@@ -29,6 +45,14 @@ export const TotalCheckInfo = styled.div`
 `;
 
 export const TotalCheckInfoItem = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0px;
+  gap: 5px;
+  border-bottom: ${({ theme: { colors } }) => `1px solid ${colors.border} `};
+  border-top: ${({ theme: { colors } }) => `1px solid ${colors.border} `};
+  
   @media screen and (max-width: 479px) {
     width: 100%;
     display: flex;
@@ -64,6 +88,10 @@ export const TotalCheckTotalSubtitle = styled.h4`
 `;
 
 export const TotalCheckInfoTitle = styled.p`
+  color: ${({ theme: { colors } }) => colors.textSecond};
+  font-size: ${({ theme: { size } }) => size.text.small};
+  font-weight: 600;
+
   @media screen and (max-width: 479px) {
     color: ${({ theme: { colors } }) => colors.textSecond};
     font-size: ${({ theme: { size } }) => size.text.small};
@@ -72,6 +100,10 @@ export const TotalCheckInfoTitle = styled.p`
 `;
 
 export const TotalCheckInfoSubtitle = styled.p`
+  color: ${({ theme: { colors } }) => colors.textMain};
+  font-size: ${({ theme: { size } }) => size.text.small};
+  font-weight: 600;
+  
   @media screen and (max-width: 479px) {
     color: ${({ theme: { colors } }) => colors.textMain};
     font-size: ${({ theme: { size } }) => size.text.small};

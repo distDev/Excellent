@@ -3,7 +3,7 @@ import CartController from './components/cartController/index';
 import Navbar from '../../Components/navbar/Navbar';
 import { Container } from '../../Components/StyledComponents/Container';
 import { useAppDispatch, useAppSelector } from '../../State/store';
-import { ClearCartButton } from './components/cartController/styles/cartController';
+import { CartContainer, ClearCartButton } from './components/cartController/styles/cartController';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { clearCart } from '../../State/action-creators';
 
@@ -22,13 +22,10 @@ const Cart = (props: Props) => {
       <Navbar title='Корзина' justify='start' />
       {!cartData.length && <h2>Корзина пуста</h2>}
       {cartData.length > 0 && (
-        <>
+        <CartContainer>
           <OrderCards data={cartData} />
           <CartController />
-          <ClearCartButton onClick={handleClearCart}>
-            <AiOutlineDelete />
-          </ClearCartButton>
-        </>
+        </CartContainer>
       )}
     </Container>
   );

@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
   flex-direction: column;
   background: ${({ theme: { background } }) => background.secondBg};
   border-radius: 10px;
-  padding: 0px 12px 12px 12px;
+  padding: 0px 16px 16px 16px;
   font-size: ${({ theme: { size } }) => size.text.small};
   font-weight: 500;
 
@@ -25,7 +25,7 @@ export const CardContainer = styled.div`
 `;
 
 export const CardImage = styled.div`
-  height: 170px;
+  height: 220px;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -84,14 +84,14 @@ export const CardButton = styled.button<IButton>`
   width: 100%;
   margin-top: 15px;
   border: none;
-  padding: 10px;
+  padding: 16px;
   border-radius: 10px;
   color: ${({ theme: { colors }, variant }) =>
     variant === 'inTheCart' ? colors.white : colors.textMain};
   background: ${({ theme: { background }, variant }) =>
-    variant === 'inTheCart' ? background.primary : background.mainBg};
+    variant === 'inTheCart' ? background.primary : background.white};
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
- 
+
   cursor: pointer;
 
   @media screen and (max-width: 479px) {
@@ -101,10 +101,10 @@ export const CardButton = styled.button<IButton>`
     padding: 10px;
     border-radius: 10px;
     background: ${({ theme: { background }, variant }) =>
-      variant === 'inTheCart' ? background.primary : background.mainBg};
+      variant === 'inTheCart' ? background.primary : background.white};
     color: ${({ theme: { colors }, variant }) =>
       variant === 'inTheCart' ? colors.white : colors.textMain};
-    
+
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
     cursor: pointer;
   }

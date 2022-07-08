@@ -11,7 +11,7 @@ export const dark = {
   background: {
     body: '#191919',
     white: '#191919',
-    mainBg: '#191919',
+    mainBg: '#242424',
     secondBg: '#242424',
     button: '#242424',
     primary: '#D54068',
