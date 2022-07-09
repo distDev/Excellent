@@ -43,12 +43,15 @@ export const PublicRoutes = [
     component: <Login />,
   },
   {
+    path: SUCCESS_ROUTE,
+    component: <OrderSuccess />,
+  },
+];
+
+export const PrivateRoutes = [
+  {
     path: PROFILE_ROUTE,
     component: <Profile />,
-  },
-  {
-    path: PROFILE_SETTINGS_ROUTE,
-    component: <Settings />,
   },
   {
     path: PROFILE_GARAGE_ROUTE,
@@ -59,14 +62,7 @@ export const PublicRoutes = [
     component: <ServiceList />,
   },
   {
-    path: SUCCESS_ROUTE,
-    component: <OrderSuccess />,
-  },
-];
-
-export const PrivateRoutes = [
-  {
-    path: PROFILE_ROUTE,
-    component: Profile,
+    path: PROFILE_SETTINGS_ROUTE,
+    component: <Settings />,
   },
 ];

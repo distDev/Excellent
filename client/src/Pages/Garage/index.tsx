@@ -22,8 +22,8 @@ const Garage = () => {
     'AddCar'
   );
   const user = useAppSelector((state) => state.user?.phoneNumber);
+  const pcView = window.innerWidth > 900;
 
-  
   // открытие модального окна с информацией об автомобиле
   const handleGarageContentShow = (id: string) => {
     setShow((prev) => !prev);
@@ -58,7 +58,7 @@ const Garage = () => {
 
   return (
     <Container>
-      <Navbar title='Гараж' back={true} variant='bottomLine' />
+      {!pcView && <Navbar title='Гараж' back={true} variant='bottomLine' />}
       {cars.length > 0 &&
         cars.map((e: any) => (
           <CarItem
@@ -71,7 +71,6 @@ const Garage = () => {
             setCars={setCars}
           />
         ))}
-
       <AddCarButton onClick={handleAddCarShow}>
         Добавить автомобиль
       </AddCarButton>

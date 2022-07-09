@@ -15,6 +15,7 @@ const Settings = (props: Props) => {
   const userName = useAppSelector((state) => state.user.name);
   const [name, setName] = useState(userName);
   const [show, setShow] = useState(false);
+  const pcView = window.innerWidth > 900;
 
   const handleShow = () => {
     setShow((prev) => !prev);
@@ -22,7 +23,7 @@ const Settings = (props: Props) => {
 
   return (
     <Container>
-      <Navbar title='Настройки' back={true} variant='bottomLine' />
+      {!pcView && <Navbar title='Настройки' back={true} variant='bottomLine' />}
       <MobileTab icon={<CgSmartphone />} title={userPhone} />
       <MobileTab
         icon={<RiUser3Line />}

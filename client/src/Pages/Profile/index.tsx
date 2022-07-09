@@ -8,18 +8,19 @@ import { signOut } from 'firebase/auth';
 import { authentication } from '../../Firebase/firebase-config';
 import { useAppDispatch } from '../../State/store';
 import { logoutUser } from '../../State/action-creators';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import ProfileContent from './components/profileContent';
+import { ProfileContainer, ProfileMenu } from './styles/profile';
+import ProfileTabs from './components/profileTabs'
+
 
 type Props = {};
 
 const Profile: FC = (props: Props) => {
-  const [show, setShow] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
-  const handleShow = () => {
-    setShow((prev) => !prev);
-  };
+  const pcView = window.innerWidth > 900;
+  const location = useLocation();
 
   const handleLogout = () => {
     signOut(authentication)
@@ -28,31 +29,43 @@ const Profile: FC = (props: Props) => {
         navigate('/services');
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
   };
 
   return (
-    <Container>
-      <Navbar variant='bottomLine' justify='start' />
-      {profileTabs.map((e) => (
-        <MobileTab
-          key={e.title}
-          icon={e.icon}
-          title={e.title}
-          subtitle={e.subtitle}
-          variant={e.variant}
-          path={e.path}
-        />
-      ))}
-      <MobileTab
-        icon={<IoMdExit />}
-        title='Выйти'
-        subtitle='Выйти из профиля'
-        variant='col'
-        onClick={handleLogout}
-      />
-    </Container>
+    <ProfileContainer>
+      {location.pathname !== '/profile' && (
+        <ProfileContent>
+          <Outlet />
+        </ProfileContent>
+      )}
+      <ProfileMenu>
+        {!pcView && (
+          <>
+            <Navbar variant='bottomLine' justify='start' />
+            {profileTabs.map((e) => (
+              <MobileTab
+                key={e.title}
+                icon={e.icon}
+                title={e.title}
+                subtitle={e.subtitle}
+                variant={e.variant}
+                path={e.path}
+              />
+            ))}
+            <MobileTab
+              icon={<IoMdExit />}
+              title='Выйти'
+              subtitle='Выйти из профиля'
+              variant='col'
+              onClick={handleLogout}
+            />
+          </>
+        )}
+        {pcView && <ProfileTabs />}
+      </ProfileMenu>
+    </ProfileContainer>
   );
 };
 

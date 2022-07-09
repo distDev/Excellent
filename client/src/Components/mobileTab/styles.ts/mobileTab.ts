@@ -5,6 +5,23 @@ interface Props {
 }
 
 export const MobileTabContainer = styled.div`
+  padding: 20px 0px;
+  width: 100%;
+  border-bottom: ${({ theme: { colors } }) => `1px solid ${colors.border}`};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+
   @media screen and (max-width: 479px) {
     padding: 20px 0px;
     width: 100%;
@@ -26,6 +43,9 @@ export const MobileTabContainer = styled.div`
 `;
 
 export const MobileTabBody = styled.div`
+  display: flex;
+  gap: 15px;
+
   @media screen and (max-width: 479px) {
     display: flex;
     gap: 15px;
@@ -33,6 +53,19 @@ export const MobileTabBody = styled.div`
 `;
 
 export const MobileTabIcon = styled.div`
+  padding: 14px;
+  background: ${({ theme: { background } }) => background.secondBg};
+  color: ${({ theme: { colors } }) => colors.textMain};
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin: auto;
+  }
+
   @media screen and (max-width: 479px) {
     padding: 14px;
     background: ${({ theme: { background } }) => background.secondBg};
@@ -50,6 +83,11 @@ export const MobileTabIcon = styled.div`
 `;
 
 export const MobileTabContent = styled.div<Props>`
+  display: flex;
+  flex-direction: ${({ variant }) => (variant === 'col' ? 'column' : '')};
+  justify-content: space-between;
+  align-items: ${({ variant }) => (variant === 'col' ? '' : 'center')};
+
   @media screen and (max-width: 479px) {
     display: flex;
     flex-direction: ${({ variant }) => (variant === 'col' ? 'column' : '')};
@@ -59,6 +97,10 @@ export const MobileTabContent = styled.div<Props>`
 `;
 
 export const MobileTabTitle = styled.h3`
+  color: ${({ theme: { colors } }) => colors.textMain};
+  font-size: ${({ theme: { size } }) => size.normal};
+  font-weight: 600;
+
   @media screen and (max-width: 479px) {
     color: ${({ theme: { colors } }) => colors.textMain};
     font-size: ${({ theme: { size } }) => size.normal};
@@ -67,6 +109,9 @@ export const MobileTabTitle = styled.h3`
 `;
 
 export const MobileTabSubtitle = styled.p`
+  font-weight: 15px;
+  color: ${({ theme: { colors } }) => colors.textSecond};
+  
   @media screen and (max-width: 479px) {
     font-weight: 15px;
     color: ${({ theme: { colors } }) => colors.textSecond};
