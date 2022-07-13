@@ -1,6 +1,5 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { IoMdExit } from 'react-icons/io';
-import { Container } from '../../Components/StyledComponents/Container';
 import MobileTab from '../../Components/mobileTab';
 import { profileTabs } from './utils/data';
 import Navbar from '../../Components/navbar/Navbar';
@@ -11,8 +10,7 @@ import { logoutUser } from '../../State/action-creators';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import ProfileContent from './components/profileContent';
 import { ProfileContainer, ProfileMenu } from './styles/profile';
-import ProfileTabs from './components/profileTabs'
-
+import ProfileTabs from './components/profileTabs';
 
 type Props = {};
 
@@ -33,6 +31,32 @@ const Profile: FC = (props: Props) => {
       });
   };
 
+  // мобильное меню
+  const ProfileMobileTabs = () => {
+    return (
+      <>
+        <Navbar variant='bottomLine' justify='start' />
+        {profileTabs.map((e) => (
+          <MobileTab
+            key={e.title}
+            icon={e.icon}
+            title={e.title}
+            subtitle={e.subtitle}
+            variant={e.variant}
+            path={e.path}
+          />
+        ))}
+        <MobileTab
+          icon={<IoMdExit />}
+          title='Выйти'
+          subtitle='Выйти из профиля'
+          variant='col'
+          onClick={handleLogout}
+        />
+      </>
+    );
+  };
+
   return (
     <ProfileContainer>
       {location.pathname !== '/profile' && (
@@ -41,28 +65,7 @@ const Profile: FC = (props: Props) => {
         </ProfileContent>
       )}
       <ProfileMenu>
-        {!pcView && (
-          <>
-            <Navbar variant='bottomLine' justify='start' />
-            {profileTabs.map((e) => (
-              <MobileTab
-                key={e.title}
-                icon={e.icon}
-                title={e.title}
-                subtitle={e.subtitle}
-                variant={e.variant}
-                path={e.path}
-              />
-            ))}
-            <MobileTab
-              icon={<IoMdExit />}
-              title='Выйти'
-              subtitle='Выйти из профиля'
-              variant='col'
-              onClick={handleLogout}
-            />
-          </>
-        )}
+        {!pcView && <ProfileMobileTabs />}
         {pcView && <ProfileTabs />}
       </ProfileMenu>
     </ProfileContainer>

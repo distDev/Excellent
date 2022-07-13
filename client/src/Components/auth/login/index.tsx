@@ -13,7 +13,7 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 import { useAppDispatch } from '../../../State/store';
 import { loginUser } from '../../../State/action-creators';
 import { useNavigate } from 'react-router-dom';
-import { PROFILE_ROUTE } from '../../../Utils/routerConst';
+import { routerConst } from '../../../Utils/routerConst';
 
 type Props = {
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
@@ -79,7 +79,7 @@ const Login: FC<Props> = ({ setShow }) => {
             )
           );
           setShow(false);
-          navigate(PROFILE_ROUTE);
+          navigate(routerConst.PROFILE_ROUTE);
         })
         .catch((error: any) => {
           console.log(error);

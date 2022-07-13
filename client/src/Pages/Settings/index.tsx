@@ -1,12 +1,12 @@
 import { RiUser3Line } from 'react-icons/ri';
 import { CgSmartphone } from 'react-icons/cg';
-import { Container } from '../../Components/StyledComponents/Container';
 import MobileTab from '../../Components/mobileTab';
 import Navbar from '../../Components/navbar/Navbar';
 import Modal from '../../Components/modal';
 import { useState } from 'react';
 import { SettingsModalContent } from './components/modalContent/SettingsModalContent';
 import { useAppSelector } from '../../State/store';
+import { Container } from '../../Components/uiComponents/container';
 
 interface Props {}
 

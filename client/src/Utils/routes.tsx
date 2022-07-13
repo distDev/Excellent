@@ -8,61 +8,50 @@ import Settings from '../Pages/Settings';
 import Services from '../Pages/Services';
 import Order from '../Pages/Order/index';
 import OrderSuccess from '../Pages/OrderSuccess';
-import {
-  CART_ORDER_ROUTE,
-  CART_ROUTE,
-  LOGIN_ROUTE,
-  MAIN_ROUTE,
-  PROFILE_GARAGE_ROUTE,
-  PROFILE_ROUTE,
-  PROFILE_SERVICELIST_ROUTE,
-  PROFILE_SETTINGS_ROUTE,
-  SERVICES_ROUTE,
-  SUCCESS_ROUTE,
-} from './routerConst';
+import { routerConst } from './routerConst';
 
 export const PublicRoutes = [
   {
-    path: MAIN_ROUTE,
+    path: routerConst.MAIN_ROUTE,
     component: <Main />,
   },
   {
-    path: SERVICES_ROUTE,
+    path: routerConst.SERVICES_ROUTE,
     component: <Services />,
   },
   {
-    path: CART_ROUTE,
+    path: routerConst.CART_ROUTE,
     component: <Cart />,
   },
   {
-    path: CART_ORDER_ROUTE,
+    path: routerConst.CART_ORDER_ROUTE,
     component: <Order />,
   },
   {
-    path: LOGIN_ROUTE,
+    path: routerConst.LOGIN_ROUTE,
     component: <Login />,
   },
   {
-    path: SUCCESS_ROUTE,
+    path: routerConst.SUCCESS_ROUTE,
     component: <OrderSuccess />,
   },
 ];
 
 export const PrivateRoutes = [
   {
-    path: PROFILE_ROUTE,
+    path: routerConst.PROFILE_ROUTE,
     component: <Profile />,
   },
   {
-    path: PROFILE_GARAGE_ROUTE,
+    path: routerConst.PROFILE_GARAGE_ROUTE,
     component: <Garage />,
   },
   {
-    path: PROFILE_SERVICELIST_ROUTE,
+    path: routerConst.PROFILE_SERVICELIST_ROUTE,
     component: <ServiceList />,
   },
   {
-    path: PROFILE_SETTINGS_ROUTE,
+    path: routerConst.PROFILE_SETTINGS_ROUTE,
     component: <Settings />,
   },
 ];

@@ -2,14 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container } from '../../Components/uiComponents/container';
 import { Title } from '../../Components/uiComponents/title';
-import { MAIN_ROUTE } from '../../Utils/routerConst';
+import { routerConst } from '../../Utils/routerConst';
 import {
   OrderSuccessButton,
   OrderSuccessContent,
   OrderSuccessImg,
 } from './styles/orderSuccess';
 
-const OrderSucceess = ({}) => {
+const OrderSucceess = () => {
   const navigate = useNavigate();
 
   return (
@@ -19,7 +19,7 @@ const OrderSucceess = ({}) => {
         <Title color='textMain' variant='normal'>
           Заявка успешно отправлена
         </Title>
-        <OrderSuccessButton onClick={() => navigate(MAIN_ROUTE)}>
+        <OrderSuccessButton onClick={() => navigate(routerConst.MAIN_ROUTE)}>
           На главную
         </OrderSuccessButton>
       </OrderSuccessContent>

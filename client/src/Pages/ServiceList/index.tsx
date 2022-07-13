@@ -1,5 +1,5 @@
 import Navbar from '../../Components/navbar/Navbar';
-import { Container } from '../../Components/StyledComponents/Container';
+import { Container } from '../../Components/uiComponents/container';
 import { ServiceListCards } from './components/cardsService/index';
 
 type Props = {};

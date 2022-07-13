@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Container } from '../../Components/StyledComponents/Container';
-import { IoCarSportOutline } from 'react-icons/io5';
 import { AddCarButton } from './components/styles/index';
 import CarItem from './components/carItem/index';
 import Modal from '../../Components/modal/index';
@@ -11,6 +9,7 @@ import AddCarContent from './components/addCar/index';
 import { db } from '../../Firebase/firebase-config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useAppSelector } from '../../State/store';
+import { Container } from '../../Components/uiComponents/container';
 
 interface Props {}
 

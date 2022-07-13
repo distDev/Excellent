@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import {
-  PROFILE_GARAGE_ROUTE,
-  PROFILE_SERVICELIST_ROUTE,
-  PROFILE_SETTINGS_ROUTE,
-} from '../../../../Utils/routerConst';
+import { routerConst } from '../../../../Utils/routerConst';
 import { ProfileTabItem } from './styles/profileTabs';
 import { Link, useLocation } from 'react-router-dom';
 import { Text } from '../../../../Components/uiComponents/text';
@@ -13,15 +9,15 @@ type Props = {};
 const ProfileTabs = (props: Props) => {
   const [menuLinks, setMenuLinks] = useState([
     {
-      path: PROFILE_SETTINGS_ROUTE,
+      path: routerConst.PROFILE_SETTINGS_ROUTE,
       name: 'Профиль',
     },
     {
-      path: PROFILE_SERVICELIST_ROUTE,
+      path: routerConst.PROFILE_SERVICELIST_ROUTE,
       name: 'Записи',
     },
     {
-      path: PROFILE_GARAGE_ROUTE,
+      path: routerConst.PROFILE_GARAGE_ROUTE,
       name: 'Гараж',
     },
   ]);
