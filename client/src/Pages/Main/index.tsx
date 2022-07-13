@@ -1,4 +1,5 @@
-import { Container } from '../../Components/StyledComponents/Container';
+import { Container } from "../../Components/uiComponents/container";
+
 
 type Props = {};
 

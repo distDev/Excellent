@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { RiUser3Line } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
-import { PROFILE_ROUTE } from '../../../Utils/routerConst';
+import { routerConst } from '../../../Utils/routerConst';
 import { BottomNavContainer, BottomNavIcon } from './styles/bottomNav';
 import { bottomNavLinks } from './utils/bottomNavLinks';
 import Auth from '../../auth/index';
@@ -33,7 +33,7 @@ export const BottomNav = (props: Props) => {
       {user ? (
         <NavLink
           className={({ isActive }) => (isActive ? 'active-link' : '')}
-          to={PROFILE_ROUTE}
+          to={routerConst.PROFILE_ROUTE}
         >
           <RiUser3Line />
         </NavLink>

@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+
 import {
   MobileTabBody,
   MobileTabContainer,
@@ -10,7 +11,6 @@ import {
   MobileTabTitle,
 } from './styles.ts/mobileTab';
 
-
 interface Props {
   title: string;
   subtitle?: string;
@@ -18,8 +18,7 @@ interface Props {
   path?: string;
   variant?: string;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
-};
-
+}
 
 const MobileTab: FC<Props> = ({
   icon,
@@ -27,8 +26,9 @@ const MobileTab: FC<Props> = ({
   subtitle,
   path,
   variant,
-  onClick
+  onClick,
 }) => {
+  
   return (
     <MobileTabContainer onClick={onClick}>
       <MobileTabBody>

@@ -8,7 +8,7 @@ export const CartControllerContainer = styled.div`
   justify-content: flex-end;
   padding: 20px 20px;
   gap: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 6px 37px 9px rgba(0, 0, 0, 0.03);
   border-radius: 20px;
   background: ${({ theme: { background } }) => background.mainBg};
 

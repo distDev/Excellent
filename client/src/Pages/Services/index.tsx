@@ -1,4 +1,5 @@
-import { Container } from '../../Components/StyledComponents/Container';
+
+import { Container } from '../../Components/uiComponents/container';
 import Filters from './components/filters/index'
 import { ServicesContent } from './components/servicesContent';
 

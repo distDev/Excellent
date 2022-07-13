@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { IoChevronBackSharp } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../State/store';
-import { PROFILE_ROUTE } from '../../Utils/routerConst';
+import {  routerConst } from '../../Utils/routerConst';
 import { Title } from '../uiComponents/title';
 import {
   NavbarContainer,
@@ -26,7 +26,7 @@ const Navbar: FC<Props> = ({ back, variant, justify, title }) => {
   return (
     <NavbarContainer variant={variant}>
       {back && (
-        <Link to={PROFILE_ROUTE}>
+        <Link to={routerConst.PROFILE_ROUTE}>
           <NavbarIcon>
             <IoChevronBackSharp />
           </NavbarIcon>

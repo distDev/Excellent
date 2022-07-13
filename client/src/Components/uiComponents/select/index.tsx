@@ -8,7 +8,7 @@ interface ISelect {
 
 
 export const Select = styled.select<ISelect>`
-  padding: 20px;
+  padding: 15px;
   width: 100%;
   border-radius: 10px;
   border: none;
@@ -29,7 +29,7 @@ export const Select = styled.select<ISelect>`
       ? theme.colors.textMain
       : theme.colors.textSecond};
   border-right: 21px solid transparent;
-  font-size: ${({ theme: { size } }) => size.text.normal};
+  font-size: ${({ theme: { size } }) => size.text.small};
   outline: none;
   font-weight: 600;
   

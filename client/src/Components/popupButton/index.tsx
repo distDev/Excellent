@@ -1,6 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../State/store';
-import { CART_ORDER_ROUTE, CART_ROUTE } from '../../Utils/routerConst';
+import {
+  routerConst,
+} from '../../Utils/routerConst';
 import { StyledPopupButton } from './styles/popupButton';
 
 type Props = {};
@@ -17,12 +19,13 @@ const PopupButton = (props: Props) => {
 
   return (
     <>
-      {pathname === CART_ROUTE && null}
-      {pathname !== CART_ROUTE && pathname !== CART_ORDER_ROUTE && (
-        <StyledPopupButton onClick={() => navigate('/cart')}>
-          {totalSum} ₽
-        </StyledPopupButton>
-      )}
+      {pathname === routerConst.CART_ROUTE && null}
+      {pathname !== routerConst.CART_ROUTE &&
+        pathname !== routerConst.CART_ORDER_ROUTE && (
+          <StyledPopupButton onClick={() => navigate('/cart')}>
+            {totalSum} ₽
+          </StyledPopupButton>
+        )}
     </>
   );
 };

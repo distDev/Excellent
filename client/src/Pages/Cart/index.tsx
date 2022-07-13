@@ -1,11 +1,12 @@
 import OrderCards from '../../Components/orderCards';
 import CartController from './components/cartController/index';
 import Navbar from '../../Components/navbar/Navbar';
-import { Container } from '../../Components/StyledComponents/Container';
+
 import { useAppDispatch, useAppSelector } from '../../State/store';
 import { CartContainer, ClearCartButton } from './components/cartController/styles/cartController';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { clearCart } from '../../State/action-creators';
+import { Container } from '../../Components/uiComponents/container';
 
 type Props = {};
 

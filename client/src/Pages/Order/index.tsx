@@ -13,7 +13,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../Firebase/firebase-config';
 import { clearCart } from '../../State/action-creators';
 import { useNavigate } from 'react-router-dom';
-import { SUCCESS_ROUTE } from '../../Utils/routerConst';
+import { routerConst } from '../../Utils/routerConst';
 
 const Order = () => {
   const [step, setStep] = useState(0);
@@ -45,7 +45,7 @@ const Order = () => {
     onSubmit: (values) => {
       tgMessage(values);
       setAppointments(values);
-      navigate(SUCCESS_ROUTE);
+      navigate(routerConst.SUCCESS_ROUTE);
       dispatch(clearCart());
     },
   });
