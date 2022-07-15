@@ -12,6 +12,7 @@ import { IService, IServiceList } from '../../../../Types/serviceInterface';
 import OrderCards from '../../../../Components/orderCards';
 import { db } from '../../../../Firebase/firebase-config';
 import { doc, updateDoc } from 'firebase/firestore';
+import { Title } from '../../../../Components/uiComponents/title';
 
 interface Props {
   data: IService[];
@@ -69,7 +70,7 @@ const CardsServiceContent: FC<Props> = ({
         <ModalStatusIcon color={status}>
           <RiCheckFill />
         </ModalStatusIcon>
-        <ModalStatusTitle>{status}</ModalStatusTitle>
+        <Title color='textMain' variant='normal'>{status}</Title>
         {status === 'Заявка принята' && (
           <CardServiceCancelButton onClick={cancelAppointment}>
             Отменить запись

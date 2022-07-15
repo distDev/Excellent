@@ -8,10 +8,10 @@ interface IText {
 export const Title = styled.h2<IText>`
   font-size: ${({ theme: { size }, variant }) =>
     variant === 'extraSmall'
-      ? size.extraSmall
+      ? size.title.extraSmall
       : variant === 'small'
-      ? size.small
-      : size.normal};
+      ? size.title.small
+      : size.title.normal};
 
   color: ${({ theme: { colors }, color }) =>
     color === 'green'

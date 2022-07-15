@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 type THeaderMenuItem = {
   active?: boolean | null;
@@ -75,6 +75,7 @@ export const HeaderMenuItem = styled.div<THeaderMenuItem>`
 `;
 
 export const HeaderOptions = styled.div`
+  position: relative;
   display: flex;
   gap: 20px;
 `;

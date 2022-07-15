@@ -31,6 +31,7 @@ export const AppRouter = (props: Props) => {
             path={routerConst.PROFILE_SETTINGS_ROUTE}
             element={<Settings />}
           />
+          
         </Route>
       )}
     </Routes>

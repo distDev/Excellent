@@ -15,6 +15,7 @@ import {
 } from './styles/cardService';
 import { FC } from 'react';
 import { IServiceList } from '../../../../Types/serviceInterface';
+import { pcView } from '../../../../Utils/helperConst';
 
 interface Props {
   onClick: () => void;
@@ -48,7 +49,7 @@ export const CardService: FC<Props & IServiceList> = ({
       <CardServiceSlider>
         <Swiper
           spaceBetween={10}
-          slidesPerView={3.5}
+          slidesPerView={pcView ? 5 : 3.5}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >

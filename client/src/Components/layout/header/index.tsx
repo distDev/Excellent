@@ -10,12 +10,14 @@ import {
   HeaderMenuItem,
   HeaderOptions,
 } from './styles/header';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { RiUser3Line } from 'react-icons/ri';
+import AccountMenu from '../../../Components/accountMenu/index';
+import { useState } from 'react';
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   const location = useLocation();
+  const [showAccMenu, setShowAccMenu] = useState(false);
 
   // header для мобильных
   if (!pcView) {
@@ -41,7 +43,11 @@ const Header = (props: Props) => {
             </HeaderMenuItem>
           ))}
         </HeaderMenu>
-        <HeaderOptions></HeaderOptions>
+        <HeaderOptions>
+          <ThemeSwitcher />
+          <RiUser3Line onClick={() => setShowAccMenu((prev) => !prev)} />
+          {showAccMenu && <AccountMenu setShowAccMenu={setShowAccMenu} />}
+        </HeaderOptions>
       </HeaderContainer>,
       document.body
     );

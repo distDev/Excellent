@@ -20,7 +20,7 @@ export const ProfileMenu = styled.div`
   border-radius: 10px;
   max-height: 243px;
   position: sticky;
-  top: 30px;
+  top: 80px;
   overflow: hidden;
 
   @media screen and (max-width: 479px) {

@@ -21,7 +21,6 @@ const ProfileTabs = (props: Props) => {
       name: 'Гараж',
     },
   ]);
-  const pcView = window.innerWidth > 900;
   const location = useLocation();
   const currentLocation = location.pathname.split('/').reverse()[0];
 
