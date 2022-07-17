@@ -1,11 +1,10 @@
 import { FC } from 'react';
-import Card from '../../../../Components/card';
 import { IService } from '../../../../Types/serviceInterface';
 import {
   ServicesCardsContainer,
-  ServicesCardsGrid,
   ServicesCardsTitle,
 } from './styles/servicesCards';
+import CardsGrid from '../../../../Components/cardsGrid';
 
 type Props = {
   title?: string;
@@ -19,17 +18,7 @@ const ServicesCards: FC<Props> = ({ title, data }) => {
   return (
     <ServicesCardsContainer>
       <ServicesCardsTitle>{title}</ServicesCardsTitle>
-      <ServicesCardsGrid>
-        {filteredData.map((e) => (
-          <Card
-            key={e.id}
-            id={e.id}
-            img={e.img}
-            name={e.name}
-            price={e.price}
-          />
-        ))}
-      </ServicesCardsGrid>
+      <CardsGrid data={filteredData} />
     </ServicesCardsContainer>
   );
 };

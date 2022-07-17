@@ -36,7 +36,7 @@ const Header = () => {
         <HeaderLogo>EX</HeaderLogo>
         <HeaderMenu>
           {headerLinks.map((e) => (
-            <HeaderMenuItem active={e.path === location.pathname && true}>
+            <HeaderMenuItem key={e.name} active={e.path === location.pathname && true}>
               <Link key={e.name} to={e.path}>
                 {e.name}
               </Link>

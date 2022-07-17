@@ -6,7 +6,7 @@ export const FiltersContainer = styled.div`
   grid-auto-rows: 60px;
   margin-top: 10px;
   gap: 10px;
-  
+
   @media screen and (max-width: 479px) {
     display: grid;
     grid-template-columns: 5fr 1fr;
@@ -16,28 +16,36 @@ export const FiltersContainer = styled.div`
   }
 `;
 
-export const FiltersSearch = styled.input`
+export const FiltersSearch = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
   border: none;
-  border-radius: 16px;
-  background: ${({ theme: { background } }) => background.button};
-  font-size: ${({ theme: { size } }) => size.text.normal};
+  border-radius: 10px;
+  background: ${({ theme: { background } }) => background.secondBg};
   padding: 0px 15px;
   box-sizing: border-box;
 
-  &::placeholder {
-    color: #979692;
+  svg {
+    height: 23px;
+    width: 23px;
   }
- 
+
   @media screen and (max-width: 479px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
     border: none;
     border-radius: 16px;
     background: ${({ theme: { background } }) => background.button};
-    font-size: ${({ theme: { size } }) => size.text.normal};
     padding: 0px 15px;
     box-sizing: border-box;
 
-    &::placeholder {
-      color: #979692;
+    svg {
+      height: 23px;
+      width: 23px;
     }
   }
 `;
@@ -56,7 +64,7 @@ export const FiltersOptions = styled.div`
     height: 20px;
     width: 20px;
   }
- 
+
   @media screen and (max-width: 479px) {
     display: flex;
     justify-content: center;
