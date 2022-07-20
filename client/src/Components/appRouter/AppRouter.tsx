@@ -12,7 +12,7 @@ import { PrivateRoutes, PublicRoutes } from '../../Utils/routes';
 type Props = {};
 
 export const AppRouter = (props: Props) => {
-  const user = useAppSelector((state) => state.user.phoneNumber);
+  const user = useAppSelector((state) => state.user?.phoneNumber);
   const pcView = window.innerWidth > 900;
   return (
     <Routes>

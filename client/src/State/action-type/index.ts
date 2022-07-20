@@ -7,5 +7,6 @@ export enum ActionType {
   LOGIN_USER = 'loginUser',
   LOGOUT_USER = 'logoutUser',
   CLEAR_CART = 'clearCart',
-  SWITCH_THEME = 'switchTheme'
+  SWITCH_THEME = 'switchTheme',
+  CHANGE_AUTH_MODAL = 'changeAuthModal',
 }

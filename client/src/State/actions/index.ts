@@ -54,6 +54,10 @@ export interface ISwitchTheme {
   type: ActionType.SWITCH_THEME;
 }
 
+export interface IChangeAuthModal {
+  type: ActionType.CHANGE_AUTH_MODAL;
+}
+
 export type Action =
   | IGetServices
   | IAddToCart
@@ -63,4 +67,5 @@ export type Action =
   | ILoginUser
   | ILogout
   | IClearCart
-  | ISwitchTheme;
+  | ISwitchTheme
+  | IChangeAuthModal;

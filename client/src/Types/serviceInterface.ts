@@ -58,6 +58,11 @@ export interface IRootState {
     name: string;
   };
   theme: string;
+  modal: {
+    authModal: {
+      isOpen: boolean;
+    };
+  };
 }
 
 export type TRootState = typeof storeState;

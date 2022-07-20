@@ -6,6 +6,7 @@ import { BottomNav } from './bottomNav/index';
 import { ContentWrapper } from '../../Components/uiComponents/content-wrapper';
 import PopupButton from '../popupButton/index';
 import Header from './header/index';
+import Auth from '../auth';
 
 const Layout: FC = ({ children }) => {
   const cartData = useAppSelector((state) => state.cart);
@@ -16,6 +17,7 @@ const Layout: FC = ({ children }) => {
       <ContentWrapper>{children}</ContentWrapper>
       {cartData.length > 0 && <PopupButton />}
       {!pcView && <BottomNav />}
+      <Auth />
     </Wrapper>
   );
 };

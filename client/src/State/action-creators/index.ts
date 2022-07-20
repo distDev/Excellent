@@ -118,3 +118,10 @@ export const switchTheme = () => {
   };
 };
 
+// управление окном авторизации
+export const handleChangeAuthModal = () => {
+  return {
+    type: ActionType.CHANGE_AUTH_MODAL,
+  };
+};
+

@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 interface IText {
-  variant?: 'extraSmall' | 'small' | 'normal';
+  variant?: 'extraSmall' | 'small' | 'normal' | 'large';
   color?: 'white' | 'textSecond' | 'textMain' | 'primary' | 'green';
 }
 
@@ -9,6 +9,8 @@ export const Text = styled.p<IText>`
   font-size: ${({ theme: { size }, variant }) =>
     variant === 'extraSmall'
       ? size.text.extraSmall
+      : variant === 'large'
+      ? size.text.large
       : variant === 'small'
       ? size.text.small
       : size.text.normal};

@@ -32,6 +32,7 @@ export const light = {
       extraSmall: '12px',
       small: '14px',
       normal: '16px',
+      large: '20px',
     },
   },
   media: {},

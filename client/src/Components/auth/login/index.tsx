@@ -11,12 +11,13 @@ import {
 } from './styles/login';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 import { useAppDispatch } from '../../../State/store';
-import { loginUser } from '../../../State/action-creators';
+import { handleChangeAuthModal, loginUser } from '../../../State/action-creators';
 import { useNavigate } from 'react-router-dom';
 import { routerConst } from '../../../Utils/routerConst';
+import { Input } from '../../uiComponents/input';
 
 type Props = {
-  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+  
 };
 
 declare global {
@@ -26,7 +27,7 @@ declare global {
   }
 }
 
-const Login: FC<Props> = ({ setShow }) => {
+const Login: FC<Props> = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [OTP, setOTP] = useState('');
   const [activeTab, setActiveTab] = useState<'login' | 'verify'>('login');
@@ -78,7 +79,7 @@ const Login: FC<Props> = ({ setShow }) => {
               result.user.displayName
             )
           );
-          setShow(false);
+          dispatch(handleChangeAuthModal());
           navigate(routerConst.PROFILE_ROUTE);
         })
         .catch((error: any) => {
@@ -92,7 +93,7 @@ const Login: FC<Props> = ({ setShow }) => {
       {activeTab === 'login' && (
         <>
           <LoginTop>
-            <ModalInput
+            <Input
               placeholder='Номер телефона'
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
@@ -108,7 +109,7 @@ const Login: FC<Props> = ({ setShow }) => {
       {activeTab === 'verify' && (
         <>
           <LoginTop>
-            <ModalInput
+            <Input
               placeholder='Код из смс'
               value={OTP}
               onChange={(e) => setOTP(e.target.value)}

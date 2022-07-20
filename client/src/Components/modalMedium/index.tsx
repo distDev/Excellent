@@ -13,13 +13,17 @@ import {
   ModalMediumContainer,
   ModalMediumContent,
 } from './styles/modalMedium';
+import { useAppDispatch } from '../../State/store';
+import { handleChangeAuthModal } from '../../State/action-creators';
 
 type Props = {
   show: boolean;
-  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+ 
 };
 
-const ModalMedium: FC<Props> = ({ show, setShow, children }) => {
+const ModalMedium: FC<Props> = ({ show, children }) => {
+const dispatch = useAppDispatch()
+
   // Анимация модального окна
   const transitions = useTransition(show, {
     from: { transform: `translateY(100%)` },
@@ -43,14 +47,17 @@ const ModalMedium: FC<Props> = ({ show, setShow, children }) => {
       {transitionsWrap(
         (style, item) =>
           item && (
-            <AnimateBackground style={style} onClick={() => setShow(false)} />
+            <AnimateBackground
+              style={style}
+              onClick={() => dispatch(handleChangeAuthModal())}
+            />
           )
       )}
       {transitions(
         (style, item) =>
           item && (
             <AnimateModal style={style}>
-              <ModalClose onClick={() => setShow(false)}>
+              <ModalClose onClick={() => dispatch(handleChangeAuthModal())}>
                 <IoClose />
               </ModalClose>
               <ModalMediumContent>{children}</ModalMediumContent>

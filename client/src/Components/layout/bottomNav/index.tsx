@@ -6,17 +6,18 @@ import { BottomNavContainer, BottomNavIcon } from './styles/bottomNav';
 import { bottomNavLinks } from './utils/bottomNavLinks';
 import Auth from '../../auth/index';
 import ModalMedium from '../../modalMedium/index';
-import { useAppSelector } from '../../../State/store';
+import { useAppDispatch, useAppSelector } from '../../../State/store';
+import { handleChangeAuthModal } from '../../../State/action-creators';
 
 type Props = {};
 
 export const BottomNav = (props: Props) => {
-  const [show, setShow] = useState(false);
-
+  const showAuthModal = useAppSelector((state) => state.modal.authModal.isOpen);
+  const dispatch = useAppDispatch()
   const user = useAppSelector((state) => state.user?.phoneNumber);
 
   const handleShow = () => {
-    setShow((prev) => !prev);
+    dispatch(handleChangeAuthModal());
   };
 
   return (
@@ -42,9 +43,7 @@ export const BottomNav = (props: Props) => {
           <RiUser3Line />
         </BottomNavIcon>
       )}
-      <ModalMedium show={show} setShow={setShow}>
-        <Auth setShow={setShow} />
-      </ModalMedium>
+      
     </BottomNavContainer>
   );
 };
