@@ -12,7 +12,6 @@ Frontend:
 * Styled-Components
 * Formik
 * React Router
-* Testing Library
 
 <br>Backend: 
 * Firebase
