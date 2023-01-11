@@ -5,8 +5,11 @@ interface IState {
     isOpen: boolean;
   };
   searchModal: {
-    isOpen: boolean,
-  },
+    isOpen: boolean;
+  };
+  consulModal: {
+    isOpen: boolean;
+  };
 }
 
 const initialState: IState = {
@@ -14,6 +17,9 @@ const initialState: IState = {
     isOpen: false,
   },
   searchModal: {
+    isOpen: false,
+  },
+  consulModal: {
     isOpen: false,
   },
 };
@@ -28,9 +34,16 @@ export const modalSlice = createSlice({
     switchSearchModalView: (state) => {
       state.searchModal.isOpen = !state.searchModal.isOpen;
     },
+    switchConsultModalView: (state) => {
+      state.consulModal.isOpen = !state.consulModal.isOpen;
+    },
   },
 });
 
-export const { switchAuthModalView, switchSearchModalView } = modalSlice.actions;
+export const {
+  switchAuthModalView,
+  switchSearchModalView,
+  switchConsultModalView,
+} = modalSlice.actions;
 
 export default modalSlice.reducer;

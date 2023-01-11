@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { createPortal } from "react-dom";
 import { IService } from "../../Types/serviceInterface";
@@ -12,8 +12,6 @@ import { db } from "../../Firebase/firebase-config";
 import { useAppSelector } from "../../Hooks/useAppSelector";
 import { useAppDispatch } from "../../Hooks/useAppDispatch";
 import { switchSearchModalView } from "../../Store/slices/modal-slice";
-
-
 
 const SearchModal = () => {
   const [searchTerm, setSearchTerm] = useState("");

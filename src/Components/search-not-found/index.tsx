@@ -1,9 +1,19 @@
-import React from "react";
 import styled from "styled-components/macro";
+import { useAppDispatch } from "../../Hooks/useAppDispatch";
+import { switchConsultModalView, switchSearchModalView } from "../../Store/slices/modal-slice";
 
 type Props = {};
 
 const SearchNotFound = (props: Props) => {
+  const dispatch = useAppDispatch()
+
+  const handleShowConsult = () => {
+    dispatch(switchSearchModalView())
+    setTimeout(() => {
+      dispatch(switchConsultModalView())
+    }, 400);
+   
+  }
   return (
     <SearchNotFoundContainer>
       <div className="not-found-content">
@@ -20,7 +30,7 @@ const SearchNotFound = (props: Props) => {
         </div>
       </div>
       <div className="not-found-btn">
-        <button>Оставить заявку</button>
+        <button onClick={handleShowConsult}>Оставить заявку</button>
       </div>
     </SearchNotFoundContainer>
   );
