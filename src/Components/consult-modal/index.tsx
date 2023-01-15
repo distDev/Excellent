@@ -6,11 +6,18 @@ import { createPortal } from "react-dom";
 import ConsultContent from "./consult-content/ConsultContent";
 import { useAppSelector } from "../../Hooks/useAppSelector";
 import { useAppDispatch } from "../../Hooks/useAppDispatch";
-import { switchConsultModalView } from "../../Store/slices/modal-slice";
+import {
+  switchConsultModalView,
+  switchConsultSuccessStatus,
+} from "../../Store/slices/modal-slice";
 
 const ConsultModal: FC = () => {
   const show = useAppSelector((state) => state.modal.consulModal.isOpen);
+  const isOrderSuccess = useAppSelector(
+    (state) => state.modal.consulModal.isSuccess
+  );
   const dispatch = useAppDispatch();
+  
 
   // Анимация модального окна
   const transitions = useTransition(show, {
@@ -27,24 +34,28 @@ const ConsultModal: FC = () => {
     leave: { opacity: 0 },
   });
 
+  const handleClose = () => {
+    if (isOrderSuccess) {
+      dispatch(switchConsultModalView());
+      dispatch(switchConsultSuccessStatus());
+    }
+    dispatch(switchConsultModalView());
+  };
+
   const AnimateBackground = animated(ModalBackground);
   const AnimateModal = animated(ModalContainer);
+
   return createPortal(
     <>
       {transitionsWrap(
         (style, item) =>
-          item && (
-            <AnimateBackground
-              style={style}
-              onClick={() => dispatch(switchConsultModalView())}
-            />
-          )
+          item && <AnimateBackground style={style} onClick={handleClose} />
       )}
       {transitions(
         (style, item) =>
           item && (
             <AnimateModal style={style}>
-              <ModalClose onClick={() => dispatch(switchConsultModalView())}>
+              <ModalClose onClick={handleClose}>
                 <IoClose />
               </ModalClose>
               <ModalContent>

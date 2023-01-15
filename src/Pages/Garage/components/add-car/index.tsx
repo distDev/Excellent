@@ -10,6 +10,7 @@ import { ICar } from '../../../../Types/userInterfaces';
 import { addCarValidation } from '../../../../ValidationShemes';
 import styled from 'styled-components/macro';
 import { useAppSelector } from '../../../../Hooks/useAppSelector';
+import { useLockBodyScroll } from '../../../../Hooks/useLockBodyScroll';
 
 type Props = {
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,7 +22,8 @@ const AddCarContent: FC<Props> = ({ setShow, setCars }) => {
   const newId = Date.now() + user!.slice(2);
   const carsCollectionRef = doc(db, 'cars', newId);
 
-  console.log(newId);
+  // Блокировка скрола
+   useLockBodyScroll();
 
   // Конфиг formik
   const formik = useFormik({

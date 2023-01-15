@@ -1,7 +1,8 @@
-import { FC, useState } from 'react';
-import { ICar } from '../../../../Types/userInterfaces';
-import { ViewContent } from './viewContent';
-import { EditingContent } from './editingContent';
+import { FC, useState } from "react";
+import { ICar } from "../../../../Types/userInterfaces";
+import { ViewContent } from "./viewContent";
+import { EditingContent } from "./editingContent";
+import { useLockBodyScroll } from "../../../../Hooks/useLockBodyScroll";
 
 type Props = {
   cars: ICar[];
@@ -19,8 +20,8 @@ const GarageModalContent: FC<Props> = ({
   const [data, setData] = useState(cars.filter((e) => e.id === selectedCar));
   const [editing, setEditing] = useState(false);
 
-  console.log(data);
-
+  // Блокировка скрола
+  useLockBodyScroll();
 
   return (
     <>

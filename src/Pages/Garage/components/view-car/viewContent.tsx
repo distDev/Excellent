@@ -7,6 +7,7 @@ import {
 import { ICar } from '../../../../Types/userInterfaces';
 import { GarageModalContentItem } from './styles/garageModalContent';
 import styled from 'styled-components/macro';
+import { useLockBodyScroll } from '../../../../Hooks/useLockBodyScroll';
 
 interface Props {
   data: ICar[];
@@ -16,6 +17,9 @@ interface Props {
 export const ViewContent: FC<Props> = ({ data, setEditing }) => {
 
   const {id, brand, model, vin, year, milleage} = data[0]
+ 
+  // Блокировка скрола
+  useLockBodyScroll();
 
   return (
     <>

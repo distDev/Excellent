@@ -3,6 +3,7 @@ import { IoClose } from 'react-icons/io5';
 import styled from 'styled-components/macro';
 import { animated, useTransition } from 'react-spring';
 import { createPortal } from 'react-dom';
+import { useLockBodyScroll } from '../../Hooks/useLockBodyScroll';
 
 type Props = {
   show: boolean;
@@ -27,6 +28,8 @@ const Modal: FC<Props> = ({ show, setShow, children }) => {
 
   const AnimateBackground = animated(ModalBackground);
   const AnimateModal = animated(ModalContainer);
+
+ 
   return createPortal(
     <>
       {transitionsWrap(

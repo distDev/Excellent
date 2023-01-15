@@ -15,6 +15,7 @@ import { pcView } from '../../../Utils/helperConst';
 import { loginUser } from '../../../Store/slices/user-slice';
 import { switchAuthModalView } from '../../../Store/slices/modal-slice';
 import { authentication } from '../../../Firebase/firebase-config';
+import { useLockBodyScroll } from '../../../Hooks/useLockBodyScroll';
 
 declare global {
   interface Window {
@@ -104,6 +105,9 @@ const Login: FC = () => {
         console.log('Произошла ошибка при изменении профиля: ' + error);
       });
   };
+
+  // блокировка скрола 
+   useLockBodyScroll();
 
   return (
     <LoginContainer>

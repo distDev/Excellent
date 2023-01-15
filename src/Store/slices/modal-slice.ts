@@ -9,6 +9,7 @@ interface IState {
   };
   consulModal: {
     isOpen: boolean;
+    isSuccess: boolean;
   };
 }
 
@@ -21,6 +22,7 @@ const initialState: IState = {
   },
   consulModal: {
     isOpen: false,
+    isSuccess: false,
   },
 };
 
@@ -37,6 +39,9 @@ export const modalSlice = createSlice({
     switchConsultModalView: (state) => {
       state.consulModal.isOpen = !state.consulModal.isOpen;
     },
+    switchConsultSuccessStatus: (state) => {
+      state.consulModal.isSuccess = !state.consulModal.isSuccess 
+    }
   },
 });
 
@@ -44,6 +49,7 @@ export const {
   switchAuthModalView,
   switchSearchModalView,
   switchConsultModalView,
+  switchConsultSuccessStatus,
 } = modalSlice.actions;
 
 export default modalSlice.reducer;

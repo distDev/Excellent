@@ -26,6 +26,8 @@ const Filters = () => {
     setShow((prev) => !prev);
   };
 
+
+
   return (
     <>
       {isPending && <FilterSceleton />}

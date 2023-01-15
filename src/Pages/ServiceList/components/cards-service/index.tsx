@@ -27,7 +27,6 @@ export const ServiceListCards = (props: Props) => {
     (e) => e.id === selectedAppointment
   );
 
-  console.log(filteredAppointment);
 
   // получение истории записей на ремонт
   useEffect(() => {

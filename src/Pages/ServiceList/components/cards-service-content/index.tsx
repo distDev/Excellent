@@ -1,13 +1,14 @@
-import styled from 'styled-components/macro';
-import TotalCheck from '../../../../Components/total-check/index';
-import { Container } from '../../../../Components/ui-components/container';
-import { FC } from 'react';
-import { IService, IServiceList } from '../../../../Types/serviceInterface';
-import OrderCards from '../../../../Components/order-cards';
-import { db } from '../../../../Firebase/firebase-config';
-import { doc, updateDoc } from 'firebase/firestore';
-import { Title } from '../../../../Components/ui-components/title';
-import { BiCheck, BiCubeAlt, BiTimeFive, BiX } from 'react-icons/bi';
+import styled from "styled-components/macro";
+import TotalCheck from "../../../../Components/total-check/index";
+import { Container } from "../../../../Components/ui-components/container";
+import { FC } from "react";
+import { IService, IServiceList } from "../../../../Types/serviceInterface";
+import OrderCards from "../../../../Components/order-cards";
+import { db } from "../../../../Firebase/firebase-config";
+import { doc, updateDoc } from "firebase/firestore";
+import { Title } from "../../../../Components/ui-components/title";
+import { BiCheck, BiCubeAlt, BiTimeFive, BiX } from "react-icons/bi";
+import { useLockBodyScroll } from "../../../../Hooks/useLockBodyScroll";
 
 interface Props {
   data: IService[];
@@ -38,13 +39,16 @@ const CardsServiceContent: FC<Props> = ({
   setAppointments,
   setShow,
 }) => {
-  const appointmentsDocRef = doc(db, 'appointments', id);
+  const appointmentsDocRef = doc(db, "appointments", id);
+
+  // Блокировка скрола
+  useLockBodyScroll();
 
   // отмена записи на ремонт
   const cancelAppointment = async () => {
     //  изменение статуса на сервере
     await updateDoc(appointmentsDocRef, {
-      status: 'Запись отменена',
+      status: "Запись отменена",
     });
     // изменение статуса записи в state
     setAppointments((prev) =>
@@ -52,7 +56,7 @@ const CardsServiceContent: FC<Props> = ({
         item.id === id
           ? {
               ...item,
-              status: 'Запись отменена',
+              status: "Запись отменена",
             }
           : item
       )
@@ -65,17 +69,17 @@ const CardsServiceContent: FC<Props> = ({
     <>
       <ModalStatus>
         <ModalStatusIcon color={status}>
-          {status === 'Заявка принята' && <BiCubeAlt />}
-          {status === 'Выполнено' && <BiCheck />}
-          {status === 'В процессе' && <BiTimeFive />}
-          {status === 'Запись отменена' && <BiX />}
+          {status === "Заявка принята" && <BiCubeAlt />}
+          {status === "Выполнено" && <BiCheck />}
+          {status === "В процессе" && <BiTimeFive />}
+          {status === "Запись отменена" && <BiX />}
         </ModalStatusIcon>
-        <div className='status-title'>
-          <Title color='textMain' variant='normal'>
+        <div className="status-title">
+          <Title color="textMain" variant="normal">
             {status}
           </Title>
         </div>
-        {status === 'Заявка принята' && (
+        {status === "Заявка принята" && (
           <CardServiceCancelButton onClick={cancelAppointment}>
             Отменить запись
           </CardServiceCancelButton>
@@ -130,12 +134,12 @@ const ModalStatusIcon = styled.div<IIndicator>`
   align-items: center;
   color: ${({ theme: { colors } }) => colors.white};
   background: ${({ theme, color }) =>
-    color === 'Выполнено'
+    color === "Выполнено"
       ? theme.background.green
-      : color === 'В процессе'
+      : color === "В процессе"
       ? theme.background.purple
-      : color === 'Заявка принята'
-      ? '#DEE21A'
+      : color === "Заявка принята"
+      ? "#DEE21A"
       : theme.background.primary};
 
   svg {
@@ -152,12 +156,12 @@ const ModalStatusIcon = styled.div<IIndicator>`
     align-items: center;
     color: ${({ theme: { colors } }) => colors.white};
     background: ${({ theme, color }) =>
-      color === 'Выполнено'
+      color === "Выполнено"
         ? theme.background.green
-        : color === 'В процессе'
+        : color === "В процессе"
         ? theme.background.purple
-        : color === 'Заявка принята'
-        ? '#DEE21A'
+        : color === "Заявка принята"
+        ? "#DEE21A"
         : theme.background.primary};
 
     svg {

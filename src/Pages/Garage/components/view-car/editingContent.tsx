@@ -6,6 +6,7 @@ import { Container } from '../../../../Components/ui-components/container';
 import { Input } from '../../../../Components/ui-components/input';
 import { db } from '../../../../Firebase/firebase-config';
 import { useAppSelector } from '../../../../Hooks/useAppSelector';
+import { useLockBodyScroll } from '../../../../Hooks/useLockBodyScroll';
 import { ICar } from '../../../../Types/userInterfaces';
 import { addCarValidation } from '../../../../ValidationShemes';
 import { EditCarForm } from './styles/garageModalContent';
@@ -27,7 +28,8 @@ export const EditingContent: FC<Props> = ({
   const selectedCarRef = doc(db, 'cars', selectedCar);
   const { brand, model, vin, year, milleage } = data[0];
 
-  console.log(selectedCar);
+  // Блокировка скрола
+  useLockBodyScroll();
 
   // Конфиг formik
   const formik = useFormik({

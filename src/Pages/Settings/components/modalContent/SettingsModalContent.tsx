@@ -2,13 +2,12 @@ import { updateProfile } from 'firebase/auth';
 import React, { FC, useState } from 'react';
 import {
   ModalFixButton,
-  ModalInput,
-  ModalSubtitle,
 } from '../../../../Components/modal/styles/modal';
 import { Container } from '../../../../Components/ui-components/container';
 import { authentication } from '../../../../Firebase/firebase-config';
 import styled from 'styled-components/macro';
 import { Input } from '../../../../Components/ui-components/input';
+import { useLockBodyScroll } from '../../../../Hooks/useLockBodyScroll';
 
 interface Props {
   setName: React.Dispatch<React.SetStateAction<string>>;
@@ -18,7 +17,9 @@ interface Props {
 
 export const SettingsModalContent: FC<Props> = ({ name, setName, setShow }) => {
   const [userName, setUserName] = useState(name);
-  const user = authentication.currentUser;
+
+  // Блокировка скрола
+   useLockBodyScroll();
 
   // изменение имени пользователя
   const handleChangeName = () => {

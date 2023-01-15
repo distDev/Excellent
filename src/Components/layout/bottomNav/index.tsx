@@ -10,7 +10,6 @@ import { switchAuthModalView } from '../../../Store/slices/modal-slice';
 type Props = {};
 
 export const BottomNav = (props: Props) => {
-  const showAuthModal = useAppSelector((state) => state.modal.authModal.isOpen);
   const user = useAppSelector((state) => state.user?.phoneNumber);
   const dispatch = useAppDispatch();
 
