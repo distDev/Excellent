@@ -1,5 +1,6 @@
 import { routerConst } from './routerConst';
 
+// Меню в профиле
 export const accountMenuData = [
   {
     name: 'Профиль',
