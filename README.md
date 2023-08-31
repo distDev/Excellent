@@ -17,7 +17,6 @@ Frontend:
 * Formik
 * React Spring
 * Cypress
-* Yup
 * React Testing Library
 
 Server: 
