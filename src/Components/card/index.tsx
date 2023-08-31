@@ -1,8 +1,8 @@
-import { ICartData, IService } from '../../Types/serviceInterface';
-import styled from 'styled-components/macro';
-import { useAppSelector } from '../../Hooks/useAppSelector';
-import { useAppDispatch } from '../../Hooks/useAppDispatch';
-import { addToCart, removeFromCart } from '../../Store/slices/cart-slice';
+import { ICartData, IService } from "../../Types/serviceInterface";
+import styled from "styled-components/macro";
+import { useAppSelector } from "../../Hooks/useAppSelector";
+import { useAppDispatch } from "../../Hooks/useAppDispatch";
+import { addToCart, removeFromCart } from "../../Store/slices/cart-slice";
 
 const Card = ({ name, price, img, id }: IService) => {
   // получение данных из корзины, чтобы проверить наличие
@@ -26,7 +26,7 @@ const Card = ({ name, price, img, id }: IService) => {
 
   const checkCart = (id: string) => {
     if (cartData.length > 0 && cartData.find((e) => e.id === id)) {
-      return 'inTheCart';
+      return "inTheCart";
     }
     return;
   };
@@ -34,18 +34,20 @@ const Card = ({ name, price, img, id }: IService) => {
   return (
     <CardContainer>
       <CardImage>
-        <img src={img} alt='' />
+        <img src={img} alt="" />
       </CardImage>
       <CardContent>
-        <CardTitle>{name.slice(0, 30)}</CardTitle>
-        <CardPrice>{price} ₽</CardPrice>
+        <div>
+          <CardTitle>{name}</CardTitle>
+          <CardPrice>{price} ₽</CardPrice>
+        </div>
+        <CardButton
+          variant={checkCart(id)}
+          onClick={() => cartHandler(id, price, img, name)}
+        >
+          {checkCart(id) === "inTheCart" ? "Добавлено" : "В корзину"}
+        </CardButton>
       </CardContent>
-      <CardButton
-        variant={checkCart(id)}
-        onClick={() => cartHandler(id, price, img, name)}
-      >
-        {checkCart(id) === 'inTheCart' ? 'Добавлено' : 'В корзину'}
-      </CardButton>
     </CardContainer>
   );
 };
@@ -53,12 +55,13 @@ const Card = ({ name, price, img, id }: IService) => {
 export default Card;
 
 interface IButton {
-  variant?: 'inTheCart' | null;
+  variant?: "inTheCart" | null;
 }
 
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background: ${({ theme: { background } }) => background.secondBg};
   border-radius: 10px;
   padding: 0px 16px 16px 16px;
@@ -135,20 +138,20 @@ const CardImage = styled.div`
 `;
 
 const CardContent = styled.div`
-  height: 70px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 
   @media screen and (max-width: 480px) {
-    height: 70px;
+    height: auto;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
   }
 
   @media (min-width: 320px) and (max-width: 390px) {
-    height: 75px;
+    height: auto;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -198,9 +201,9 @@ const CardButton = styled.button<IButton>`
   padding: 16px;
   border-radius: 10px;
   color: ${({ theme: { colors }, variant }) =>
-    variant === 'inTheCart' ? colors.white : colors.textMain};
+    variant === "inTheCart" ? colors.white : colors.textMain};
   background: ${({ theme: { background }, variant }) =>
-    variant === 'inTheCart' ? background.primary : background.white};
+    variant === "inTheCart" ? background.primary : background.white};
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
 
   cursor: pointer;
@@ -212,9 +215,9 @@ const CardButton = styled.button<IButton>`
     padding: 10px;
     border-radius: 10px;
     background: ${({ theme: { background }, variant }) =>
-      variant === 'inTheCart' ? background.primary : background.white};
+      variant === "inTheCart" ? background.primary : background.white};
     color: ${({ theme: { colors }, variant }) =>
-      variant === 'inTheCart' ? colors.white : colors.textMain};
+      variant === "inTheCart" ? colors.white : colors.textMain};
 
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
     cursor: pointer;

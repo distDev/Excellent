@@ -125,7 +125,7 @@ const ReviewsContainer = styled.div<IContainer>`
       padding: 20px 50px;
       border: none;
       border-radius: 10px;
-      background: ${({ theme: { colors } }) => colors.textMain};
+      background: ${({ theme: { colors } }) => colors.staticTextMain};
       color: ${({ theme: { colors } }) => colors.white};
       font-weight: 500;
       font-size: 16px;

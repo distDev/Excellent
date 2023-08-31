@@ -1,24 +1,25 @@
-import { createPortal } from 'react-dom';
-import { FiMenu } from 'react-icons/fi';
-import { pcView } from '../../../Utils/helperConst';
-import { headerLinks } from './utils/headerLinks';
-import ThemeSwitcher from '../themeSwitcher';
-import styled from 'styled-components/macro';
-import { Link, useLocation } from 'react-router-dom';
-import { RiUser3Line } from 'react-icons/ri';
-import AccountMenu from '../../account-menu/index';
-import { useState } from 'react';
-import BurgerMenu from '../../burger-menu';
-import { useAppSelector } from '../../../Hooks/useAppSelector';
-import { useAppDispatch } from '../../../Hooks/useAppDispatch';
-import { switchAuthModalView } from '../../../Store/slices/modal-slice';
+import { createPortal } from "react-dom";
+import { FiMenu } from "react-icons/fi";
+import { pcView } from "../../../Utils/helperConst";
+import { headerLinks } from "./utils/headerLinks";
+import ThemeSwitcher from "../themeSwitcher";
+import styled from "styled-components/macro";
+import { Link, useLocation } from "react-router-dom";
+import { RiUser3Line } from "react-icons/ri";
+import AccountMenu from "../../account-menu/index";
+import { useState } from "react";
+import BurgerMenu from "../../burger-menu";
+import { useAppSelector } from "../../../Hooks/useAppSelector";
+import { useAppDispatch } from "../../../Hooks/useAppDispatch";
+import { switchAuthModalView } from "../../../Store/slices/modal-slice";
 
 const Header = () => {
+  const [showAccMenu, setShowAccMenu] = useState(false);
+  const [showBurgerMenu, setShowBurgerMenu] = useState(false);
+
   const location = useLocation();
   const isAuth = useAppSelector((state) => state.user?.phoneNumber);
   const dispatch = useAppDispatch();
-  const [showAccMenu, setShowAccMenu] = useState(false);
-  const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 
   // header для мобильных
   if (!pcView) {
@@ -26,7 +27,9 @@ const Header = () => {
       <HeaderContainer>
         <FiMenu onClick={() => setShowBurgerMenu(true)} />
         <BurgerMenu show={showBurgerMenu} setShow={setShowBurgerMenu} />
-        <HeaderLogo>EX</HeaderLogo>
+        <Link to="/" className="header-logo">
+          EX
+        </Link>
       </HeaderContainer>
     );
   }
@@ -34,7 +37,9 @@ const Header = () => {
   else {
     return createPortal(
       <HeaderContainer>
-        <HeaderLogo>EX</HeaderLogo>
+        <Link to="/" className="header-logo">
+          EX
+        </Link>
         <HeaderMenu>
           {headerLinks.map((e) => (
             <HeaderMenuItem
@@ -50,7 +55,7 @@ const Header = () => {
         <HeaderOptions>
           <ThemeSwitcher />
           <RiUser3Line
-            id='login-icon'
+            id="login-icon"
             onClick={() =>
               isAuth
                 ? setShowAccMenu((prev) => !prev)
@@ -84,6 +89,17 @@ const HeaderContainer = styled.header`
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.border};
   z-index: 100;
 
+  .header-logo {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: ${({ theme: { size } }) => size.title.medium};
+    color: ${({ theme: { colors } }) => colors.textMain};
+  }
+
+  .header-logo:hover {
+    color: ${({ theme: { colors } }) => colors.primary};
+  }
+
   svg {
     width: 25px;
     height: 25px;
@@ -102,22 +118,15 @@ const HeaderContainer = styled.header`
     height: auto;
     z-index: 0;
 
+    .header-logo {
+      margin-left: 20px;
+    }
+
     svg {
       width: 25px;
       height: 25px;
       color: ${({ theme: { colors } }) => colors.textMain};
     }
-  }
-`;
-
-const HeaderLogo = styled.h4`
-  text-decoration: none;
-  font-weight: 600;
-  font-size: ${({ theme: { size } }) => size.title.medium};
-  color: ${({ theme: { colors } }) => colors.textMain};
-
-  @media screen and (max-width: 480px) {
-    margin-left: 20px;
   }
 `;
 
@@ -131,7 +140,7 @@ const HeaderMenuItem = styled.div<THeaderMenuItem>`
   align-items: center;
   height: 100%;
   border-bottom: ${({ theme: { colors }, active }) =>
-    active ? `1px solid ${colors.primary}` : 'none'};
+    active ? `1px solid ${colors.primary}` : "none"};
 
   a {
     padding: 15px 20px;

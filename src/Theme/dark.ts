@@ -8,6 +8,7 @@ export const dark = {
     primary: '#D54068',
     darkPrimary: '#D5406853',
     green: '#41D3A0',
+    staticTextMain: '#404040'
   },
   background: {
     body: '#191919',

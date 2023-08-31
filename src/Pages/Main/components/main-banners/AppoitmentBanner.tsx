@@ -1,12 +1,18 @@
-import React, { FC } from "react";
 import styled from "styled-components/macro";
 import { Text } from "../../../../Components/ui-components/text";
 import { RiSearchLine } from "react-icons/ri";
 import { useAppDispatch } from "../../../../Hooks/useAppDispatch";
-import { switchSearchModalView } from "../../../../Store/slices/modal-slice";
+import {
+  switchConsultModalView,
+  switchSearchModalView,
+} from "../../../../Store/slices/modal-slice";
 
 const AppoitmentBanner = () => {
   const dispatch = useAppDispatch();
+
+  const handleShowConsult = () => {
+    dispatch(switchConsultModalView());
+  };
 
   return (
     <AppoitmentBannerContainer>
@@ -24,7 +30,7 @@ const AppoitmentBanner = () => {
               Найти услугу
             </Text>
           </div>
-          <button>Записаться</button>
+          <button onClick={handleShowConsult}>Записаться</button>
         </div>
       </div>
 

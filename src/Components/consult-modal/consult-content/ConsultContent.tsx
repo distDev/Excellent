@@ -123,7 +123,7 @@ const ConsultContentContainer = styled.div`
   height: 100%;
 
   form {
-    margin: 50px 0 30px 0;
+    padding: 50px 0 30px 0;
     display: grid;
     gap: 30px;
   }
@@ -173,7 +173,7 @@ const ConsultContentContainer = styled.div`
     padding: 0 15px;
 
     form {
-      margin: 50px 0 30px 0;
+      padding: 50px 0 30px 0;
       display: grid;
       gap: 40px;
     }
@@ -185,7 +185,7 @@ const ConsultContentContainer = styled.div`
   }
   @media (min-width: 320px) and (max-width: 390px) {
     .form {
-      margin: 50px 0 30px 0;
+      padding: 50px 0 30px 0;
       display: grid;
       gap: 40px;
     }

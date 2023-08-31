@@ -12,8 +12,8 @@ const SearchNotFound = (props: Props) => {
     setTimeout(() => {
       dispatch(switchConsultModalView())
     }, 400);
-   
   }
+  
   return (
     <SearchNotFoundContainer>
       <div className="not-found-content">

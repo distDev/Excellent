@@ -1,30 +1,32 @@
-import { Link } from 'react-router-dom';
-import { footerLinks } from './footer-links';
-import styled from 'styled-components/macro';
+import { Link } from "react-router-dom";
+import { footerLinks } from "./footer-links";
+import styled from "styled-components/macro";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <FooterContainer>
-      <div className='footer-top'>
-        <Link to={'/'} className='footer-logo'>
+      <div className="footer-top">
+        <Link to={"/"} className="footer-logo">
           EX
         </Link>
-        <div className='footer-links'>
+        <div className="footer-links">
           {footerLinks.map((e) => (
             <Link to={e.path}>{e.name}</Link>
           ))}
         </div>
       </div>
-      <div className='footer-bottom'>
-        <div className='footer-phone'>
-          <a href='tel:+79250628790'>+7 (925) 062-87-90</a>
+      <div className="footer-bottom">
+        <div className="footer-phone">
+          <a href="tel:+79250628790">+7 (925) 062-87-90</a>
         </div>
-        <div className='footer-copy'>
-          <p>2014 - 2022 ©</p>
+        <div className="footer-copy">
+          <p>2014 - {currentYear} ©</p>
         </div>
-        <div className='footer-creator'>
+        <div className="footer-creator">
           <p>
-            Сайт создан <a href='https://t.me/Distcom'>@Distcom</a>
+            Сайт создан: <a href="https://t.me/Distcom">@Distcom</a>
           </p>
         </div>
       </div>
@@ -139,10 +141,8 @@ const FooterContainer = styled.div`
       }
       .footer-copy {
         width: 100%;
-        margin-top: 100px;
+        margin-top: 50px;
         display: flex;
-        justify-content: center;
-
         font-weight: 400;
         font-size: 18px;
         margin-bottom: 15px;
@@ -150,7 +150,6 @@ const FooterContainer = styled.div`
       .footer-creator {
         width: 100%;
         display: flex;
-        justify-content: center;
         font-weight: 400;
         font-size: 18px;
         a {
